@@ -25,6 +25,8 @@ export default class S7Actor extends Actor {
         const data = actorData.data; // data = actor.data.data
         let wp = data.condition_monitor.physical.wp + data.condition_monitor.stun.wp;
 
+        console.warn("This data: ", data);
+        console.warn("attributes: ", data.attributes);
         // Initiative
         let msInitScore = data.attributes.intuition.base + data.attributes.reaction.base - wp;
         let mxInitScore = data.attributes.intuition.base - wp;
@@ -32,8 +34,8 @@ export default class S7Actor extends Actor {
         let asInitDice = 2;
 
         //Condition Monitors
-        let physCondMax = Math.ceil(data.attributes.body.base/2) + 8 + data.miscmods.physboxes;
-        let stunCondMax = Math.ceil(data.attributes.willpower.base/2) + 8 + data.miscmods.stunboxes;
+        let physCondMax = Math.ceil(data.attributes.body.base/2) + 8; // + data.miscmods.physboxes;
+        let stunCondMax = Math.ceil(data.attributes.willpower.base/2) + 8; // + data.miscmods.stunboxes;
         let physCondValue = physCondMax - data.condition_monitor.physical.damage;
         let stunCondValue = stunCondMax - data.condition_monitor.stun.damage;
 
@@ -68,10 +70,10 @@ export default class S7Actor extends Actor {
                                 
 
         // Maybe do this as a this.update
-        setProperty(this, "data.physical_defense", physDef);
-        setProperty(this, "data.mental_defense", mentDef);
-        setProperty(this, "data.social_defense", socDef);
-        setProperty(this, "data.astral_defense", astralDef);
+        setProperty(this, "data.data.defenses.physical", physDef);
+        setProperty(this, "data.data.defenses.mental", mentDef);
+        setProperty(this, "data.data.defenses.social", socDef);
+        setProperty(this, "data.data.defenses.astral", astralDef);
         setProperty(this, "data.data.initiative.meatspace.score.base", msInitScore);
         setProperty(this, "data.data.initiative.matrix.score.base", mxInitScore);
         setProperty(this, "data.data.initiative.astral.score.base", asInitScore);
@@ -79,10 +81,11 @@ export default class S7Actor extends Actor {
         setProperty(this, "data.data.condition_monitor.physical.max", physCondMax);
         setProperty(this, "data.data.condition_monitor.stun.max", stunCondMax);
         setProperty(this, "data.data.condition_monitor.physical.value", physCondValue);
-        setProperty(this, "data.data.condition_monitor.stund.value", stunCondValue);
+        setProperty(this, "data.data.condition_monitor.stun.value", stunCondValue);
         setProperty(this, "data.data.condition_monitor.physical.wp", Math.floor(data.condition_monitor.physical.damage/3));
         setProperty(this, "data.data.condition_monitor.stun.wp", Math.floor(data.condition_monitor.stun.damage/3));
 
+        console.warn("Updated Actor: ", this);
     }
 
     _prepareVehicleData(actorData) {

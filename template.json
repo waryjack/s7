@@ -7,235 +7,253 @@
                 "metatype":"",
                 "awakened": false
             },
+            "defenses": {
+                "defenses": {
+                    "physical":0,
+                    "social":0,
+                    "mental":0,
+                    "astral":0
+                }
+            },
             "initiative": {
-                "perception": "meatspace",
-                "meatspace": {
-                    "dice": {
-                        "base": 1,
-                        "mod": 0,
-                        "value": 1
+                "initiative": {
+                    "perception": "meatspace",
+                    "meatspace": {
+                        "dice": {
+                            "base": 1,
+                            "mod": 0,
+                            "value": 1
+                        },
+                        "score": {
+                            "base": 1,
+                            "mod": 0,
+                            "value": 1
+                        }
                     },
-                    "score": {
-                        "base": 1,
-                        "mod": 0,
-                        "value": 1
-                    }
-                },
-                "matrix": {
-                    "dice": {
-                        "base": 1,
-                        "mod": 0,
-                        "value": 1
+                    "matrix": {
+                        "dice": {
+                            "base": 1,
+                            "mod": 0,
+                            "value": 1
+                        },
+                        "score": {
+                            "base": 1,
+                            "mod": 0,
+                            "value": 1
+                        }
                     },
-                    "score": {
-                        "base": 1,
-                        "mod": 0,
-                        "value": 1
-                    }
-                },
-                "astral": {
-                    "dice": {
-                        "base": 1,
-                        "mod": 0,
-                        "value": 1
-                    },
-                    "score": {
-                        "base": 1,
-                        "mod": 0,
-                        "value": 1
+                    "astral": {
+                        "dice": {
+                            "base": 1,
+                            "mod": 0,
+                            "value": 1
+                        },
+                        "score": {
+                            "base": 1,
+                            "mod": 0,
+                            "value": 1
+                        }
                     }
                 }
             },
             "condition_monitor": {
-                    "physical": {
-                        "max":0,
-                        "value":0,
-                        "damage":0,
-                        "disabled": false,
-                        "wp":0
-                    },
-                    "stun": {
-                        "max":0,
-                        "value":0,
-                        "damage":0,
-                        "disabled": false,
-                        "wp":0
+                "condition_monitor": {
+                        "physical": {
+                            "max":0,
+                            "value":0,
+                            "damage":0,
+                            "disabled": false,
+                            "wp":0
+                        },
+                        "stun": {
+                            "max":0,
+                            "value":0,
+                            "damage":0,
+                            "disabled": false,
+                            "wp":0
+                        }
                     }
                 },
-            "attributes": {
-                "body":{
-                    "base":1,
-                    "min":1,
-                    "mod":0
-                },
-                "agility": {
-                    "base": 1,
-                    "min": 1,
-                    "mod": 0
-                },
-                "reaction": {
-                    "base": 1,
-                    "min": 1,
-                    "mod": 0
-                },
-                "strength":{
-                    "base":1,
-                    "min":1,
-                    "mod":0
-                },
-                "willpower":{
-                    "base":1,
-                    "min":1,
-                    "mod":0
-                },
-                "logic":{
-                    "base":1,
-                    "min":1,
-                    "mod":0
-                },
-                "intuition":{
-                    "base":1,
-                    "min":1,
-                    "mod":0
-                },
-                "charisma":{
-                    "base":1,
-                    "min":1,
-                    "mod":0
-                },
-                "essence":{
-                    "base":6,
-                    "min":0.01,
-                    "mod":0
-                },
-                "magic": {
-                    "base":0,
-                    "min":0,
-                    "mod":0
-                },
-                "resonance":{
-                    "base":0,
-                    "min":0,
-                    "mod":0
+            "attributes":
+            {
+                "attributes": {
+                    "body":{
+                        "base":1,
+                        "min":1,
+                        "mod":0
+                    },
+                    "agility": {
+                        "base": 1,
+                        "min": 1,
+                        "mod": 0
+                    },
+                    "reaction": {
+                        "base": 1,
+                        "min": 1,
+                        "mod": 0
+                    },
+                    "strength":{
+                        "base":1,
+                        "min":1,
+                        "mod":0
+                    },
+                    "willpower":{
+                        "base":1,
+                        "min":1,
+                        "mod":0
+                    },
+                    "logic":{
+                        "base":1,
+                        "min":1,
+                        "mod":0
+                    },
+                    "intuition":{
+                        "base":1,
+                        "min":1,
+                        "mod":0
+                    },
+                    "charisma":{
+                        "base":1,
+                        "min":1,
+                        "mod":0
+                    },
+                    "essence":{
+                        "base":6,
+                        "min":0.01,
+                        "mod":0
+                    },
+                    "magic": {
+                        "base":0,
+                        "min":0,
+                        "mod":0
+                    },
+                    "resonance":{
+                        "base":0,
+                        "min":0,
+                        "mod":0
+                    }
                 }
             },
-            "skills":{
-                "astral": {
-                    "value": 0,
-                    "mod":0,
-                    "attribute": "intuition",
-                    "untrained": false
-                },
-                "athletics": {
-                    "value": 0,
-                    "mod":0,
-                    "attribute": "agility",
-                    "untrained": true
-                },
-                "biotech": {
-                    "value": 0,
-                    "mod":0,
-                    "attribute": "logic",
-                    "untrained": false
-                },
-                "close_combat": {
-                    "value": 0,
-                    "mod":0,
-                    "attribute": "agility",
-                    "untrained": true
-                },
-                "con": {
-                    "value": 0,
-                    "mod":0,
-                    "attribute": "charisma",
-                    "untrained": true
-                },
-                "conjuring": {
-                    "value": 0,
-                    "mod":0,
-                    "attribute": "magic",
-                    "untrained": false
-                },
-                "cracking": {
-                    "value": 0,
-                    "mod":0,
-                    "attribute": "logic",
-                    "untrained": false
-                },
-                "electronics": {
-                    "value": 0,
-                    "mod":0,
-                    "attribute": "logic",
-                    "untrained": true
-                },
-                "enchanting": {
-                    "value": 0,
-                    "mod":0,
-                    "attribute": "magic",
-                    "untrained": false
-                },
-                "engineering": {
-                    "value": 0,
-                    "mod":0,
-                    "attribute": "logic",
-                    "untrained": true
-                },
-                "exotic_weapon": {
-                    "value": 0,
-                    "mod":0,
-                    "attribute": "agility",
-                    "untrained": false
-                },
-                "firearms": {
-                    "value": 0,
-                    "mod":0,
-                    "attribute": "agility",
-                    "untrained": true
-                },
-                "influence": {
-                    "value": 0,
-                    "mod":0,
-                    "attribute": "charisma",
-                    "untrained": true
-                },
-                "outdoors": {
-                    "value": 0,
-                    "mod":0,
-                    "attribute": "intuition",
-                    "untrained": true
-                },
-                "perception": {
-                    "value": 0,
-                    "mod":0,
-                    "attribute": "intuition",
-                    "untrained": true
-                },
-                "piloting": {
-                    "value": 0,
-                    "mod":0,
-                    "attribute": "reaction",
-                    "untrained": true
-                },
-                "sorcery": {
-                    "value": 0,
-                    "mod":0,
-                    "attribute": "magic",
-                    "untrained": false
-                },
-                "stealth": {
-                    "value": 0,
-                    "mod":0,
-                    "attribute": "agility",
-                    "untrained": true
-                },
-                "tasking": {
-                    "value": 0,
-                    "mod":0,
-                    "attribute": "resonance",
-                    "untrained": false
-                },
-                "knowledge_skills":[],
-                "language_skills":[]
+            "skills":
+            {
+                "skills": {
+                    "astral": {
+                        "value": 0,
+                        "mod":0,
+                        "attribute": "intuition",
+                        "untrained": false
+                    },
+                    "athletics": {
+                        "value": 0,
+                        "mod":0,
+                        "attribute": "agility",
+                        "untrained": true
+                    },
+                    "biotech": {
+                        "value": 0,
+                        "mod":0,
+                        "attribute": "logic",
+                        "untrained": false
+                    },
+                    "close_combat": {
+                        "value": 0,
+                        "mod":0,
+                        "attribute": "agility",
+                        "untrained": true
+                    },
+                    "con": {
+                        "value": 0,
+                        "mod":0,
+                        "attribute": "charisma",
+                        "untrained": true
+                    },
+                    "conjuring": {
+                        "value": 0,
+                        "mod":0,
+                        "attribute": "magic",
+                        "untrained": false
+                    },
+                    "cracking": {
+                        "value": 0,
+                        "mod":0,
+                        "attribute": "logic",
+                        "untrained": false
+                    },
+                    "electronics": {
+                        "value": 0,
+                        "mod":0,
+                        "attribute": "logic",
+                        "untrained": true
+                    },
+                    "enchanting": {
+                        "value": 0,
+                        "mod":0,
+                        "attribute": "magic",
+                        "untrained": false
+                    },
+                    "engineering": {
+                        "value": 0,
+                        "mod":0,
+                        "attribute": "logic",
+                        "untrained": true
+                    },
+                    "exotic_weapon": {
+                        "value": 0,
+                        "mod":0,
+                        "attribute": "agility",
+                        "untrained": false
+                    },
+                    "firearms": {
+                        "value": 0,
+                        "mod":0,
+                        "attribute": "agility",
+                        "untrained": true
+                    },
+                    "influence": {
+                        "value": 0,
+                        "mod":0,
+                        "attribute": "charisma",
+                        "untrained": true
+                    },
+                    "outdoors": {
+                        "value": 0,
+                        "mod":0,
+                        "attribute": "intuition",
+                        "untrained": true
+                    },
+                    "perception": {
+                        "value": 0,
+                        "mod":0,
+                        "attribute": "intuition",
+                        "untrained": true
+                    },
+                    "piloting": {
+                        "value": 0,
+                        "mod":0,
+                        "attribute": "reaction",
+                        "untrained": true
+                    },
+                    "sorcery": {
+                        "value": 0,
+                        "mod":0,
+                        "attribute": "magic",
+                        "untrained": false
+                    },
+                    "stealth": {
+                        "value": 0,
+                        "mod":0,
+                        "attribute": "agility",
+                        "untrained": true
+                    },
+                    "tasking": {
+                        "value": 0,
+                        "mod":0,
+                        "attribute": "resonance",
+                        "untrained": false
+                    },
+                    "knowledge_skills":[],
+                    "language_skills":[]
+                }
             }
         },
         "character": {
@@ -244,10 +262,6 @@
                 "value":0,
                 "max":0
             },
-            "physical_defense":0,
-            "mental_defense":0,
-            "social_defense":0,
-            "astral_defense":0,
             "streetcred":0,
             "notoriety":0,
             "public_awareness":0,
