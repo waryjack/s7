@@ -1,0 +1,26 @@
+<form class="actor-sheet {{cssClass}}" autocomplete="off">
+    <header class="sheet-header">
+        <img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="64" width="64"/>
+        <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="Name"/></h1>
+    </header>
+
+    {{!-- Sheet Tab Navigation --}}
+    <nav class="sheet-tabs tabs" data-group="primary">
+        <a class="s7 tab" data-tab="main">Essentials</a>
+        <a class="s7 tab" data-tab="gear">Street Gear</a>
+        <a class="s7 tab" data-tab="magic">Magic</a>
+        <a class="s7 tab" data-tab="matrix">Matrix</a>
+        <a class="s7 tab" data-tab="misc">Other Details</a>
+    </nav>
+
+    <section class="sheet-body">
+        <div class="tab main" data-group="primary" data-tab="main">
+            {{> "systems/s7/templates/actor/parts/attributes.hbs"}}
+        </div>
+        <div class="tab gear" data-group="primary" data-tab="gear"></div>
+        <div class="tab magic" data-group="primary" data-tab="magic"></div>
+        <div class="tab matrix" data-group="primary" data-tab="matrix"></div>
+        <div class="tab misc" data-group="primary" data-tab="misc"></div>
+    </section>
+</form>
+

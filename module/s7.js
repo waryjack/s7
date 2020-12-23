@@ -1,6 +1,8 @@
 // @imports
 import { S7 } from "./config.js";
 import S7Actor from "./actor/S7Actor.js";
+import S7ActorSheet from "./sheets/actor/S7ActorSheet.js";
+import { preloadHandlebarsTemplates } from "./templates.js";
 
 
 // Init Hook
@@ -12,16 +14,19 @@ Hooks.once("init", () => {
     // Add namespace in global 
     
     game.S7 = {
-        S7Actor
+        S7Actor,
+        S7ActorSheet
     };
 
     
     // Unregister core sheets
-    // Actors.unregisterSheet("core", ActorSheet);
+    Actors.unregisterSheet("core", ActorSheet);
     // Items.unregisterSheet("core", ItemSheet);
 
     // Register System sheets
-  
+    Actors.registerSheet("s7", S7ActorSheet, { types:["character", "vehicle"], makeDefault:true });
+
+
     // CONFIG settings for entities
     CONFIG.Actor.entityClass = S7Actor;
 
@@ -29,7 +34,7 @@ Hooks.once("init", () => {
    // registerSettings();
     
     // Register partials templates
-   // preloadHandlebarsTemplates();
+    preloadHandlebarsTemplates();
    
     // Register handlebar helpers
     Handlebars.registerHelper('ife', function(arg1, arg2, options) {

@@ -8,7 +8,8 @@ export const S7 = {
         willpower: "S7.Attributes.Willpower",
         logic: "S7.Attributes.Logic",
         intuition: "S7.Attributes.Intuition",
-        charisma: "S7.Attributes.Charisma"
+        charisma: "S7.Attributes.Charisma",
+        magic: "S7.Attributes.Magic"
     },
     skills: {
         astral: "S7.Skills.Astral",
