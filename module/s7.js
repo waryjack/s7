@@ -15,8 +15,8 @@ Hooks.once("init", () => {
 
     
     // Unregister core sheets
-    Actors.unregisterSheet("core", ActorSheet);
-    Items.unregisterSheet("core", ItemSheet);
+    // Actors.unregisterSheet("core", ActorSheet);
+    // Items.unregisterSheet("core", ItemSheet);
 
     // Register System sheets
   

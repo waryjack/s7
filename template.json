@@ -15,7 +15,7 @@
                         "mod": 0,
                         "value": 1
                     },
-                    "base": {
+                    "score": {
                         "base": 1,
                         "mod": 0,
                         "value": 1
@@ -27,7 +27,7 @@
                         "mod": 0,
                         "value": 1
                     },
-                    "base": {
+                    "score": {
                         "base": 1,
                         "mod": 0,
                         "value": 1
@@ -39,7 +39,7 @@
                         "mod": 0,
                         "value": 1
                     },
-                    "base": {
+                    "score": {
                         "base": 1,
                         "mod": 0,
                         "value": 1
@@ -50,12 +50,16 @@
                     "physical": {
                         "max":0,
                         "value":0,
-                        "disabled": false
+                        "damage":0,
+                        "disabled": false,
+                        "wp":0
                     },
                     "stun": {
                         "max":0,
                         "value":0,
-                        "disabled": false
+                        "damage":0,
+                        "disabled": false,
+                        "wp":0
                     }
                 },
             "attributes": {
@@ -240,6 +244,10 @@
                 "value":0,
                 "max":0
             },
+            "physical_defense":0,
+            "mental_defense":0,
+            "social_defense":0,
+            "astral_defense":0,
             "streetcred":0,
             "notoriety":0,
             "public_awareness":0,
