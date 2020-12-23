@@ -1,0 +1,30 @@
+{
+    "name": "s7",
+    "title": "Shadowrun 7-Ish: House System",
+    "description": "Totally Hacked Up Shadowrun House System: Not For Public Consumption",
+    "version": "0.0.9",
+    "author": "Cannyjack (Chris Clouser)",
+    "esmodules": [
+        "module/s7.js"
+    ],
+    "scripts": [],
+    "styles": [
+        "styles/s7.css"
+    ],
+    "languages": [
+        {
+          "lang": "en",
+          "name": "English",
+          "path": "lang/en.json"
+        }
+      ],
+    
+    "initiative":"1d20",
+    "gridDistance": 1.5,
+    "gridUnits": "m",
+    "primaryTokenAttribute": "@track.physical",
+    "secondaryTokenAttribute": "@track.stun",
+    "minimumCoreVersion": "0.7.7",
+    "compatibleCoreVersion": "0.7.8"
+
+}

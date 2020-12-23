@@ -1,0 +1,45 @@
+{
+    "S7.GameTerms":{
+        "Attribute": "Attribute",
+        "Skill": "Skill",
+        "Edge": "Edge",
+        "Heat": "Heat",
+        "Karma": "Karma",
+        "Untrained": "Untrained",
+        "Metatypte": "Metatype",
+        "ConditionMonitor": "Condition Monitor"
+    },
+    "S7.Metatypes": {
+        "human": "Human",
+        "dwarf": "Dwarf",
+        "elf": "Elf",
+        "ork": "Ork",
+        "troll": "Troll"
+    },
+    "S7.Attributes":{
+        "Body": "Body",
+        "Agility": "Agility",
+        "Reaction": "Reaction",
+        "Strength": "Strength",
+        "Willpower": "Willpower",
+        "Logic": "Logic",
+        "Intuition": "Intuition",
+        "Charisma": "Charisma",
+        "Essence": "Essence",
+        "Magic": "Magic",
+        "Resonance": "Resonance"
+    },
+    "S7.Defenses": {
+        "Ranged": "Ranged Defense",
+        "Melee": "Melee Defense",
+        "Mental": "Mental Defense",
+        "Magic": "Magic Defense",
+        "Armor": "Armor",
+        "NaturalArmor": "Natural Armor",
+        "MysticArmor": "Mystic Armor"
+    },
+    "S7.Tracks": {
+        "Physical": "Physical Track",
+        "Stun": "Stun Track"
+    }
+}

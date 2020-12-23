@@ -1,0 +1,299 @@
+{
+    "Actor": {
+        "types": ["character", "vehicle", "spirit", "drone", "deck"],
+        "templates": {
+            "common": {
+                "name":"",
+                "metatype":"",
+                "awakened": false
+            },
+            "initiative": {
+                "perception": "meatspace",
+                "meatspace": {
+                    "dice": {
+                        "base": 1,
+                        "mod": 0,
+                        "value": 1
+                    },
+                    "base": {
+                        "base": 1,
+                        "mod": 0,
+                        "value": 1
+                    }
+                },
+                "matrix": {
+                    "dice": {
+                        "base": 1,
+                        "mod": 0,
+                        "value": 1
+                    },
+                    "base": {
+                        "base": 1,
+                        "mod": 0,
+                        "value": 1
+                    }
+                },
+                "astral": {
+                    "dice": {
+                        "base": 1,
+                        "mod": 0,
+                        "value": 1
+                    },
+                    "base": {
+                        "base": 1,
+                        "mod": 0,
+                        "value": 1
+                    }
+                }
+            },
+            "condition_monitor": {
+                    "physical": {
+                        "max":0,
+                        "value":0,
+                        "disabled": false
+                    },
+                    "stun": {
+                        "max":0,
+                        "value":0,
+                        "disabled": false
+                    }
+                },
+            "attributes": {
+                "body":{
+                    "base":1,
+                    "min":1,
+                    "mod":0
+                },
+                "agility": {
+                    "base": 1,
+                    "min": 1,
+                    "mod": 0
+                },
+                "reaction": {
+                    "base": 1,
+                    "min": 1,
+                    "mod": 0
+                },
+                "strength":{
+                    "base":1,
+                    "min":1,
+                    "mod":0
+                },
+                "willpower":{
+                    "base":1,
+                    "min":1,
+                    "mod":0
+                },
+                "logic":{
+                    "base":1,
+                    "min":1,
+                    "mod":0
+                },
+                "intuition":{
+                    "base":1,
+                    "min":1,
+                    "mod":0
+                },
+                "charisma":{
+                    "base":1,
+                    "min":1,
+                    "mod":0
+                },
+                "essence":{
+                    "base":6,
+                    "min":0.01,
+                    "mod":0
+                },
+                "magic": {
+                    "base":0,
+                    "min":0,
+                    "mod":0
+                },
+                "resonance":{
+                    "base":0,
+                    "min":0,
+                    "mod":0
+                }
+            },
+            "skills":{
+                "astral": {
+                    "value": 0,
+                    "mod":0,
+                    "attribute": "intuition",
+                    "untrained": false
+                },
+                "athletics": {
+                    "value": 0,
+                    "mod":0,
+                    "attribute": "agility",
+                    "untrained": true
+                },
+                "biotech": {
+                    "value": 0,
+                    "mod":0,
+                    "attribute": "logic",
+                    "untrained": false
+                },
+                "close_combat": {
+                    "value": 0,
+                    "mod":0,
+                    "attribute": "agility",
+                    "untrained": true
+                },
+                "con": {
+                    "value": 0,
+                    "mod":0,
+                    "attribute": "charisma",
+                    "untrained": true
+                },
+                "conjuring": {
+                    "value": 0,
+                    "mod":0,
+                    "attribute": "magic",
+                    "untrained": false
+                },
+                "cracking": {
+                    "value": 0,
+                    "mod":0,
+                    "attribute": "logic",
+                    "untrained": false
+                },
+                "electronics": {
+                    "value": 0,
+                    "mod":0,
+                    "attribute": "logic",
+                    "untrained": true
+                },
+                "enchanting": {
+                    "value": 0,
+                    "mod":0,
+                    "attribute": "magic",
+                    "untrained": false
+                },
+                "engineering": {
+                    "value": 0,
+                    "mod":0,
+                    "attribute": "logic",
+                    "untrained": true
+                },
+                "exotic_weapon": {
+                    "value": 0,
+                    "mod":0,
+                    "attribute": "agility",
+                    "untrained": false
+                },
+                "firearms": {
+                    "value": 0,
+                    "mod":0,
+                    "attribute": "agility",
+                    "untrained": true
+                },
+                "influence": {
+                    "value": 0,
+                    "mod":0,
+                    "attribute": "charisma",
+                    "untrained": true
+                },
+                "outdoors": {
+                    "value": 0,
+                    "mod":0,
+                    "attribute": "intuition",
+                    "untrained": true
+                },
+                "perception": {
+                    "value": 0,
+                    "mod":0,
+                    "attribute": "intuition",
+                    "untrained": true
+                },
+                "piloting": {
+                    "value": 0,
+                    "mod":0,
+                    "attribute": "reaction",
+                    "untrained": true
+                },
+                "sorcery": {
+                    "value": 0,
+                    "mod":0,
+                    "attribute": "magic",
+                    "untrained": false
+                },
+                "stealth": {
+                    "value": 0,
+                    "mod":0,
+                    "attribute": "agility",
+                    "untrained": true
+                },
+                "tasking": {
+                    "value": 0,
+                    "mod":0,
+                    "attribute": "resonance",
+                    "untrained": false
+                },
+                "knowledge_skills":[],
+                "language_skills":[]
+            }
+        },
+        "character": {
+            "templates": ["common", "initiatives", "attributes", "condition_monitor", "skills"],
+            "karma":{
+                "value":0,
+                "max":0
+            },
+            "streetcred":0,
+            "notoriety":0,
+            "public_awareness":0,
+            "height":"",
+            "weight":"",
+            "sex":"",
+            "age":"",
+            "background":"",
+            "isGrunt":false,
+            "isNPC":false
+        },
+        "spirit":{
+
+        },
+        "vehicle":{
+
+        },
+        "drone":{
+
+        },
+        "deck":{
+
+        }
+	},
+    "Item": {
+        "types":["trait", "spell", "weapon", "armor", "augment", "power", "program", "metatype"],
+        "templates":{
+            "attack":{
+                "attribute":"",
+                "skill":""
+            }
+        },
+        "metatype":{
+            "name":"",
+            "primary_mod":"",
+            "primary_mod_amount":0,
+            "secondary_mod":"",
+            "secondary_mod_amount":0,
+            "perks":[]
+        },
+        "armor":{
+            "name":"",
+            "rating":0,
+            "accessory":false,
+            "equipped":false,
+            "conceal":0
+        },
+        "spell":{
+            "name":"",
+            "category":"",
+            "range":"",
+            "attribute":"magic",
+            "skill":"sorcery",
+            "drain":""
+        }
+    }
+}
