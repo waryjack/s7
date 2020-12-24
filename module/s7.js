@@ -1,9 +1,7 @@
 // @imports
 import { S7 } from "./config.js";
-import S7Actor from "./actor/S7Actor.js";
-import S7ActorSheet from "./sheets/actor/S7ActorSheet.js";
 import { preloadHandlebarsTemplates } from "./templates.js";
-
+import S7ActorSheet from "./sheets/actor/S7ActorSheet.js";
 
 // Init Hook
 Hooks.once("init", () => {
@@ -14,7 +12,6 @@ Hooks.once("init", () => {
     // Add namespace in global 
     
     game.S7 = {
-        S7Actor,
         S7ActorSheet
     };
 
@@ -28,7 +25,7 @@ Hooks.once("init", () => {
 
 
     // CONFIG settings for entities
-    CONFIG.Actor.entityClass = S7Actor;
+    // CONFIG.Actor.entityClass = S7Actor;
 
     // Register system settings
    // registerSettings();
@@ -81,7 +78,7 @@ Hooks.once("init", () => {
     Handlebars.registerHelper("concat", function(...args){
         let result = "";
         for (let a of args) {
-            result += a;
+            result += String(a);
         }
 
         return result;
