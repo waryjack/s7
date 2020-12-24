@@ -53,11 +53,6 @@
                         "base":0,
                         "min":0,
                         "mod":0
-                    },
-                    "resonance":{
-                        "base":0,
-                        "min":0,
-                        "mod":0
                     }
                 }
             },
@@ -105,10 +100,140 @@
                     "mental":0,
                     "astral":0
                 }
+            },
+            "skills":{
+                "skills":{
+                    "acting":{
+                        "value": 0,
+                        "mod":0,
+                        "attribute": "charisma",
+                        "untrained": true,
+                        "isMagic":false
+                    },
+                    "astral":{
+                        "value": 0,
+                        "mod":0,
+                        "attribute": "intuition",
+                        "untrained": false,
+                        "isMagic": true
+                    },
+                    "athletics":{
+                        "value": 0,
+                        "mod":0,
+                        "attribute": "agility",
+                        "untrained": true,
+                        "isMagic": false
+                    },
+                    "biotech":{
+                        "value": 0,
+                        "mod":0,
+                        "attribute": "logic",
+                        "untrained": false,
+                        "isMagic": false
+                    },
+                    "cracking":{
+                        "value": 0,
+                        "mod":0,
+                        "attribute": "logic",
+                        "untrained": false,
+                        "isMagic": false
+                    },
+                    "close_combat":{
+                        "value": 0,
+                        "mod":0,
+                        "attribute": "agility",
+                        "untrained": true,
+                        "isMagic": false
+                    },
+                    "conjuring":{
+                        "value": 0,
+                        "mod":0,
+                        "attribute": "magic",
+                        "untrained": false,
+                        "isMagic": true
+                    },
+                    "electronics":{
+                        "value": 0,
+                        "mod":0,
+                        "attribute": "logic",
+                        "untrained": true,
+                        "isMagic": false
+                    },
+                    "enchanting":{
+                        "value": 0,
+                        "mod":0,
+                        "attribute": "magic",
+                        "untrained": false,
+                        "isMagic": true
+                    },
+                    "engineering":{
+                        "value": 0,
+                        "mod":0,
+                        "attribute": "logic",
+                        "untrained": true,
+                        "isMagic": false
+                    },
+                    "exotic_weapons":{
+                        "value": 0,
+                        "mod":0,
+                        "attribute": "agility",
+                        "untrained": false,
+                        "isMagic": false
+                    },
+                    "firearms":{
+                        "value": 0,
+                        "mod":0,
+                        "attribute": "agility",
+                        "untrained": true,
+                        "isMagic": false
+                    },
+                    "influence":{
+                        "value": 0,
+                        "mod":0,
+                        "attribute": "charisma",
+                        "untrained": true,
+                        "isMagic": false
+                    },
+                    "outdoors":{
+                        "value": 0,
+                        "mod":0,
+                        "attribute": "intuition",
+                        "untrained": true,
+                        "isMagic": false
+                    },
+                    "perception":{
+                        "value": 0,
+                        "mod":0,
+                        "attribute": "intuition",
+                        "untrained": true,
+                        "isMagic": false
+                    },
+                    "piloting":{
+                        "value": 0,
+                        "mod":0,
+                        "attribute": "reaction",
+                        "untrained": true,
+                        "isMagic": false
+                    },
+                    "sorcery":{
+                        "value": 0,
+                        "mod":0,
+                        "attribute": "magic",
+                        "untrained": false,
+                        "isMagic": true
+                    },
+                    "stealth":{
+                        "value": 0,
+                        "mod":0,
+                        "attribute": "agility",
+                        "untrained": true,
+                        "isMagic": false
+                    }
+                }
             }
         }, 
         "character":{
-            "templates":["initiative", "attributes", "defenses", "monitor"],
+            "templates":["initiative", "skills", "attributes", "defenses", "monitor"],
             "age":"",
             "metatype":"",
             "karma":0,
@@ -119,7 +244,7 @@
         }
     },    
     "Item":{
-        "types":["skill","spell","power","augment","metatype","weapon","armor","gear"],
+        "types":["soft","spell","power","augment","metatype","weapon","armor","gear"],
         "templates":{
             "common":{
                 "effect":"",
@@ -145,11 +270,10 @@
             "ammo":0,
             "ammo_container":""
         },
-        "skill":{
+        "soft":{
             "value": 0,
             "mod":0,
-            "attribute": "",
-            "untrained": false
+            "attribute": ""
         }
 
     }

@@ -2,6 +2,7 @@
 import { S7 } from "./config.js";
 import { preloadHandlebarsTemplates } from "./templates.js";
 import S7ActorSheet from "./sheets/actor/S7ActorSheet.js";
+import S7Actor from "./actor/S7Actor.js";
 
 // Init Hook
 Hooks.once("init", () => {
@@ -12,6 +13,7 @@ Hooks.once("init", () => {
     // Add namespace in global 
     
     game.S7 = {
+        S7Actor,
         S7ActorSheet
     };
 
@@ -25,7 +27,7 @@ Hooks.once("init", () => {
 
 
     // CONFIG settings for entities
-    // CONFIG.Actor.entityClass = S7Actor;
+    CONFIG.Actor.entityClass = S7Actor;
 
     // Register system settings
    // registerSettings();
@@ -75,6 +77,12 @@ Hooks.once("init", () => {
         return game.settings.get('ewhen', arg); 
     });
 
+    // From Smilligan's Shadowrun 5E - hopefully usable
+    Handlebars.registerHelper('concatStrings', function (...args) {
+        return args.filter(a => typeof a === 'string').join('');
+    });
+
+    // Work sometimes....
     Handlebars.registerHelper("concat", function(...args){
         let result = "";
         for (let a of args) {
@@ -92,3 +100,4 @@ Hooks.once("init", () => {
         return (a || b);
     });
 });
+

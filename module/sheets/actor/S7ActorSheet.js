@@ -24,10 +24,7 @@ export default class S7ActorSheet extends ActorSheet {
 
         data.config = CONFIG.s7;
         data.attList = ["body","reaction","agility","strength","willpower","logic","intuition","charisma","essence","magic"];
-        console.warn("actor: ", this.actor);
-        console.warn("actor name", this.actor.name);
-        console.warn("Data config: ", data.config);
-
+        
         return data;
 
     }

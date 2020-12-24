@@ -7,7 +7,12 @@
         "Karma": "Karma",
         "Untrained": "Untrained",
         "Metatypte": "Metatype",
-        "ConditionMonitor": "Condition Monitor"
+        "ConditionMonitor": "Condition Monitor",
+        "AttackTest": "Attack Test",
+        "SkillTest": "Skill Test",
+        "ExtendedTest": "Extended Test",
+        "DefenseTest": "Defense Test",
+        "BoostSkill": "Boost Skill"
     },
     "S7.Metatypes": {
         "human": "Human",
@@ -41,5 +46,25 @@
     "S7.Tracks": {
         "Physical": "Physical Track",
         "Stun": "Stun Track"
+    },
+    "S7.Skills":{
+        "Acting": "Acting",
+        "Astral": "Astral",
+        "Athletics": "Athletics",
+        "Biotech": "Biotech",
+        "Cracking": "Cracking",
+        "CloseCombat": "Close Combat",
+        "Conjuring": "Conjuring",
+        "Electronics": "Electronics",
+        "Enchanting": "Enchanting",
+        "Engineering": "Engineering",
+        "ExoticWeapons": "Exotic Weapons",
+        "Firearms": "Firearms",
+        "Influence": "Influence",
+        "Outdoors": "Outdoors",
+        "Perception": "Perception",
+        "Piloting": "Piloting",
+        "Sorcery": "Sorcery",
+        "Stealth": "Stealth"
     }
 }

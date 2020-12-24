@@ -12,11 +12,11 @@ export const S7 = {
         magic: "S7.Attributes.Magic"
     },
     skills: {
+        acting: "S7.Skills.Acting",
         astral: "S7.Skills.Astral",
         athletics: "S7.Skills.Athletics",
         biotech: "S7.Skills.Biotech",
         close_combat: "S7.Skills.CloseCombat",
-        con: "S7.Skills.Con",
         conjuring: "S7.Skills.Conjuring",
         cracking: "S7.Skills.Cracking",
         electronics: "S7.Skills.Electronics",
@@ -29,8 +29,7 @@ export const S7 = {
         perception: "S7.Skills.Perception",
         piloting: "S7.Skills.Piloting",
         sorcery: "S7.Skills.Sorcery",
-        stealth: "S7.Skills.Stealth",
-        tasking: "S7.Skills.Tasking"
+        stealth: "S7.Skills.Stealth"
     }
 
 

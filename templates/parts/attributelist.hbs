@@ -1,0 +1,12 @@
+<div>
+    <table>
+        <tr style="text-align:center;">
+            {{#each data.attributes as |attObj attName|}}
+            {{> "systems/s7/templates/parts/attribute.hbs"
+                attribute=attObj
+                attributeName=attName
+            }}
+            {{/each}}
+        </tr>
+    </table>
+</div>
