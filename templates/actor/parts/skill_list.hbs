@@ -8,11 +8,10 @@
             <th>Rating</th>
         </tr>
             {{#each data.skills as |sk id|}}
-            {{log sk id}}
             {{> "systems/s7/templates/actor/parts/skill.hbs"
                 skill=sk
                 skillName=id
-                awakened=data.awakened
+                awakened=../data.awakened
             }}
             {{/each}}
     </table>

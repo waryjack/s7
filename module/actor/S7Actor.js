@@ -33,6 +33,7 @@ export default class S7Actor extends Actor {
 
         console.warn("Skills: ", skills);
 
+        // Populate Attribute Totals
         for (let attr in atts) {
         
             let aval = 0;
@@ -40,6 +41,7 @@ export default class S7Actor extends Actor {
             atts[attr].value = aval;
         }
 
+        // Populate Skill Totals
         for (let skill in skills) {
             let sval = 0;
             sval = skills[skill].base + skills[skill].mod;
@@ -50,6 +52,12 @@ export default class S7Actor extends Actor {
 
         setProperty(this, "data.data.attributes", atts);
         setProperty(this, "data.data.skills", skills);
+
+        // Toggle MAgic skill visibility
+        setProperty(this, "data.data.skills.astral.hidden", !data.data.awakened);
+        setProperty(this, "data.data.skills.conjuring.hidden", !data.data.awakened);
+        setProperty(this, "data.data.skills.enchanting.hidden", !data.data.awakened);
+        setProperty(this, "data.data.skills.sorcery.hidden", !data.data.awakened);
 
     }
 

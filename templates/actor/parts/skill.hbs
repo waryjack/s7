@@ -1,4 +1,4 @@
-{{#unless (and skill.isMagic awakened)}}
+{{#unless skill.hidden}}
 <tr class="wtext">
   <td><strong><a class="roll-skill" data-skill-id="{{skillName}}">
           {{localize (concatStrings "S7.Skills." skillName)}}</a></strong>

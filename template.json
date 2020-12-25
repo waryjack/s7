@@ -108,126 +108,126 @@
                         "mod":0,
                         "attribute": "charisma",
                         "untrained": true,
-                        "isMagic":false
+                        "hidden":false
                     },
                     "astral":{
                         "base": 0,
                         "mod":0,
                         "attribute": "intuition",
                         "untrained": false,
-                        "isMagic": true
+                        "hidden": true
                     },
                     "athletics":{
                         "base": 0,
                         "mod":0,
                         "attribute": "agility",
                         "untrained": true,
-                        "isMagic": false
+                        "hidden": false
                     },
                     "biotech":{
                         "base": 0,
                         "mod":0,
                         "attribute": "logic",
                         "untrained": false,
-                        "isMagic": false
+                        "hidden": false
                     },
                     "cracking":{
                         "base": 0,
                         "mod":0,
                         "attribute": "logic",
                         "untrained": false,
-                        "isMagic": false
+                        "hidden": false
                     },
                     "close_combat":{
                         "base": 0,
                         "mod":0,
                         "attribute": "agility",
                         "untrained": true,
-                        "isMagic": false
+                        "hidden": false
                     },
                     "conjuring":{
                         "base": 0,
                         "mod":0,
                         "attribute": "magic",
                         "untrained": false,
-                        "isMagic": true
+                        "hidden": true
                     },
                     "electronics":{
                         "base": 0,
                         "mod":0,
                         "attribute": "logic",
                         "untrained": true,
-                        "isMagic": false
+                        "hidden": false
                     },
                     "enchanting":{
                         "base": 0,
                         "mod":0,
                         "attribute": "magic",
                         "untrained": false,
-                        "isMagic": true
+                        "hidden": true
                     },
                     "engineering":{
                         "base": 0,
                         "mod":0,
                         "attribute": "logic",
                         "untrained": true,
-                        "isMagic": false
+                        "hidden": false
                     },
                     "exotic_weapons":{
                         "base": 0,
                         "mod":0,
                         "attribute": "agility",
                         "untrained": false,
-                        "isMagic": false
+                        "hidden": false
                     },
                     "firearms":{
                         "base": 0,
                         "mod":0,
                         "attribute": "agility",
                         "untrained": true,
-                        "isMagic": false
+                        "hidden": false
                     },
                     "influence":{
                         "base": 0,
                         "mod":0,
                         "attribute": "charisma",
                         "untrained": true,
-                        "isMagic": false
+                        "hidden": false
                     },
                     "outdoors":{
                         "base": 0,
                         "mod":0,
                         "attribute": "intuition",
                         "untrained": true,
-                        "isMagic": false
+                        "hidden": false
                     },
                     "perception":{
                         "base": 0,
                         "mod":0,
                         "attribute": "intuition",
                         "untrained": true,
-                        "isMagic": false
+                        "hidden": false
                     },
                     "piloting":{
                         "base": 0,
                         "mod":0,
                         "attribute": "reaction",
                         "untrained": true,
-                        "isMagic": false
+                        "hidden": false
                     },
                     "sorcery":{
                         "base": 0,
                         "mod":0,
                         "attribute": "magic",
                         "untrained": false,
-                        "isMagic": true
+                        "hidden": true
                     },
                     "stealth":{
                         "base": 0,
                         "mod":0,
                         "attribute": "agility",
                         "untrained": true,
-                        "isMagic": false
+                        "hidden": false
                     }
                 }
             }
