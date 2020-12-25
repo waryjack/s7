@@ -1,24 +1,27 @@
-<form class="actor-sheet {{cssClass}}" autocomplete="off">{{log actor.name}}
+<form class="{{cssClass}}" autocomplete="off">
     <header class="sheet-header">
         <img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="64" width="64"/>
         <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="Name"/></h1>
     </header>
 
-<div>
-    {{> "systems/s7/templates/parts/attributelist.hbs"}}
-</div>
+    {{> "systems/s7/templates/actor/parts/attribute_list.hbs"}}
 
     {{!-- Sheet Tab Navigation --}}
     <nav class="sheet-tabs tabs" data-group="primary">
-        <a class="s7 item" data-tab="main">Skills</a>
-        <a class="s7 item" data-tab="magic">Magic</a>
-        <a class="s7 item" data-tab="matrix">Matrix</a>
-        <a class="s7 item" data-tab="gear">Gear</a>
-        <a class="s7 item" data-tab="misc">Miscellaneous</a>
+        <a class="s7 item wtext" data-tab="skills">Skills</a>
+        <a class="s7 item wtext" data-tab="magic">Magic</a>
+        <a class="s7 item wtext" data-tab="matrix">Matrix</a>
+        <a class="s7 item wtext" data-tab="gear">Gear</a>
+        <a class="s7 item wtext" data-tab="misc">Miscellaneous</a>
     </nav>
 
     <section class="sheet-body">
-        <div class="tab skills" data-group="primary" data-tab="skills">Skills</div>
+        <div class="tab skills" data-group="primary" data-tab="skills">
+        <div class="s7 flexcol">
+            <div class="s7 flexrow">
+            {{> "systems/s7/templates/actor/parts/skill_list.hbs"}}
+            </div>
+        </div>
         <div class="tab magic" data-group="primary" data-tab="magic">Magic</div>
         <div class="tab matrix" data-group="primary" data-tab="matrix">Matrix</div>
         <div class="tab gear" data-group="primary" data-tab="gear">Gear</div>

@@ -104,126 +104,126 @@
             "skills":{
                 "skills":{
                     "acting":{
-                        "value": 0,
+                        "base": 0,
                         "mod":0,
                         "attribute": "charisma",
                         "untrained": true,
                         "isMagic":false
                     },
                     "astral":{
-                        "value": 0,
+                        "base": 0,
                         "mod":0,
                         "attribute": "intuition",
                         "untrained": false,
                         "isMagic": true
                     },
                     "athletics":{
-                        "value": 0,
+                        "base": 0,
                         "mod":0,
                         "attribute": "agility",
                         "untrained": true,
                         "isMagic": false
                     },
                     "biotech":{
-                        "value": 0,
+                        "base": 0,
                         "mod":0,
                         "attribute": "logic",
                         "untrained": false,
                         "isMagic": false
                     },
                     "cracking":{
-                        "value": 0,
+                        "base": 0,
                         "mod":0,
                         "attribute": "logic",
                         "untrained": false,
                         "isMagic": false
                     },
                     "close_combat":{
-                        "value": 0,
+                        "base": 0,
                         "mod":0,
                         "attribute": "agility",
                         "untrained": true,
                         "isMagic": false
                     },
                     "conjuring":{
-                        "value": 0,
+                        "base": 0,
                         "mod":0,
                         "attribute": "magic",
                         "untrained": false,
                         "isMagic": true
                     },
                     "electronics":{
-                        "value": 0,
+                        "base": 0,
                         "mod":0,
                         "attribute": "logic",
                         "untrained": true,
                         "isMagic": false
                     },
                     "enchanting":{
-                        "value": 0,
+                        "base": 0,
                         "mod":0,
                         "attribute": "magic",
                         "untrained": false,
                         "isMagic": true
                     },
                     "engineering":{
-                        "value": 0,
+                        "base": 0,
                         "mod":0,
                         "attribute": "logic",
                         "untrained": true,
                         "isMagic": false
                     },
                     "exotic_weapons":{
-                        "value": 0,
+                        "base": 0,
                         "mod":0,
                         "attribute": "agility",
                         "untrained": false,
                         "isMagic": false
                     },
                     "firearms":{
-                        "value": 0,
+                        "base": 0,
                         "mod":0,
                         "attribute": "agility",
                         "untrained": true,
                         "isMagic": false
                     },
                     "influence":{
-                        "value": 0,
+                        "base": 0,
                         "mod":0,
                         "attribute": "charisma",
                         "untrained": true,
                         "isMagic": false
                     },
                     "outdoors":{
-                        "value": 0,
+                        "base": 0,
                         "mod":0,
                         "attribute": "intuition",
                         "untrained": true,
                         "isMagic": false
                     },
                     "perception":{
-                        "value": 0,
+                        "base": 0,
                         "mod":0,
                         "attribute": "intuition",
                         "untrained": true,
                         "isMagic": false
                     },
                     "piloting":{
-                        "value": 0,
+                        "base": 0,
                         "mod":0,
                         "attribute": "reaction",
                         "untrained": true,
                         "isMagic": false
                     },
                     "sorcery":{
-                        "value": 0,
+                        "base": 0,
                         "mod":0,
                         "attribute": "magic",
                         "untrained": false,
                         "isMagic": true
                     },
                     "stealth":{
-                        "value": 0,
+                        "base": 0,
                         "mod":0,
                         "attribute": "agility",
                         "untrained": true,

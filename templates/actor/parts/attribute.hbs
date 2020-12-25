@@ -1,0 +1,6 @@
+<div class="s7 flex-attribute center">
+<p><strong><a class="roll-att" data-att-id="{{attributeName}}">{{localize (concatStrings "S7.Attributes." attributeName)}}</a></strong></p>
+<p><strong><span style="font-size:1.15em">({{attribute.value}})</span></strong></p>
+<input type="text" class="s7 value-input" data-dtype="Number" name="data.attributes.{{attributeName}}.base" value="{{attribute.base}}"/>
++ <input type="text" class="s7 value-input" data-dtype="Number" name="data.attributes.{{attributeName}}.mod" value="{{attribute.mod}}"/>
+</div>

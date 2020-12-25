@@ -22,49 +22,96 @@
         "troll": "Troll"
     },
     "S7.Attributes":{
-        "Body": "Body",
-        "Agility": "Agility",
-        "Reaction": "Reaction",
-        "Strength": "Strength",
-        "Willpower": "Willpower",
-        "Logic": "Logic",
-        "Intuition": "Intuition",
-        "Charisma": "Charisma",
-        "Essence": "Essence",
-        "Magic": "Magic",
-        "Resonance": "Resonance"
+        "body": "Body",
+        "agility": "Agility",
+        "reaction": "Reaction",
+        "strength": "Strength",
+        "willpower": "Willpower",
+        "logic": "Logic",
+        "intuition": "Intuition",
+        "charisma": "Charisma",
+        "essence": "Essence",
+        "magic": "Magic",
+        "resonance": "Resonance"
+    },
+    "S7.Attributes.Short":{
+        "body": "Bod",
+        "agility": "Agi",
+        "reaction": "Rea",
+        "strength": "Str",
+        "willpower": "Wil",
+        "logic": "Log",
+        "intuition": "Int",
+        "charisma": "Cha",
+        "essence": "Ess",
+        "magic": "Mag",
+        "resonance": "Resonance"
     },
     "S7.Defenses": {
-        "Ranged": "Ranged Defense",
-        "Melee": "Melee Defense",
-        "Mental": "Mental Defense",
-        "Magic": "Magic Defense",
-        "Armor": "Armor",
-        "NaturalArmor": "Natural Armor",
-        "MysticArmor": "Mystic Armor"
+        "ranged": "Ranged Defense",
+        "melee": "Melee Defense",
+        "mental": "Mental Defense",
+        "magic": "Magic Defense",
+        "armor": "Armor",
+        "naturalarmor": "Natural Armor",
+        "mysticarmor": "Mystic Armor"
     },
     "S7.Tracks": {
-        "Physical": "Physical Track",
-        "Stun": "Stun Track"
+        "physical": "Physical Track",
+        "stun": "Stun Track"
     },
     "S7.Skills":{
-        "Acting": "Acting",
-        "Astral": "Astral",
-        "Athletics": "Athletics",
-        "Biotech": "Biotech",
-        "Cracking": "Cracking",
-        "CloseCombat": "Close Combat",
-        "Conjuring": "Conjuring",
-        "Electronics": "Electronics",
-        "Enchanting": "Enchanting",
-        "Engineering": "Engineering",
-        "ExoticWeapons": "Exotic Weapons",
-        "Firearms": "Firearms",
-        "Influence": "Influence",
-        "Outdoors": "Outdoors",
-        "Perception": "Perception",
-        "Piloting": "Piloting",
-        "Sorcery": "Sorcery",
-        "Stealth": "Stealth"
+        "acting": "Acting",
+        "astral": "Astral",
+        "athletics": "Athletics",
+        "biotech": "Biotech",
+        "cracking": "Cracking",
+        "close_combat": "Close Combat",
+        "conjuring": "Conjuring",
+        "electronics": "Electronics",
+        "enchanting": "Enchanting",
+        "engineering": "Engineering",
+        "exotic_weapons": "Exotic Weapons",
+        "firearms": "Firearms",
+        "influence": "Influence",
+        "outdoors": "Outdoors",
+        "perception": "Perception",
+        "piloting": "Piloting",
+        "sorcery": "Sorcery",
+        "stealth": "Stealth"
+    },
+    "S7.WeaponTypes":{
+        "melee": "Melee",
+        "projectile": "Projectile",
+        "throwing": "Throwing",
+        "firearm": "Firearm",
+        "grenade": "Grenade",
+        "rocket": "Rocket",
+        "explosive": "Explosive"
+    },
+    "S7.WeaponSubtype": {
+        "melee": {
+            "blade": "Blades",
+            "club": "Clubs",
+            "other": "Other"
+        },
+        "projectile":{
+            "bow": "Bow",
+            "crossbow": "Crossbow"
+        },
+        "firearm":{
+            "taser":"Taser",
+            "holdout":"Hold Out",
+            "lightpistol": "Light Pistol",
+            "heavypistol": "Heavy Pistol",
+            "machinepistol": "Machine Pistol",
+            "submachinegun": "Submachine Gun",
+            "assaultrifle": "Assault Rifle",
+            "sniperrifle": "Sniper Rifle",
+            "shotgun": "Shotgun",
+            "special": "Special Weapon",
+            "machinegun": "Machine Gun",
+            "cannon": "Cannon/Launcher"
+        }
     }
 }

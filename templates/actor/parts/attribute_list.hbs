@@ -1,12 +1,9 @@
-<div>
-    <table>
-        <tr style="text-align:center;">
+    <div class="s7 flexrow">
             {{#each data.attributes as |attObj attName|}}
-            {{> "systems/s7/templates/parts/attribute.hbs"
+            {{> "systems/s7/templates/actor/parts/attribute.hbs"
                 attribute=attObj
                 attributeName=attName
             }}
             {{/each}}
-        </tr>
-    </table>
-</div>
+    </div>
+    

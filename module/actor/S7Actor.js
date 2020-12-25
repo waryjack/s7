@@ -29,20 +29,27 @@ export default class S7Actor extends Actor {
         const data = actorData;
 
         let atts = data.data.attributes;
+        let skills = data.data.skills;
 
-        console.warn("Attributes: ", atts);
+        console.warn("Skills: ", skills);
 
         for (let attr in atts) {
-            console.warn("Attrib / Value: ", attr);
+        
             let aval = 0;
             aval = atts[attr].base + atts[attr].mod;
             atts[attr].value = aval;
         }
 
-        console.warn("Atts post update: ", atts);
+        for (let skill in skills) {
+            let sval = 0;
+            sval = skills[skill].base + skills[skill].mod;
+            // console.warn("Sval: ", sval);
+            skills[skill].value = sval;
+        }
+        console.warn("Skills post update: ", skills);
 
         setProperty(this, "data.data.attributes", atts);
-
+        setProperty(this, "data.data.skills", skills);
 
     }
 

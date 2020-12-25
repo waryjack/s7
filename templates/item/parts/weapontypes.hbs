@@ -1,0 +1,10 @@
+ <div class="s7 flex-item">
+    <label for="wtype-select">Weapon Type</label>
+    <select name="data.type" id="wtype-select">
+        {{#select data.type}}
+            {{#each config.weapontypes as |locstring wtype|}}
+            <option value="{{wtype}}">{{localize locstring}}</option>
+            {{/each}}
+        {{/select}}
+    </select>          
+</div>

@@ -1,0 +1,10 @@
+<div class="s7 flex-item">
+    <label for="skill-select">Attack Skill</label>
+    <select name="data.skill" id="skill-select">
+        {{#select data.skill}}
+            {{#each config.skills as |locstring skillname|}}
+            <option value="{{skillname}}">{{localize locstring}}</option>
+            {{/each}}
+        {{/select}}
+    </select>
+</div>

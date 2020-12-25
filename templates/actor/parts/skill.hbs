@@ -1,0 +1,9 @@
+<tr class="wtext">
+  <td><strong><a class="roll-skill" data-skill-id="{{skillName}}">
+          {{localize (concatStrings "S7.Skills." skillName)}} 
+          ({{localize (concatStrings "S7.Attributes.Short." skill.attribute)}})</a></strong></td>
+  <td style="text-align:center;">{{#unless skill.untrained}}No{{/unless}}</td>
+  <td style="text-align:center;"><input type="text" data-dtype="Number" class="s7 value-input" name="data.skills.{{skillName}}.base" value="{{skill.base}}"/></td>
+  <td style="text-align:center;"><input type="text" data-dtype="Number" class="s7 value-input" name="data.skills.{{skillName}}.mod" value="{{skill.mod}}"/></td>
+  <td style="text-align:center;"><strong>{{skill.value}}</strong></td>
+</tr>        

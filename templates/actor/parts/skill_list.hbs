@@ -1,0 +1,18 @@
+<div>
+    <table>
+        <tr style="color:white;">
+            <th style="text-align:left;">{{localize "S7.GameTerms.Skill"}}</th>
+            <th>{{localize "S7.GameTerms.Untrained"}}</th>
+            <th>Base</th>
+            <th>Mod</th>
+            <th>Rating</th>
+        </tr>
+            {{#each data.skills as |sk id|}}
+            {{log sk id}}
+            {{> "systems/s7/templates/actor/parts/skill.hbs"
+                skill=sk
+                skillName=id
+            }}
+            {{/each}}
+    </table>
+</div>

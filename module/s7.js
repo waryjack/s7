@@ -3,6 +3,7 @@ import { S7 } from "./config.js";
 import { preloadHandlebarsTemplates } from "./templates.js";
 import S7ActorSheet from "./sheets/actor/S7ActorSheet.js";
 import S7Actor from "./actor/S7Actor.js";
+import S7ItemSheet from "./sheets/item/S7ItemSheet.js";
 
 // Init Hook
 Hooks.once("init", () => {
@@ -14,20 +15,22 @@ Hooks.once("init", () => {
     
     game.S7 = {
         S7Actor,
-        S7ActorSheet
+        S7ActorSheet,
+        S7ItemSheet
     };
 
     
     // Unregister core sheets
     Actors.unregisterSheet("core", ActorSheet);
-    // Items.unregisterSheet("core", ItemSheet);
+    Items.unregisterSheet("core", ItemSheet);
 
     // Register System sheets
     Actors.registerSheet("s7", S7ActorSheet, { types:["character", "vehicle"], makeDefault:true });
-
+    Items.registerSheet("s7", S7ItemSheet, {makeDefalt:true});
 
     // CONFIG settings for entities
     CONFIG.Actor.entityClass = S7Actor;
+    // CONFIG.Item.entityClass = S7Item;
 
     // Register system settings
    // registerSettings();
