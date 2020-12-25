@@ -54,7 +54,14 @@ Hooks.once("init", () => {
 
     });
 
-    //uppercases; needs work
+    // uppercaser
+    Handlebars.registerHelper("upper", function(content) {
+        let result = "";
+        result = content.toUpperCase();
+        return result;
+    });
+
+    //proper cases; needs work
     Handlebars.registerHelper("proper", function(content) {
         let result = "";
 

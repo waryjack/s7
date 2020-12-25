@@ -5,16 +5,11 @@ export default class S7ItemSheet extends ItemSheet {
         return `${path}${this.item.data.type}sheet.hbs`;
     }
 
-    /* static get defaultOptions() {
+    static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
         classes: ['s7', 'sheet', 'item', 'item-sheet'],
-        width: 775,
-        height: 685,
-        left:120,
-        tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "main"}],
-        dragDrop: [{dragSelector: ".dragline", dropSelector: null}]
         });
-    }*/
+    }
 
     /**
      * @override

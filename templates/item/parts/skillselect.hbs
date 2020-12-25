@@ -1,7 +1,8 @@
-<div class="s7 flex-item">
-    <label for="skill-select">Attack Skill</label>
-    <select name="data.skill" id="skill-select">
-        {{#select data.skill}}
+<div class="s7 flex-item wtext">
+    <label for="skill-select">Roll Skill</label>
+    <select name="data.roll.skill" id="skill-select">
+        {{#select data.roll.skill}}
+        <option value="none"></option>
             {{#each config.skills as |locstring skillname|}}
             <option value="{{skillname}}">{{localize locstring}}</option>
             {{/each}}

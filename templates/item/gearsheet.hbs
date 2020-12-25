@@ -1,0 +1,47 @@
+<form class="{{cssClass}}" autocomplete="off">
+    <header class="sheet-header">
+        <img src="{{item.img}}" data-edit="img" title="{{item.name}}" height="64" width="64"/>
+        <h1 class="charname"><input style="color:white;" name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
+    </header>
+
+    <section class="sheet-body">
+        <div class="s7 flexcol">
+            <div class="s7 flexrow">
+                 {{> "systems/s7/templates/item/parts/attributeselect.hbs"}}
+                 {{> "systems/s7/templates/item/parts/skillselect.hbs"}}      
+            </div>
+        </div>
+        <div class="s7 flexcol">
+            <div class="s7 flexrow">
+                <div class="s7 flex-item">
+                    <table>
+                        <tr class="wtext">
+                            <th>Rating</th>
+                            <th>Quantity</th>
+                            <th>Value (Each)</th>
+                        </tr>
+                        <tr style="text-align:center">
+                            <td>
+                                <input class="s7 value-input" type="text" name="data.rating" value="{{data.rating}}" data-dtype="Number"/>
+                            </td>
+                            <td>
+                                <input class="s7 value-input" type="text" name="data.quantity" value="{{data.quantity}}" data-dtype="Number"/>
+                            </td>
+                            <td>
+                                <input class="s7 value-input-wide" type="text" name="data.nuyen" value="{{data.nuyen}}" data-dtype="Number"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan=3>
+                                <h3>Description</h3>
+                                <textarea style="color:white;" name="data.effect">{{data.effect}}</textarea>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</form>
+

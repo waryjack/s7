@@ -1,0 +1,26 @@
+ <div class="s7 flex-item">
+            <h3>EQUIPMENT</h3>
+            <table>
+                <tr>
+                        <th style="text-align:left;">Item</th>
+                        <th>Roll</th>
+                        <th>Rating</th>
+                        <th>Quantity</th>
+                        <th>Value Per</th>
+                        <th>Description</th>
+                        <th>Edit</th>
+                </tr>
+            {{#each gear as |gear name|}}
+            {{log gear}}
+            <tr style="text-align:center;">
+                <td style="text-align:left;"><strong><a class="item-name item" data-item-id="{{gear._id}}">{{gear.name}}</a></strong></td>
+                <td>{{gear.roll.attribute}}+{{gear.roll.skill}}</td>
+                <td>{{gear.rating}}</td>
+                <td>{{gear.quantity}}</td>
+                <td>{{gear.nuyen}}</td>
+                <td>{{gear.effect}}</td>
+                <td><a class="item-edit item" data-item-id="{{gear._id}}"><i class="fas fa-edit"></i></a> <a class="item-delete item" data-item-id="{{gear._id}}"><i class='fas fa-trash'></i></a></td>
+            </tr>
+            {{/each}}
+            </table>
+    </div>

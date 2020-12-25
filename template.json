@@ -7,52 +7,68 @@
                     "body":{
                         "base":1,
                         "min":1,
-                        "mod":0
+                        "mod":0,
+                        "hidden":false
                     },
                     "agility": {
                         "base": 1,
                         "min": 1,
-                        "mod": 0
+                        "mod": 0,
+                        "hidden":false
                     },
                     "reaction": {
                         "base": 1,
                         "min": 1,
-                        "mod": 0
+                        "mod": 0,
+                        "hidden":false
                     },
                     "strength":{
                         "base":1,
                         "min":1,
-                        "mod":0
+                        "mod":0,
+                        "hidden":false
                     },
                     "willpower":{
                         "base":1,
                         "min":1,
-                        "mod":0
+                        "mod":0,
+                        "hidden":false
                     },
                     "logic":{
                         "base":1,
                         "min":1,
-                        "mod":0
+                        "mod":0,
+                        "hidden":false
                     },
                     "intuition":{
                         "base":1,
                         "min":1,
-                        "mod":0
+                        "mod":0,
+                        "hidden":false
                     },
                     "charisma":{
                         "base":1,
                         "min":1,
-                        "mod":0
+                        "mod":0,
+                        "hidden":false
                     },
                     "essence":{
                         "base":6,
                         "min":0.01,
-                        "mod":0
+                        "mod":0,
+                        "hidden":false
                     },
                     "magic": {
                         "base":0,
                         "min":0,
-                        "mod":0
+                        "mod":0,
+                        "hidden":false
+                    },
+                    "resonance":{
+                        "base":0,
+                        "min":0,
+                        "mod":0,
+                        "hidden":true
                     }
                 }
             },
@@ -245,37 +261,86 @@
         }
     },    
     "Item":{
-        "types":["soft","spell","power","augment","metatype","weapon","armor","gear"],
+        "types":["soft","spell","power","augment","metatype","weapon","armor","gear","action"],
         "templates":{
             "common":{
                 "effect":"",
                 "availability":0,
-                "nuyen":0
+                "nuyen":0,
+                "rating":0,
+                "quantity":0
             },
-            "attack":{
-                "attribute":"",
-                "skill":"",
-                "defense":""
+            "element": {
+                "element":{
+                    "fire":0,
+                    "electricity":0,
+                    "cold":0,
+                    "acid":0
+                }
+            },
+            "damage":{
+                "damage":{
+                    "dv":"",
+                    "dmgtype":"physical",
+                    "element":""
+                }
+            },
+            "roll":{
+                "roll":{
+                    "attribute":"",
+                    "skill":"",
+                    "effect":""
+                }
+            },
+            "attack_rating":{
+                "attack_rating":{
+                    "close":0,
+                    "near":0,
+                    "medium":0,
+                    "far":0
+                }
             }
         },
         "weapon":{
-            "templates":["common","attack"],
+            "templates":["common","damage","roll","attack_rating"],
             "type":"",
             "category":"",
-            "attack_rating":{
-                "close":0,
-                "near":0,
-                "medium":0,
-                "far":0
-            },
             "ammo":0,
             "ammo_container":""
         },
         "soft":{
+            "templates":["common"],
             "value": 0,
             "mod":0,
             "attribute": ""
+        },
+        "spell":{
+            "templates":["common","damage","roll","attack_rating","element"],
+            "drain":0,
+            "category":"",
+            "type":"",
+            "range":"",
+            "direct":false
+        },
+        "armor":{
+            "templates":["common","element"],
+            "accessory":false
+        },
+        "power":{
+            "templates":["common","roll"],
+            "enhances":"",
+            "enhancement":"",
+            "pp_cost":0
+        },
+        "augment":{
+            "templates":["common","roll"],
+            "enhances":"",
+            "enhancement":"",
+            "ess_cost":0,
+            "capacity":0
+        },
+        "gear":{
+            "templates":["common", "roll"]
         }
-
     }
 }

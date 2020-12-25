@@ -53,11 +53,12 @@ export default class S7Actor extends Actor {
         setProperty(this, "data.data.attributes", atts);
         setProperty(this, "data.data.skills", skills);
 
-        // Toggle MAgic skill visibility
+        // Toggle Magic attribute and skill visibility
         setProperty(this, "data.data.skills.astral.hidden", !data.data.awakened);
         setProperty(this, "data.data.skills.conjuring.hidden", !data.data.awakened);
         setProperty(this, "data.data.skills.enchanting.hidden", !data.data.awakened);
         setProperty(this, "data.data.skills.sorcery.hidden", !data.data.awakened);
+        setProperty(this, "data.data.attributes.magic.hidden", !data.data.awakened);
 
     }
 

@@ -1,7 +1,31 @@
+select, input, th, tr {
+    color:white;
+}
+table, th {
+    border:none;
+}
+
+
+.s7 .window-content {
+    background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAKElEQVQYV2NUU1P7//PnTwYQYGdnZ2CUl5f/D+OAJMACIBmYKkZ0LQBtSRGf2hu8MAAAAABJRU5ErkJggg==);
+  }
+
+option {
+    background-color:rgb(27, 27, 27);
+    color:white;
+}
+table tr {
+    border-bottom:1px solid white;
+}
+table tr:nth-child(even) {
+    background:none !important;
+  }
+
 .s7 .flexrow {
     display:flex;
     flex-flow:row nowrap;
     justify-content:space-between;
+
 }
 
 .s7 .flexcol {
@@ -9,9 +33,22 @@
     flex-flow:column nowrap;
     justify-content:stretch;
 }
+.s7 .flex-item {
+    color:white;
+    overflow-y: auto;
+    height:100%;
+    width:auto;
+    margin-left:2px;
+    margin-right:2px;
+    flex:1;
+    align-items:flex-start;
+    overflow-x:hidden;
+}
 
+.border-right-light {
+    border-right:double white;
+}
 .s7 .flex-attribute {
-
     color:rgb(255, 255, 255);
     height:auto;
     width:auto;
@@ -22,14 +59,10 @@
     text-align:center;
 }
 
-.s7 .window-content {
-    background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAKElEQVQYV2NUU1P7//PnTwYQYGdnZ2CUl5f/D+OAJMACIBmYKkZ0LQBtSRGf2hu8MAAAAABJRU5ErkJggg==);
-    /* background: rgb(14, 14, 14); 
-    background-color: rgb(32, 32, 32);
-    background-image: linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%, black), linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%, black), linear-gradient(to bottom, rgb(8, 8, 8), rgb(32, 32, 32));
-    background-size: 10px 10px, 10px 10px, 10px 5px;
-    background-position: 0px 0px, 5px 5px, 0px 0px; */
-  }
+
+.s7-sheet {
+    background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAKElEQVQYV2NUU1P7//PnTwYQYGdnZ2CUl5f/D+OAJMACIBmYKkZ0LQBtSRGf2hu8MAAAAABJRU5ErkJggg==) !important;
+}
 
 .s7.white-text {
     color:white;
@@ -39,6 +72,12 @@
     width:2ch;
     color:white;
     text-align:center;
+}
+
+.s7 .value-input-wide {
+    width:8ch;
+    color:white;
+    text-align:right;
 }
 
 .s7 .left {

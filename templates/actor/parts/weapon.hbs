@@ -1,0 +1,7 @@
+<tr>
+    <td><strong><a class="item-roll">{{name}}</a></strong></td>
+    <td>{{weapon.type}} ({{weapon.roll.attribute}}+{{weapon.roll.skill}})</td>
+    <td>{{weapon.attack_rating.close}}/{{weapon.attack_rating.near}}/{{weapon.attack_rating.medium}}/{{weapon.attack_rating.far}}</td>
+    <td>{{weapon.damage.dv}}{{weapon.damage.dmgtype}} {{#if (ne weapon.dmg.element "none")}}{{weapon.damage.element}}{{/if}}</td>
+    <td>{{weapon.ammo}} ({{weapon.ammo_container}}</td>
+</tr>

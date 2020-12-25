@@ -35,6 +35,8 @@ export default class S7ActorSheet extends ActorSheet {
        data.gear = data.items.filter(function(item) {return item.type == "gear"});
        data.softs = data.items.filter(function(item) {return item.type == "soft"});
 
+       console.warn(data.gear);
+       
         return data;
 
     }
@@ -73,6 +75,9 @@ export default class S7ActorSheet extends ActorSheet {
         event.preventDefault();
     }
 
+    _onEditTrack(event) {
+        event.preventDefault();
+    }
     _onAddItem(event) {
         event.preventDefault();
         

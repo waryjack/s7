@@ -1,7 +1,7 @@
 <form class="{{cssClass}}" autocomplete="off">
     <header class="sheet-header">
         <img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="64" width="64"/>
-        <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="Name"/></h1>
+        <h1 class="charname"><input style="color:white;" name="name" type="text" value="{{actor.name}}" placeholder="Name"/></h1>
     </header>
 
     {{> "systems/s7/templates/actor/parts/attribute_list.hbs"}}
@@ -9,9 +9,9 @@
     {{!-- Sheet Tab Navigation --}}
     <nav class="sheet-tabs tabs" data-group="primary">
         <a class="s7 item wtext" data-tab="skills">Skills</a>
-        <a class="s7 item wtext" data-tab="magic">Magic</a>
-        <a class="s7 item wtext" data-tab="matrix">Matrix</a>
         <a class="s7 item wtext" data-tab="gear">Gear</a>
+        {{#if data.awakened}}<a class="s7 item wtext" data-tab="magic">Magic</a>{{/if}}
+        <a class="s7 item wtext" data-tab="matrix">Matrix</a>
         <a class="s7 item wtext" data-tab="misc">Miscellaneous</a>
     </nav>
 
@@ -20,12 +20,39 @@
             <div class="s7 flexcol">
                 <div class="s7 flexrow">
                 {{> "systems/s7/templates/actor/parts/skill_list.hbs"}}
+                {{> "systems/s7/templates/actor/parts/essentials.hbs"}}
                 </div>
             </div>
         </div>
-        <div class="tab magic" data-group="primary" data-tab="magic">Magic</div>
-        <div class="tab matrix" data-group="primary" data-tab="matrix">Matrix</div>
-        <div class="tab gear" data-group="primary" data-tab="gear">Gear</div>
+        <div class="tab gear" data-group="primary" data-tab="gear">
+            <div class="s7 flexcol">
+                <div class="s7 flexrow">
+                   
+                        {{> "systems/s7/templates/actor/parts/weapon_list.hbs"}}
+                        
+                </div>
+                <div class="s7 flexrow">
+                    {{> "systems/s7/templates/actor/parts/gear_list.hbs"}}
+                </div>
+            </div>
+        </div>
+
+        <div class="tab magic" data-group="primary" data-tab="magic">
+             <div class="s7 flexcol">
+                <div class="s7 flexrow">
+                    <div class="s7 flex-item"><h3>Magic</h3></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab matrix" data-group="primary" data-tab="matrix">
+             <div class="s7 flexcol">
+                <div class="s7 flexrow">
+                    <div class="s7 flex-item"><h3>matrix</h3>></div>
+                </div>
+            </div>
+        </div>
+        
         <div class="tab misc" data-group="primary" data-tab="misc">
             <div class="s7 flexrow">
                 <div class="s7 flex-item">
