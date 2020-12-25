@@ -10,7 +10,7 @@ export default class S7ActorSheet extends ActorSheet {
         width: 775,
         height: 685,
         left:120,
-        tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "main"}],
+        tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "skills"}],
         dragDrop: [{dragSelector: ".dragline", dropSelector: null}]
         });
     }

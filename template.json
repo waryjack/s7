@@ -240,7 +240,8 @@
             "total_karma":0,
             "notoriety":0,
             "streetcred":0,
-            "nuyen":0
+            "nuyen":0,
+            "awakened":false
         }
     },    
     "Item":{
