@@ -1,5 +1,10 @@
     <div class="s7 flex-item inset">
-            <h3>WEAPONS</h3>
+            <h3 class="inv-header">
+                <div>Weapons</div>
+                        <a class="add-item" title="Add Weapon" data-type="weapon">
+                            <i class="fas fa-plus-square"></i>
+                        </a>
+            </h3>
             <table>
                 <tr>
                         <th style="text-align:left;">Weapon</th>
@@ -15,10 +20,10 @@
             <tr style="text-align:center;">
                 <td style="text-align:left;"><strong><a class="item-name item" data-item-id="{{weapon._id}}">{{weapon.name}}</a></strong></td>
                 <td>{{proper weapon.data.type}}</td>
-                <td>{{proper weapon.data.roll.attribute}}+{{proper weapon.data.roll.skill}}</td>
+                <td>{{#unless (eq weapon.data.roll.attribute "none")}}{{proper weapon.data.roll.attribute}}+{{proper weapon.data.roll.skill}}{{/unless}}</td>
                 <td>{{weapon.data.attack_rating.close}}/{{weapon.data.attack_rating.near}}/{{weapon.data.attack_rating.medium}}/{{weapon.data.attack_rating.far}}</td>
                 <td>{{weapon.data.damage.dv}}{{weapon.data.damage.dmgtype}}</td>
-                <td>{{weapon.data.ammo}} ({{weapon.data.ammo_container}})</td>
+                <td>{{#if (eq weapon.data.type "melee")}} - {{else}}{{weapon.data.ammo}} ({{localize (concatStrings "S7.AmmoContainers." weapon.data.ammo_container)}}){{/if}}</td>
                 <td><a class="item-edit item" data-item-id="{{weapon._id}}"><i class="fas fa-edit"></i></a> <a class="item-delete item" data-item-id="{{weapon._id}}"><i class='fas fa-trash'></i></a></td>
             </tr>
             {{/each}}

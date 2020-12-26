@@ -137,5 +137,13 @@
         "none": "N/A",
         "direct": "D",
         "indirect": "I"
+    },
+    "S7.AmmoContainers":{
+        "none":"",
+        "magazine":"mag",
+        "clip":"clp",
+        "drum":"drm",
+        "cylinder":"cyl",
+        "barrel":"bbl"
     }
 }

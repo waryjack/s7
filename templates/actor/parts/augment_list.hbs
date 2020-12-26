@@ -1,5 +1,10 @@
 <div class="s7 flex-item inset">
-    <h3>AUGMENTS</h3>
+     <h3 class="inv-header">
+                <div>AUGMENTS</div>
+                        <a class="add-item" title="Add Augment" data-type="augment">
+                            <i class="fas fa-plus-square"></i>
+                        </a>
+            </h3>
     <table>
         <tr>
             <th style="text-align: left;">Augment</th>
@@ -14,7 +19,7 @@
             <tr style="text-align:center;">
                 <td style="text-align:left;"><strong><a class="item-name item" data-item-id="{{augment._id}}">{{augment.name}}</a></strong></td>
                 <td>{{proper augment.data.type}}</td>
-                <td>{{proper (localize (concatStrings "S7.GameTerms." augment.data.enhances))}}</td>
+                <td>{{#unless (eq augment.data.enhances "none")}}{{proper (localize (concatStrings "S7.GameTerms." augment.data.enhances))}}{{/unless}}</td>
                 <td>{{augment.data.rating}}</td>
                 <td>{{augment.data.capacity}}</td>
                 <td>{{augment.data.ess_cost}}</td>

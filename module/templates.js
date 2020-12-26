@@ -28,6 +28,7 @@ export const preloadHandlebarsTemplates = async function() {
       "systems/s7/templates/item/parts/elementselect.hbs",
       "systems/s7/templates/item/parts/spellcategoryselect.hbs",
       "systems/s7/templates/item/parts/spelltypeselect.hbs",
-      "systems/s7/templates/item/parts/spellmodeselect.hbs"
+      "systems/s7/templates/item/parts/spellmodeselect.hbs",
+      "systems/s7/templates/item/parts/magselect.hbs"
     ]);
   };

@@ -103,3 +103,14 @@ table tr:nth-child(even) {
 .center {
     text-align:center;
 }
+
+.add-item {
+    margin-left:auto;
+    margin-right:3px;
+}
+
+.inv-header {
+display:flex;
+flex-direction:row;
+
+}

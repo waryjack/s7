@@ -281,7 +281,7 @@
             "damage":{
                 "damage":{
                     "dv":"",
-                    "dmgtype":"physical",
+                    "dmgtype":"P",
                     "element":""
                 }
             },

@@ -67,6 +67,13 @@ export const S7 = {
     spelltypes: {
         physical: "Physical",
         mana: "Mana"
+    },
+    ammocontainers: {
+        magazine: "S7.AmmoContainers.magazine",
+        clip: "S7.AmmoContainers.clip",
+        cylinder: "S7.AmmoContainers.cylinder",
+        drum:"S7.AmmoContainers.drum",
+        barrel:"S7.AmmoContainers.barrel"
     }
 
 }

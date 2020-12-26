@@ -1,0 +1,9 @@
+<div class="s7 flex-item wtext">
+    <select name="data.ammo_container" id="mag-select">
+        {{#select data.ammo_container}}
+            {{#each config.ammocontainers as |locstring mag|}}
+            <option value="{{mag}}">{{localize locstring}}</option>
+            {{/each}}
+        {{/select}}
+    </select>
+</div>
