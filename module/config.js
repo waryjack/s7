@@ -74,6 +74,12 @@ export const S7 = {
         cylinder: "S7.AmmoContainers.cylinder",
         drum:"S7.AmmoContainers.drum",
         barrel:"S7.AmmoContainers.barrel"
+    },
+    actiontypes: {
+        free: "S7.ActionTypes.free",
+        simple: "S7.ActionTypes.simple",
+        move: "S7.ActionTypes.move",
+        complex: "S7.ActionTypes.complex"
     }
 
 }

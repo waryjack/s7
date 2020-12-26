@@ -1,0 +1,31 @@
+ <div class="s7 flex-item inset">
+             <h3 class="inv-header">
+                <div>POWERS</div>
+                        <a class="add-item" title="Add Gear" data-type="power">
+                            <i class="fas fa-plus-square"></i>
+                        </a>
+            </h3>
+            <table class="item-table">
+                <tr>
+                        <th style="text-align:left;">Item</th>
+                        <th>Level</th>
+                        <th>Ativation</th>
+                        <th>PP Cost</th>
+                        <th>Roll (if any)</th>
+                        <th>Edit</th>
+                </tr>
+            {{#each powers as |power name|}}
+            <tr class="effect-toggle" style="text-align:center;">
+                <td style="text-align:left;"><strong><a class="item-name item" data-item-id="{{power._id}}">{{power.name}}</a></strong></td>
+                <td>{{power.data.level}}</td>
+                <td>{{localize (concatStrings "S7.ActionTypes." power.data.roll.action_type)}}</td>
+                <td>{{power.data.pp_cost}}</td>
+                <td>{{#unless (eq power.data.roll.attribute "none")}}{{proper power.data.roll.attribute}} + {{proper power.data.roll.skill}}{{/unless}}</td>
+                <td><a class="item-edit item" data-item-id="{{power._id}}"><i class="fas fa-edit"></i></a> <a class="item-delete item" data-item-id="{{power._id}}"><i class='fas fa-trash'></i></a></td>
+            </tr>
+            <tr class="effect-info">
+                <td colspan=6>{{power.data.effect}}</td>
+            </tr>
+            {{/each}}
+            </table>
+    </div>

@@ -145,5 +145,11 @@
         "drum":"drm",
         "cylinder":"cyl",
         "barrel":"bbl"
+    },
+    "S7.ActionTypes":{
+        "free":"Free Action",
+        "simple":"Simple Action",
+        "move":"Move Action",
+        "complex":"Complex Action"
     }
 }

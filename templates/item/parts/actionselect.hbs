@@ -1,0 +1,11 @@
+<div class="s7 flex-item wtext">
+    <label for="act-select">Action Type</label>
+    <select style="width:100%;" name="data.roll.action_type" id="act-select">
+        {{#select data.roll.action_type}}
+            <option value="none"></option>
+            {{#each config.actiontypes as |locstring act|}}
+            <option value="{{act}}">{{localize locstring}}</option>
+            {{/each}}
+        {{/select}}
+    </select>
+</div>
