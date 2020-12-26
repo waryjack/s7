@@ -5,7 +5,7 @@
                             <i class="fas fa-plus-square"></i>
                         </a>
             </h3>
-    <table>
+    <table class="item-table">
         <tr>
             <th style="text-align: left;">Augment</th>
             <th>Type</th>
@@ -16,7 +16,7 @@
             <th>Edit</th>
         </tr>
         {{#each augments as |augment name|}}
-            <tr style="text-align:center;">
+            <tr class="effect-toggle" style="text-align:center;">
                 <td style="text-align:left;"><strong><a class="item-name item" data-item-id="{{augment._id}}">{{augment.name}}</a></strong></td>
                 <td>{{proper augment.data.type}}</td>
                 <td>{{#unless (eq augment.data.enhances "none")}}{{proper (localize (concatStrings "S7.GameTerms." augment.data.enhances))}}{{/unless}}</td>
@@ -24,6 +24,9 @@
                 <td>{{augment.data.capacity}}</td>
                 <td>{{augment.data.ess_cost}}</td>
                 <td><a class="item-edit item" data-item-id="{{augment._id}}"><i class="fas fa-edit"></i></a> <a class="item-delete item" data-item-id="{{augment._id}}"><i class='fas fa-trash'></i></a></td>
+            </tr>
+            <tr class="effect-info">
+                <td colspan=7>{{augment.data.effect}}</td>
             </tr>
         {{/each}}
     </table>

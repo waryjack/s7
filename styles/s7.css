@@ -19,8 +19,10 @@
     background-color:rgb(27, 27, 27);
     color:white;
 }
-table tr {
-    border-bottom:1px solid white;
+.item-table tr {
+    border-top:1px solid rgb(43, 43, 43);
+    border-bottom:1px solid rgb(43, 43, 43);
+    border-collapse:collapse;
 }
 table tr:nth-child(even) {
     background:none !important;
@@ -113,4 +115,16 @@ table tr:nth-child(even) {
 display:flex;
 flex-direction:row;
 
+}
+
+.noborder {
+    border:none !important;
+}
+
+.effect-info {
+    display:none;
+    font-style:italic;
+    background:rgb(43, 43, 43);
+    border-top:none !important;
+    border-bottom:none !important;
 }

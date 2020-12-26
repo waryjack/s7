@@ -17,7 +17,8 @@ export const preloadHandlebarsTemplates = async function() {
       "systems/s7/templates/actor/parts/spell.hbs",
       "systems/s7/templates/actor/parts/power_list.hbs",
       "systems/s7/templates/actor/parts/power.hbs",
-
+      "systems/s7/templates/actor/parts/skill_list1.hbs",
+      "systems/s7/templates/actor/parts/skill_list2.hbs",
 
       // General Partials
       "systems/s7/templates/item/parts/skillselect.hbs",

@@ -19,8 +19,14 @@
         <div class="tab skills" data-group="primary" data-tab="skills">
             <div class="s7 flexcol">
                 <div class="s7 flexrow">
-                {{> "systems/s7/templates/actor/parts/skill_list.hbs"}}
-                {{> "systems/s7/templates/actor/parts/essentials.hbs"}}
+                    {{log data.skills1}}
+                {{> "systems/s7/templates/actor/parts/skill_list1.hbs"}}
+                {{> "systems/s7/templates/actor/parts/skill_list2.hbs"}}
+                {{!--> "systems/s7/templates/actor/parts/skill_list.hbs"--}}
+                
+                </div>
+                <div class="s7 flexrow">
+                    {{> "systems/s7/templates/actor/parts/essentials.hbs"}}
                 </div>
             </div>
         </div>

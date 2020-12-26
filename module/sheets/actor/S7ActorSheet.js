@@ -21,7 +21,17 @@ export default class S7ActorSheet extends ActorSheet {
 
     getData() {
         const data = super.getData();
-
+        data.skills1 = {};
+        data.skills2 = {};
+        let skills1 = [];
+        let skills2 = [];
+        if(this.actor.data.data.awakened){
+         skills1 = ["acting","astral","athletics","biotech","close_combat","conjuring","cracking","electronics","enchanting"];
+         skills2 = ["engineering","exotic_weapons","firearms","influence","outdoors","perception","piloting","sorcery","stealth"];
+        } else {
+         skills1 = ["acting","athletics","biotech","close_combat","cracking","electronics","engineering"];
+         skills2 = ["exotic_weapons","firearms","influence","outdoors","perception","piloting","stealth"];    
+        }
         data.config = CONFIG.s7;
        // data.attList = ["body","reaction","agility","strength","willpower","logic","intuition","charisma","essence","magic"];
         
@@ -35,9 +45,12 @@ export default class S7ActorSheet extends ActorSheet {
        data.gear = data.items.filter(function(item) {return item.type == "gear"});
        data.softs = data.items.filter(function(item) {return item.type == "soft"});
 
-       console.warn(data.gear);
-       
-        return data;
+       //experiment with layout
+
+       skills1.forEach(skill => setProperty(data.skills1, skill, this.actor.data.data.skills[skill]));
+       skills2.forEach(skill => setProperty(data.skills2, skill, this.actor.data.data.skills[skill]));
+       console.warn(data.skills1, data.skills2); 
+       return data;
 
     }
 
@@ -52,6 +65,7 @@ export default class S7ActorSheet extends ActorSheet {
         html.find('.item-edit').click(this._onEditItem.bind(this));
         html.find('.item-delete').click(this._onDeleteItem.bind(this));
         html.find('.edit-track').click(this._onEditTrack.bind(this));
+        html.find('.effect-toggle').click(this._toggleEffectLine.bind(this));
 
         // DragDrop Handler
         let handler = (ev) => this._onDragStart(ev);
@@ -145,5 +159,11 @@ export default class S7ActorSheet extends ActorSheet {
         
         return item.update({ [field]: element.value}); 
 
+    }
+
+    _toggleEffectLine(event){
+        event.preventDefault();
+        
+        $(event.currentTarget).next('.effect-info').slideToggle("fast");
     }
 }
