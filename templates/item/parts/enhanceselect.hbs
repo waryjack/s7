@@ -1,0 +1,23 @@
+<div class="s7 flex-item wtext">
+    <h3>Enhances</h3>
+    <select name="data.enhances" id="enh-select">
+        {{#select data.enhances}}
+            <option value="none"></option>
+            <optgroup label="Attributes">
+            {{#each config.attributes as |locstring attr|}}
+            <option value="{{attr}}">{{localize locstring}}</option>
+            {{/each}}
+            </optgroup>
+            <optgroup label="Skills">
+            {{#each config.skills as |locstring skill|}}
+            <option value="{{skill}}">{{localize locstring}}</option>
+            {{/each}}
+            </optgroup>
+            <optgroup label="Other">
+            {{#each config.enhance_misc as |locstring enh|}}
+            <option value="{{enh}}">{{localize locstring}}</option>
+            {{/each}}
+            </optgroup>
+        {{/select}}
+    </select>
+</div>

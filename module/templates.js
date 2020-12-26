@@ -22,6 +22,12 @@ export const preloadHandlebarsTemplates = async function() {
       // General Partials
       "systems/s7/templates/item/parts/skillselect.hbs",
       "systems/s7/templates/item/parts/attributeselect.hbs",
-      "systems/s7/templates/item/parts/weapontypes.hbs"
+      "systems/s7/templates/item/parts/weapontypes.hbs",
+      "systems/s7/templates/item/parts/enhanceselect.hbs",
+      "systems/s7/templates/item/parts/damageselect.hbs",
+      "systems/s7/templates/item/parts/elementselect.hbs",
+      "systems/s7/templates/item/parts/spellcategoryselect.hbs",
+      "systems/s7/templates/item/parts/spelltypeselect.hbs",
+      "systems/s7/templates/item/parts/spellmodeselect.hbs"
     ]);
   };

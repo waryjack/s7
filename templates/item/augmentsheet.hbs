@@ -1,0 +1,62 @@
+<form class="{{cssClass}}" autocomplete="off">
+    <header class="sheet-header">
+        <img src="{{item.img}}" data-edit="img" title="{{item.name}}" height="64" width="64"/>
+        <h1 class="charname"><input style="color:white;" name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
+    </header>
+
+    <section class="sheet-body">
+        <div class="s7 flexcol">
+            <div class="s7 flexrow">
+                <div class="s7 flex-item">
+                    <h3>Augment Type</h3>
+                    <select name="data.type">
+                        {{#select data.type}}
+                        <option value="cyberware">{{localize "S7.AugmentTypes.cyberware"}}</option>
+                        <option value="bioware">{{localize "S7.AugmentTypes.bioware"}}</option>
+                        {{/select}}
+                    </select>
+                </div>
+                 {{> "systems/s7/templates/item/parts/enhanceselect.hbs"}}
+                <div class="s7 flex-item center">
+                    <h3>Enhancement Bonus</h3>
+                <input class="s7 value-input" type="text" name="data.enhancement" value="{{data.enhancement}}" data-dtype="Number" />
+                </div>
+            
+            </div>
+        </div>
+        <div class="s7 flexcol">
+            <div class="s7 flexrow">
+                <div class="s7 flex-item">
+                    <table>
+                        <tr class="wtext">
+                            <th>Rating</th>
+                            <th>Capacity</th>
+                            <th>Essence Cost</th>
+                        </tr>
+                        <tr style="text-align:center">
+                            <td>
+                                <input class="s7 value-input" type="text" name="data.rating" value="{{data.rating}}" data-dtype="Number"/>
+                                
+                                
+                            </td>
+                            <td>
+                                <input class="s7 value-input" type="text" name="data.capacity" value="{{data.capacity}}" data-dtype="Number"/>
+                            </td>
+                            <td>
+                                <input class="s7 value-input" type="text" name="data.ess_cost" value="{{data.ess_cost}}" data-dtype="Number"/> 
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan=3>
+                                <h3>Description</h3>
+                                <textarea name="data.effect">{{data.effect}}</textarea>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</form>
+

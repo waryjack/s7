@@ -1,0 +1,25 @@
+<div class="s7 flex-item inset">
+    <h3>AUGMENTS</h3>
+    <table>
+        <tr>
+            <th style="text-align: left;">Augment</th>
+            <th>Type</th>
+            <th>Enhances</th>
+            <th>Rating</th>
+            <th>Capacity</th>
+            <th>Essence Cost</th>
+            <th>Edit</th>
+        </tr>
+        {{#each augments as |augment name|}}
+            <tr style="text-align:center;">
+                <td style="text-align:left;"><strong><a class="item-name item" data-item-id="{{augment._id}}">{{augment.name}}</a></strong></td>
+                <td>{{proper augment.data.type}}</td>
+                <td>{{proper (localize (concatStrings "S7.GameTerms." augment.data.enhances))}}</td>
+                <td>{{augment.data.rating}}</td>
+                <td>{{augment.data.capacity}}</td>
+                <td>{{augment.data.ess_cost}}</td>
+                <td><a class="item-edit item" data-item-id="{{augment._id}}"><i class="fas fa-edit"></i></a> <a class="item-delete item" data-item-id="{{augment._id}}"><i class='fas fa-trash'></i></a></td>
+            </tr>
+        {{/each}}
+    </table>
+</div>

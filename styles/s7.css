@@ -1,8 +1,13 @@
-select, input, th, tr {
+.s7 input, th, tr {
     color:white;
 }
-table, th {
+.s7 table, th {
     border:none;
+}
+
+.s7 select {
+    color:white;
+    width:100%;
 }
 
 
@@ -10,7 +15,7 @@ table, th {
     background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAKElEQVQYV2NUU1P7//PnTwYQYGdnZ2CUl5f/D+OAJMACIBmYKkZ0LQBtSRGf2hu8MAAAAABJRU5ErkJggg==);
   }
 
-option {
+.s7 option, optgroup {
     background-color:rgb(27, 27, 27);
     color:white;
 }
@@ -43,6 +48,13 @@ table tr:nth-child(even) {
     flex:1;
     align-items:flex-start;
     overflow-x:hidden;
+}
+
+.inset {
+    padding:6px;
+    margin-top:6px;
+    margin-bottom:6px;
+    box-shadow: inset 0px 0px 10px rgba(0,0,0,0.75);
 }
 
 .border-right-light {

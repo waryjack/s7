@@ -1,0 +1,9 @@
+<div class="s7 flex-item wtext">
+    <select name="data.type" id="type-select">
+        {{#select data.type}}
+            {{#each config.spelltypes as |locstring stype|}}
+            <option value="{{stype}}">{{localize locstring}}</option>
+            {{/each}}
+        {{/select}}
+    </select>
+</div>

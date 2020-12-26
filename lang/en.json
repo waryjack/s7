@@ -1,18 +1,27 @@
 {
     "S7.GameTerms":{
-        "Attribute": "Attribute",
-        "Skill": "Skill",
-        "Edge": "Edge",
-        "Heat": "Heat",
-        "Karma": "Karma",
-        "Untrained": "Untrained",
-        "Metatypte": "Metatype",
-        "ConditionMonitor": "Condition Monitor",
-        "AttackTest": "Attack Test",
-        "SkillTest": "Skill Test",
-        "ExtendedTest": "Extended Test",
-        "DefenseTest": "Defense Test",
-        "BoostSkill": "Boost Skill"
+        "attribute": "Attribute",
+        "skill": "Skill",
+        "edge": "Edge",
+        "heat": "Heat",
+        "karma": "Karma",
+        "untrained": "Untrained",
+        "metatypte": "Metatype",
+        "condition_monitor": "Condition Monitor",
+        "physical_track": "Physical Monitor",
+        "stun_track": "Stun Monitor",
+        "attack_test": "Attack Test",
+        "skill_test": "Skill Test",
+        "extended_test": "Extended Test",
+        "defense_test": "Defense Test",
+        "boost_skill": "Boost Skill",
+        "init_dice": "Initiative Dice",
+        "init_score": "Initiative Score",
+        "armor": "Armor",
+        "damage": {
+            "physical": "Physical",
+            "stun": "Stun"
+        }
     },
     "S7.Metatypes": {
         "human": "Human",
@@ -113,5 +122,20 @@
             "machinegun": "Machine Gun",
             "cannon": "Cannon/Launcher"
         }
+    },
+    "S7.AugmentTypes": {
+        "cyberware": "Cyberware",
+        "bioware": "Bioware"
+    },
+    "S7.Elements": {
+        "acid": "Acid",
+        "electricity": "Electricity",
+        "fire": "Fire",
+        "cold": "Cold"
+    },
+    "S7.SpellModes":{
+        "none": "N/A",
+        "direct": "D",
+        "indirect": "I"
     }
 }

@@ -39,7 +39,34 @@ export const S7 = {
         grenade: "S7.WeaponTypes.grenade",
         rocket: "S7.WeaponTypes.rocket",
         explosive: "S7.WeaponTypes.explosive"
+    },
+    enhance_misc: {
+        init_dice: "S7.GameTerms.init_dice",
+        init_score: "S7.GameTerms.init_score",
+        armor: "S7.GameTerms.armor",
+        physical_track: "S7.GameTerms.physical_track",
+        stun_track: "S7.GameTerms.stun_track",
+    },
+    damagetypes: {
+        physical: "S7.GameTerms.damage.physical",
+        stun: "S7.GameTerms.damage.stun"
+    },
+    elementtypes: {
+        acid: "S7.Elements.acid",
+        electricity: "S7.Elements.electricity",
+        fire: "S7.Elements.fire",
+        cold: "S7.Elements.cold"
+    },
+    spellcats: {
+        combat: "Combat",
+        detection: "Detection",
+        health: "Health",
+        illusion: "Illusion",
+        manipulation: "Manipulation"
+    },
+    spelltypes: {
+        physical: "Physical",
+        mana: "Mana"
     }
-
 
 }

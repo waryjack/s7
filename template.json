@@ -261,7 +261,7 @@
         }
     },    
     "Item":{
-        "types":["soft","spell","power","augment","metatype","weapon","armor","gear","action"],
+        "types":["soft","spell","power","augment", "weapon","armor","gear"],
         "templates":{
             "common":{
                 "effect":"",
@@ -320,7 +320,7 @@
             "category":"",
             "type":"",
             "range":"",
-            "direct":false
+            "mode":""
         },
         "armor":{
             "templates":["common","element"],
@@ -334,6 +334,7 @@
         },
         "augment":{
             "templates":["common","roll"],
+            "type":"",
             "enhances":"",
             "enhancement":"",
             "ess_cost":0,

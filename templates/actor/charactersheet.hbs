@@ -34,13 +34,19 @@
                 <div class="s7 flexrow">
                     {{> "systems/s7/templates/actor/parts/gear_list.hbs"}}
                 </div>
+                <div class="s7 flexrow">
+                    {{> "systems/s7/templates/actor/parts/augment_list.hbs"}}
+                </div>
             </div>
         </div>
 
         <div class="tab magic" data-group="primary" data-tab="magic">
              <div class="s7 flexcol">
                 <div class="s7 flexrow">
-                    <div class="s7 flex-item"><h3>Magic</h3></div>
+                    <div class="s7 flex-item">
+                        {{> "systems/s7/templates/actor/parts/spell_list.hbs"}}
+                        {{> "systems/s7/templates/actor/parts/power_list.hbs"}}
+                    </div>
                 </div>
             </div>
         </div>

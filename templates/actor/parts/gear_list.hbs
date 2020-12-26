@@ -1,4 +1,4 @@
- <div class="s7 flex-item">
+ <div class="s7 flex-item inset">
             <h3>EQUIPMENT</h3>
             <table>
                 <tr>
@@ -14,7 +14,7 @@
             {{log "Gear" gear}}
             <tr style="text-align:center;">
                 <td style="text-align:left;"><strong><a class="item-name item" data-item-id="{{gear._id}}">{{gear.name}}</a></strong></td>
-                <td>{{proper gear.data.roll.attribute}} + {{proper gear.data.roll.skill}}</td>
+                <td>{{#unless (eq gear.data.roll.attribute "none")}}{{proper gear.data.roll.attribute}} + {{proper gear.data.roll.skill}}{{/unless}}</td>
                 <td>{{gear.data.rating}}</td>
                 <td>{{gear.data.quantity}}</td>
                 <td>{{gear.data.nuyen}}</td>

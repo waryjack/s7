@@ -1,0 +1,10 @@
+<div class="s7 flex-item wtext">
+    <select name="data.damage.type" id="dmg-select">
+        {{#select data.damage.dmgtype}}
+            <option value="none"></option>
+            {{#each config.damagetypes as |locstring dmg|}}
+            <option value="{{dmg}}">{{localize locstring}}</option>
+            {{/each}}
+        {{/select}}
+    </select>
+</div>
