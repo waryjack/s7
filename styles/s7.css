@@ -98,6 +98,10 @@ table tr:nth-child(even) {
     text-align:left;
 }
 
+/* .s7 .roll-dialog label, input, select, option {
+    color:black;
+}*/
+
 .wtext {
     color:white;    
 }
@@ -106,6 +110,10 @@ table tr:nth-child(even) {
     text-align:center;
 }
 
+.norm-color {
+    color:black;
+    background:none;
+}
 .add-item {
     margin-left:auto;
     margin-right:3px;
@@ -127,4 +135,9 @@ flex-direction:row;
     background:rgb(43, 43, 43);
     border-top:none !important;
     border-bottom:none !important;
+}
+
+.s7 .roll-dialog .norm-color {
+    color:black !important;
+    background:none !important;
 }

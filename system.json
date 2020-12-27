@@ -19,7 +19,7 @@
         }
       ],
     
-    "initiative":"1d20",
+    "initiative":"@initiative.current + @initiative.dicetext - @monitor.physical.wp - @monitor.stun.wp",
     "gridDistance": 1.5,
     "gridUnits": "m",
     "primaryTokenAttribute": "@track.physical",

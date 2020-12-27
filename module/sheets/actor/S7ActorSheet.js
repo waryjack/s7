@@ -57,8 +57,8 @@ export default class S7ActorSheet extends ActorSheet {
     activateListeners(html) {
         super.activateListeners(html);
 
-        html.find(".att-roll").click(this._onRollAttribute.bind(this));
-        html.find(".skill-roll").click(this._onRollSkill.bind(this));
+        html.find(".roll-att").click(this._onRollAttribute.bind(this));
+        html.find(".roll-skill").click(this._onRollSkill.bind(this));
         html.find(".gen-roll").click(this._onRollGeneral.bind(this));
         html.find('.inline-edit').change(this._onInlineEdit.bind(this));
         html.find('.add-item').click(this._onAddItem.bind(this));
@@ -82,10 +82,16 @@ export default class S7ActorSheet extends ActorSheet {
 
     _onRollAttribute(event){
         event.preventDefault();
+        let element = event.currentTarget;
+        let attr = element.dataset.attId;
+        return this.actor.basicRoll(attr);
     }
 
     _onRollSkill(event){
         event.preventDefault();
+        let element = event.currentTarget;
+        let skill = element.dataset.skillId;
+        return this.actor.basicRoll(skill);
     }
 
     _onRollGeneral(event){

@@ -1,0 +1,29 @@
+<form class="s7 roll-dialog norm-color">
+ <header class="roll-header">
+        <h1>Basic Roll</h1>
+    </header>
+
+<div class="s7 roll-dialog">
+     <div class="form-group">
+         {{> "systems/s7/templates/dialog/parts/roll_attribute.hbs"}}
+         {{> "systems/s7/templates/dialog/parts/roll_skill.hbs"}}
+     </div>
+     <div class="s7 flexrow">
+          <div class="s7 flex-item norm-color">
+              <label for="othermods">Other Mods</label>
+              <input class="s7 roll-dialog" style="color:black" id="othermods" type="text" value="0" data-dtype="Number"/>
+          </div>
+          <div class="s7 flex-item norm-color">
+              <label for="adv">Advantage/Disadvantage</label>
+                <select class="norm-color" name="adv" id="adv">
+                    <option class="norm-color" value="norm">Normal</option>
+                    <option class="norm-color" value="adv">Advantage</option>
+                    <option class="norm-color" value="dis">Disadvantage</option>
+                </select>
+         </div>
+     </div>
+ </div>
+ <p></p>
+
+
+</form>

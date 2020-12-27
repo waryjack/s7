@@ -8,7 +8,7 @@
     </a>
     </strong>
 </p>
-<input type="text" class="s7 value-input" data-dtype="Number" name="data.attributes.{{attributeName}}.base" value="{{attribute.base}}"/>
-+ <input type="text" class="s7 value-input" data-dtype="Number" name="data.attributes.{{attributeName}}.mod" value="{{attribute.mod}}"/>
+<input type="text" class="s7 value-input" {{#ife attributeName "essence"}}style="width:4ch"{{/ife}} data-dtype="Number" name="data.attributes.{{attributeName}}.base" value="{{attribute.base}}"/>
+{{#unless (eq attributeName "essence")}}+ <input type="text" class="s7 value-input" data-dtype="Number" name="data.attributes.{{attributeName}}.mod" value="{{attribute.mod}}"/>{{/unless}}
 </div>
 {{/unless}}

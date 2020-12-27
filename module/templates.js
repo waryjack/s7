@@ -26,6 +26,8 @@ export const preloadHandlebarsTemplates = async function() {
       "systems/s7/templates/actor/parts/stun_monitor.hbs",
       "systems/s7/templates/actor/parts/initiative_picker.hbs",
       "systems/s7/templates/actor/parts/initiative_display.hbs",
+      "systems/s7/templates/actor/parts/miscmod_list.hbs",
+      "systems/s7/templates/actor/parts/defenses.hbs",
       
       // General Partials
       "systems/s7/templates/item/parts/skillselect.hbs",
@@ -38,6 +40,10 @@ export const preloadHandlebarsTemplates = async function() {
       "systems/s7/templates/item/parts/spelltypeselect.hbs",
       "systems/s7/templates/item/parts/spellmodeselect.hbs",
       "systems/s7/templates/item/parts/magselect.hbs",
-      "systems/s7/templates/item/parts/actionselect.hbs"
+      "systems/s7/templates/item/parts/actionselect.hbs",
+
+      // Dialogs
+      "systems/s7/templates/dialog/parts/roll_attribute.hbs",
+      "systems/s7/templates/dialog/parts/roll_skill.hbs"
     ]);
   };

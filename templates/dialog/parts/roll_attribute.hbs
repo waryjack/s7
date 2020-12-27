@@ -1,0 +1,11 @@
+<div class="s7 flex-item norm-color">
+    <label for="att-select">Attribute</label>
+    <select class="norm-color" name="selected_attr" id="selected_attr">
+        {{#select selected_attr}}
+            <option class="norm-color" value="none"></option>
+            {{#each atts as |att name|}}
+            <option {{#ife ../stdAttr name}}selected{{/ife}} {{#ife ../stat name}}selected{{/ife}} class="norm-color" value="{{name}}">{{proper name}}</option>
+            {{/each}}
+        {{/select}}
+    </select>
+</div>

@@ -14,7 +14,6 @@
                     "stunmon":0,
                     "armor":0,
                     "overflowdmg":0,
-                    "cc_damage":0,
                     "wound_tolerance":0,
                     "physical_def":0,
                     "social_def":0,
@@ -98,6 +97,7 @@
                     "current_mode":"",
                     "current":0,
                     "dice":1,
+                    "dicetext":"",
                     "meatspace":{
                         "dice":1,
                         "score":0,

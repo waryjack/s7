@@ -1,6 +1,7 @@
 export default class S7Actor extends Actor {
 
-
+    attrib_list = ["body","agility","reaction","strength","willpower","logic","intuition","charisma","essence","magic"];
+    skill_list = ["acting","astral","athletics","biotech","close_combat","conjuring","cracking","electronics","enchanting", "engineering","exotic_weapons","firearms","influence","outdoors","perception","piloting","sorcery","stealth"];
 
     /**
      * @override
@@ -10,6 +11,7 @@ export default class S7Actor extends Actor {
         super.prepareBaseData();
         console.warn("prepareBaseData running");
 
+    
         const actorData = this.data;
         const data = actorData.data;
         const flags = actorData.flags;
@@ -34,6 +36,8 @@ export default class S7Actor extends Actor {
         this._prepMonitors(data);
 
         this._prepInitiative(data);
+
+        this._prepDefenses(data);
         
         
     }
@@ -79,9 +83,9 @@ export default class S7Actor extends Actor {
     _prepInitiative(data) {
         console.warn("prepping initiative");
          //prep initiative value
-         let meatScore = (data.data.attributes.reaction.value + data.data.attributes.intuition.value + data.data.miscmods.ms_initscore) - (this.data.data.monitor.physical.wp + this.data.data.monitor.stun.wp);
-         let matrixScore = (data.data.attributes.intuition.value + data.data.miscmods.mx_initscore) - (data.data.monitor.physical.wp + data.data.monitor.stun.wp);
-         let astralScore = (data.data.attributes.intuition.value * 2 + data.data.miscmods.as_initscore) - (this.data.data.monitor.physical.wp + this.data.data.monitor.stun.wp);
+         let meatScore = (data.data.attributes.reaction.value + data.data.attributes.intuition.value + data.data.miscmods.ms_initscore);
+         let matrixScore = (data.data.attributes.intuition.value + data.data.miscmods.mx_initscore);
+         let astralScore = (data.data.attributes.intuition.value * 2 + data.data.miscmods.as_initscore);
          let matrixDice = 3 + data.data.miscmods.mx_initdice;
          let astralDice = 2 + data.data.miscmods.as_initdice;
          let meatDice = 1 + data.data.miscmods.ms_initdice;       
@@ -89,25 +93,32 @@ export default class S7Actor extends Actor {
          let initmode = this.data.data.initiative.current_mode;
          let initcurrscore = this.data.data.initiative.current;
          let initcurrdice = this.data.data.initiative.dice;
+         let initdicetext = this.data.data.initiative.dicetext;
  
          if(initmode == "" || initmode == "meatspace") {
              initmode = "meatspace";
              initcurrscore = meatScore;
              initcurrdice = meatDice;
+             initdicetext = meatDice + "D6";
          } else if (initmode == "astral") {
              initmode = "astral";
              initcurrscore = astralScore;
              initcurrdice = astralDice;
+             initdicetext = astralDice + "D6";
          } else {
              initmode = "matrix";
              initcurrscore = matrixScore;
              initcurrdice = matrixDice;
+             initdicetext = matrixDice + "D6";
          }
+
+         console.warn("Init Dice Text: ", initdicetext);
 
          let modInit = {
             current_mode: initmode,
             current: initcurrscore,
             dice: initcurrdice,
+            dicetext:initdicetext,
             meatspace:{
                dice:meatDice,
                score:meatScore,
@@ -162,13 +173,29 @@ export default class S7Actor extends Actor {
         setProperty(this, "data.data.monitor.physical", physMon);
         setProperty(this, "data.data.monitor.stun", stunMon);
         setProperty(this, "data.data.monitor.overflow", ofMon);
+    }
 
+    _prepDefenses(data) {
+        let atts = data.data.attributes;
+        let physDef = Math.floor((atts.agility.value + atts.reaction.value + atts.intuition.value)/3);
+        let socDef = Math.floor((atts.charisma.value + atts.willpower.value + atts.essence.value)/3);
+        let mentDef = Math.floor((atts.logic.value + atts.intuition.value + atts.willpower.value)/3);
+        let astDef = Math.floor((atts.essence.value + atts.willpower.value + atts.magic.value)/3);
 
+        setProperty(this, "data.data.defenses.physical", physDef);
+        setProperty(this, "data.data.defenses.social", socDef);
+        setProperty(this, "data.data.defenses.mental", mentDef);
+        setProperty(this, "data.data.defenses.astral", astDef);
     }
     
     setInitiativeMode(initMode) {
-        setProperty(this, "data.data.initiative.current_mode", initMode);
-        this.sheet.render(true);
+        const actorData = duplicate(this.data);
+        actorData.data.initiative.current_mode = initMode;
+        actorData.data.initiative.current = actorData.data.initiative[initMode].score;
+        actorData.data.initiative.dice = actorData.data.initiative[initMode].dice;
+        actorData.data.initiative.dicetext = actorData.data.initiative[initMode].dice + "D6";
+
+        this.update(actorData);
     }
 
     adjustDamage(type, change){
@@ -193,5 +220,70 @@ export default class S7Actor extends Actor {
         console.warn(this.data.data.monitor);
 
     }
+
+    basicRoll(stat) {
+        const actorData = duplicate(this.data);
+        let template = CONFIG.s7.DIALOG.BASICROLL;
+        let stdAttr = "";
+
+        if (stat in actorData.data.skills) {
+            stdAttr = actorData.data.skills[stat].attribute;
+        }
+        
+
+        let dialogData = {
+            atts: actorData.data.attributes,
+            skills: actorData.data.skills,
+            stat,
+            stdAttr
+        }
+        renderTemplate(template, dialogData).then((dlg) => {
+            new Dialog({
+                title:"Basic Roll", // figure this out at some point...not localized right
+                content: dlg,
+                buttons: {
+                    roll: {
+                     icon: '<i class="fas fa-check"></i>',
+                     label: "Roll!",
+                     callback: (html) => {
+                            let suffix = "";
+                            let attr = html.find("#selected_attr").val();
+                            let skill = html.find("#selected_skill").val();
+                            let attVal = dialogData.atts[attr].value;
+                            let skillVal = dialogData.skills[skill].value;
+                            let otherMods = Number(html.find("#othermods").val());
+                            let adv = html.find("#adv").val();
+                            let rollForm = (attVal + skillVal + otherMods) + "d6";
+                            
+                            if (adv == "adv") { 
+                                suffix = ">cs3";
+                            } else if (adv == "dis") {
+                                suffix = ">cs5";
+                            } else {
+                                suffix = ">cs4";
+                            }
+
+                            rollForm += suffix;
+                            
+                            console.warn("Formula: ", rollForm);
+
+                            let basicRoll = new Roll(rollForm);
+                           
+                            basicRoll.roll().toMessage();
+                        }
+                    },
+                    close: {
+                     icon: '<i class="fas fa-times"></i>',
+                     label: "Cancel",
+                     callback: () => { console.log("Clicked Cancel"); return; }
+                    }
+                   },
+                default: "close"
+            }).render(true);
+
+        });
+
+    }
+    
 
 }

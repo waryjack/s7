@@ -80,6 +80,8 @@ export const S7 = {
         simple: "S7.ActionTypes.simple",
         move: "S7.ActionTypes.move",
         complex: "S7.ActionTypes.complex"
+    },
+    DIALOG: {
+        BASICROLL: "systems/s7/templates/dialog/rolldialog.hbs"
     }
-
 }
