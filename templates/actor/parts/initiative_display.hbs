@@ -1,14 +1,21 @@
 <div class="s7 flex-item">
     <table class="item-table">
         <tr>
-            <th>Meatspace</th>
-            <th>Matrix</th>
-            {{#if data.awakened}}<th>Astral</th>{{/if}}
+            <td>Meatspace</td>
+            <td>{{data.initiative.meatspace.score}} + {{data.initiative.meatspace.dice}}D6</td>
+            <td><input class="initmode" data-init-mode="meatspace" type="checkbox" {{checked (eq data.initiative.current_mode "meatspace")}}/> </td>
         </tr>
         <tr>
-            <td><input class="initmode" data-init-mode="meatspace" type="checkbox" {{checked (eq data.initiative.current_mode "meatspace")}}/> {{data.initiative.meatspace.score}} + {{data.initiative.meatspace.dice}}D6</td>
-            <td><input class="initmode" data-init-mode="matrix" type="checkbox" {{checked (eq data.initiative.current_mode "matrix")}}/> {{data.initiative.matrix.score}} + {{data.initiative.matrix.dice}}D6</td>
-            {{#if data.awakened}}<td><input class="initmode" data-init-mode="astral" type="checkbox" {{checked (eq data.initiative.current_mode "astral")}}/> {{data.initiative.astral.score}} + {{data.initiative.astral.dice}}D6</td>{{/if}}
+            <td>Matrix</td>
+            <td>{{data.initiative.matrix.score}} + {{data.initiative.matrix.dice}}D6</td>
+            <td><input class="initmode" data-init-mode="matrix" type="checkbox" {{checked (eq data.initiative.current_mode "matrix")}}/> </td>
         </tr>
+        {{#if data.awakened}}
+        <tr>
+            <td>Astral</td>
+            <td>{{data.initiative.astral.score}} + {{data.initiative.astral.dice}}D6</td>
+            <td><input class="initmode" data-init-mode="astral" type="checkbox" {{checked (eq data.initiative.current_mode "astral")}}/> </td>
+        </tr>
+        {{/if}}
     </table>
 </div>

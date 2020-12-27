@@ -68,6 +68,7 @@ export default class S7ActorSheet extends ActorSheet {
         html.find('.effect-toggle').click(this._toggleEffectLine.bind(this));
         html.find('.equip-item').change(this._equipItem.bind(this));
         html.find('.initmode').change(this._changeInitMode.bind(this));
+        html.find('.adj-dmg').click(this._adjustDamage.bind(this));
 
         // DragDrop Handler
         let handler = (ev) => this._onDragStart(ev);
@@ -192,5 +193,17 @@ export default class S7ActorSheet extends ActorSheet {
         this.actor.setInitiativeMode(newMode);
        
         
+    }
+
+    _adjustDamage(event){
+        event.preventDefault();
+
+        let element = event.currentTarget;
+        let dtype = element.dataset.dmgType;
+        let dchange = element.dataset.dmgChange;
+
+        console.warn("Clicked info: ", element, dtype, dchange);
+
+        return this.actor.adjustDamage(dtype, dchange);
     }
 }

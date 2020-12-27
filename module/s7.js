@@ -29,6 +29,7 @@ Hooks.once("init", () => {
     Items.registerSheet("s7", S7ItemSheet, {makeDefalt:true});
 
     // CONFIG settings for entities
+    CONFIG.debug.hooks = true;
     CONFIG.Actor.entityClass = S7Actor;
     // CONFIG.Item.entityClass = S7Item;
 

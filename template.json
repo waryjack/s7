@@ -2,6 +2,27 @@
     "Actor":{
         "types":["character", "vehicle", "spirit", "drone"],
         "templates":{
+            "miscmods": {
+                "miscmods":{
+                    "ms_initscore":0,
+                    "ms_initdice":0,
+                    "mx_initscore":0,
+                    "mx_initdice":0,
+                    "as_initscore":0,
+                    "as_initdice":0,
+                    "physmon":0,
+                    "stunmon":0,
+                    "armor":0,
+                    "overflowdmg":0,
+                    "cc_damage":0,
+                    "wound_tolerance":0,
+                    "physical_def":0,
+                    "social_def":0,
+                    "mental_def":0,
+                    "astral_def":0,
+                    "drain":0
+                }
+            },
             "attributes":{
                 "attributes":{
                     "body":{
@@ -108,6 +129,12 @@
                         "value":0,
                         "damage":0,
                         "wp":0,
+                        "disabled":false
+                    },
+                    "overflow":{
+                        "max":0,
+                        "value":0,
+                        "damage":0,
                         "disabled":false
                     }
                 }
@@ -255,7 +282,7 @@
             }
         }, 
         "character":{
-            "templates":["initiative", "skills", "attributes", "defenses", "monitor"],
+            "templates":["initiative", "skills", "attributes", "defenses", "monitor", "miscmods"],
             "age":"",
             "metatype":"",
             "karma":0,
