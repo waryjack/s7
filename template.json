@@ -74,6 +74,9 @@
             },
             "initiative":{
                 "initiative":{
+                    "current_mode":"",
+                    "current":0,
+                    "dice":1,
                     "meatspace":{
                         "dice":1,
                         "score":0,
@@ -264,7 +267,7 @@
         }
     },    
     "Item":{
-        "types":["weapon","armor","spell","power","gear","augment","deck","soft","program"],
+        "types":["weapon","armor","spell","power","gear","augment","device","soft","program"],
         "templates":{
             "common":{
                 "effect":"",
@@ -352,10 +355,10 @@
         "gear":{
             "templates":["common", "roll"]
         },
-        "deck":{
+        "device":{
             "templates":["common"],
             "equipped":false,
-            "array":[],
+            "array":"",
             "firewall":0,
             "data_proc":0,
             "sleaze":0,

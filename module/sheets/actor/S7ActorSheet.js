@@ -38,18 +38,18 @@ export default class S7ActorSheet extends ActorSheet {
        data.weapons = data.items.filter(function(item) {return item.type == "weapon"});
        data.spells = data.items.filter(function(item) {return item.type == "spell"});
        data.powers = data.items.filter(function(item) {return item.type == "power"});
-       data.decks = data.items.filter(function(item) {return item.type == "deck"});
+       data.devices = data.items.filter(function(item) {return item.type == "device"});
        data.programs = data.items.filter(function(item) {return item.type == "program"});
        data.metatype = data.items.filter(function(item) {return item.type == "metatype"});
        data.augments = data.items.filter(function(item) {return item.type == "augment"});
        data.gear = data.items.filter(function(item) {return item.type == "gear"});
        data.softs = data.items.filter(function(item) {return item.type == "soft"});
-
+       
        //experiment with layout
 
        skills1.forEach(skill => setProperty(data.skills1, skill, this.actor.data.data.skills[skill]));
        skills2.forEach(skill => setProperty(data.skills2, skill, this.actor.data.data.skills[skill]));
-       console.warn(data.skills1, data.skills2); 
+
        return data;
 
     }
@@ -66,6 +66,8 @@ export default class S7ActorSheet extends ActorSheet {
         html.find('.item-delete').click(this._onDeleteItem.bind(this));
         html.find('.edit-track').click(this._onEditTrack.bind(this));
         html.find('.effect-toggle').click(this._toggleEffectLine.bind(this));
+        html.find('.equip-item').change(this._equipItem.bind(this));
+        html.find('.initmode').change(this._changeInitMode.bind(this));
 
         // DragDrop Handler
         let handler = (ev) => this._onDragStart(ev);
@@ -165,5 +167,30 @@ export default class S7ActorSheet extends ActorSheet {
         event.preventDefault();
         
         $(event.currentTarget).next('.effect-info').slideToggle("fast");
+    }
+
+    _equipItem(event){
+        event.preventDefault();
+        let element = event.currentTarget;
+        let itemId = element.closest(".item").dataset.itemId;
+        let item = this.actor.getOwnedItem(itemId);
+        let val = element.checked;
+        console.warn("Element New Val: ", val);
+        return item.update({"data.equipped": val});
+    }
+
+    _changeInitMode(event){
+        event.preventDefault();
+        let element = event.currentTarget;
+        let val = element.checked;
+        let newMode = "";
+        if(val) {
+            newMode = element.dataset.initMode;
+        }
+        
+        console.warn("newMode: ", newMode);
+        this.actor.setInitiativeMode(newMode);
+       
+        
     }
 }

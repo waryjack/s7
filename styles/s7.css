@@ -10,7 +10,6 @@
     width:100%;
 }
 
-
 .s7 .window-content {
     background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAKElEQVQYV2NUU1P7//PnTwYQYGdnZ2CUl5f/D+OAJMACIBmYKkZ0LQBtSRGf2hu8MAAAAABJRU5ErkJggg==);
   }
@@ -86,6 +85,7 @@ table tr:nth-child(even) {
     width:2ch;
     color:white;
     text-align:center;
+    background:none;
 }
 
 .s7 .value-input-wide {

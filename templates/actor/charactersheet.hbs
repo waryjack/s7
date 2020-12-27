@@ -4,6 +4,14 @@
         <h1 class="charname"><input style="color:white;" name="name" type="text" value="{{actor.name}}" placeholder="Name"/></h1>
     </header>
 
+    <div class="s7 flexrow" style="align-items:center">
+    <div class="s7 flexcol" style="flex-grow:2">
+    {{> "systems/s7/templates/actor/parts/physical_monitor.hbs"}}
+    {{> "systems/s7/templates/actor/parts/stun_monitor.hbs"}}
+    </div>
+     
+     {{> "systems/s7/templates/actor/parts/initiative_display.hbs"}}
+    </div>
     {{> "systems/s7/templates/actor/parts/attribute_list.hbs"}}
 
     {{!-- Sheet Tab Navigation --}}
@@ -19,7 +27,6 @@
         <div class="tab skills" data-group="primary" data-tab="skills">
             <div class="s7 flexcol">
                 <div class="s7 flexrow">
-                    {{log data.skills1}}
                 {{> "systems/s7/templates/actor/parts/skill_list1.hbs"}}
                 {{> "systems/s7/templates/actor/parts/skill_list2.hbs"}}
                 {{!--> "systems/s7/templates/actor/parts/skill_list.hbs"--}}
@@ -60,7 +67,11 @@
         <div class="tab matrix" data-group="primary" data-tab="matrix">
              <div class="s7 flexcol">
                 <div class="s7 flexrow">
-                    <div class="s7 flex-item"><h3>matrix</h3>></div>
+                {{> "systems/s7/templates/actor/parts/activedevice.hbs"}}
+                </div>
+                <div class="s7 flexrow">
+                    {{> "systems/s7/templates/actor/parts/device_list.hbs"}}
+                    {{> "systems/s7/templates/actor/parts/program_list.hbs"}}
                 </div>
             </div>
         </div>

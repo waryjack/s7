@@ -1,0 +1,7 @@
+<div class="s7 flex-item">
+    <select style="width:auto;" class="pick-init">
+        <option value="meatspace" {{#ife initiative.current_mode "meatspace"}}selected{{/ife}}>Meatspace</option>
+        <option value="matrix" {{#ife initiative.current_mode "matrix"}}selected{{/ife}}>Matrix</option>
+        {{#if data.awakened}}<option value="astral" {{#ife initiative.current_mode "astral"}}selected{{/ife}}>Astral</option>{{/if}}
+    </select>
+</div>

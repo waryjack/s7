@@ -16,7 +16,6 @@
                         <th>Edit</th>
                 </tr>
             {{#each gear as |gear name|}}
-            {{log "Gear" gear}}
             <tr class="effect-toggle" style="text-align:center;">
                 <td style="text-align:left;"><strong><a class="item-name item" data-item-id="{{gear._id}}">{{gear.name}}</a></strong></td>
                 <td>{{#unless (eq gear.data.roll.attribute "none")}}{{proper gear.data.roll.attribute}} + {{proper gear.data.roll.skill}}{{/unless}}</td>

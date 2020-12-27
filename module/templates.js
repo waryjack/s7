@@ -19,7 +19,14 @@ export const preloadHandlebarsTemplates = async function() {
       "systems/s7/templates/actor/parts/power.hbs",
       "systems/s7/templates/actor/parts/skill_list1.hbs",
       "systems/s7/templates/actor/parts/skill_list2.hbs",
-
+      "systems/s7/templates/actor/parts/activedevice.hbs",
+      "systems/s7/templates/actor/parts/device_list.hbs",
+      "systems/s7/templates/actor/parts/program_list.hbs",
+      "systems/s7/templates/actor/parts/physical_monitor.hbs",
+      "systems/s7/templates/actor/parts/stun_monitor.hbs",
+      "systems/s7/templates/actor/parts/initiative_picker.hbs",
+      "systems/s7/templates/actor/parts/initiative_display.hbs",
+      
       // General Partials
       "systems/s7/templates/item/parts/skillselect.hbs",
       "systems/s7/templates/item/parts/attributeselect.hbs",

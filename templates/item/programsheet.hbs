@@ -1,0 +1,32 @@
+<form class="{{cssClass}}" autocomplete="off">
+    <header class="sheet-header">
+        <img src="{{item.img}}" data-edit="img" title="{{item.name}}" height="64" width="64"/>
+        <h1 class="charname"><input style="color:white;" name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
+    </header>
+
+    <section class="sheet-body">
+        <div class="s7 flexcol">
+            <div class="s7 flexrow">
+                <div class="s7 flex-item">
+                    <table>
+                        <tr class="wtext">
+                            <th>Rating</th>
+                            <th>Effect</th>
+                        </tr>
+                        <tr style="text-align:center">
+                            <td>
+                                <input class="s7 value-input" type="text" name="data.rating" value="{{data.rating}}" data-dtype="Number"/>
+                            </td>
+                            
+                            <td>
+                                <textarea style="color:white;" name="data.effect">{{data.effect}}</textarea>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</form>
+

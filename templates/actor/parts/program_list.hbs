@@ -1,0 +1,25 @@
+    <div class="s7 flex-item inset">
+            <h3 class="inv-header">
+                <div>PROGRAMS</div>
+                        <a class="add-item" title="Add Program" data-type="program">
+                            <i class="fas fa-plus-square"></i>
+                        </a>
+            </h3>
+            <table class="item-table">
+                <tr>
+                        <th style="text-align:left;">Program</th>
+                        <th>Rating</th>
+                        
+                </tr>
+            {{#each programs as |program name|}}
+            <tr class="effect-toggle" style="text-align:center;">
+                <td style="text-align:left;"><strong><a class="item-name item" data-item-id="{{program._id}}">{{program.name}}</a></strong></td>
+                <td>{{program.data.rating}}</td>
+               <td><a class="item-edit item" data-item-id="{{program._id}}"><i class="fas fa-edit"></i></a> <a class="item-delete item" data-item-id="{{program._id}}"><i class='fas fa-trash'></i></a></td>
+            </tr>
+            <tr class="effect-info">
+                <td>{{program.data.effect}}</td>
+            </tr>
+            {{/each}}
+            </table>
+    </div>

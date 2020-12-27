@@ -1,0 +1,29 @@
+    <div class="s7 flex-item inset">
+            <h3 class="inv-header">
+                <div>DEVICES</div>
+                        <a class="add-item" title="Add Device" data-type="device">
+                            <i class="fas fa-plus-square"></i>
+                        </a>
+            </h3>
+            <table class="item-table">
+                <tr>
+                        <th style="text-align:left;">Device</th>
+                        <th>Rating</th>
+                        <th>Array</th>
+                        <th>Programs</th>
+                        <th>Equip</th>
+                        <th>Edit</th>
+                </tr>
+            {{#each devices as |device name|}}
+            
+            <tr style="text-align:center;">
+                <td style="text-align:left;"><strong><a class="item-name item" data-item-id="{{device._id}}">{{device.name}}</a></strong></td>
+                <td>{{device.data.rating}}</td>
+                <td>{{device.data.array}}</td>
+                <td>{{device.data.programs}}</td>
+                <td class="item-name item" data-item-id="{{device._id}}"><input class="equip-item" type="checkbox" data-field="data.equipped" {{checked device.data.equipped}}/></td>
+                <td><a class="item-edit item" data-item-id="{{device._id}}"><i class="fas fa-edit"></i></a> <a class="item-delete item" data-item-id="{{device._id}}"><i class='fas fa-trash'></i></a></td>
+            </tr>
+            {{/each}}
+            </table>
+    </div>
