@@ -172,21 +172,24 @@ export default class S7Actor extends Actor {
     }
 
     adjustDamage(type, change){
+        const actorData = duplicate(this.data);
 
-        const monitor = this.data.data.monitor;
-        console.warn("monitor: ", monitor);
-        console.warn("type / change: ", type, change)
-        
+        const monitor = duplicate(actorData.data.monitor);
+
         if (change == "add") {
             monitor[type].damage = Math.min(monitor[type].max, monitor[type].damage+1);
+            monitor[type].value = Math.max(0, monitor[type].max - monitor[type].damage);
         } else {
             monitor[type].damage = Math.max(0, monitor[type].damage - 1);
+            monitor[type].value = Math.min(monitor[type].max, monitor[type].value + 1);
         }
         
         // setProperty(this, "data.data.monitor", monitor);
 
-        this.update({ "data.data.monitor": monitor});
-        this.sheet.render(true);
+        actorData.data.monitor = monitor;
+
+        this.update(actorData);
+       // this.sheet.render(true);
         console.warn(this.data.data.monitor);
 
     }
