@@ -21,6 +21,7 @@ export default class S7ActorSheet extends ActorSheet {
 
     getData() {
         const data = super.getData();
+        console.warn("actorsheet data: ", data);
         data.skills1 = {};
         data.skills2 = {};
         let skills1 = [];

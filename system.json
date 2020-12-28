@@ -18,7 +18,7 @@
           "path": "lang/en.json"
         }
       ],
-    
+    "socket":true,
     "initiative":"@initiative.current + @initiative.dicetext - @monitor.physical.wp - @monitor.stun.wp",
     "gridDistance": 1.5,
     "gridUnits": "m",

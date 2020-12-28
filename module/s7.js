@@ -16,7 +16,7 @@ Hooks.once("init", () => {
     game.S7 = {
         S7Actor,
         S7ActorSheet,
-        S7ItemSheet
+        S7ItemSheet,
     };
 
     
@@ -38,6 +38,7 @@ Hooks.once("init", () => {
     
     // Register partials templates
     preloadHandlebarsTemplates();
+   
    
     // Register handlebar helpers
     Handlebars.registerHelper('ife', function(arg1, arg2, options) {
