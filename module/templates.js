@@ -29,6 +29,7 @@ export const preloadHandlebarsTemplates = async function() {
       "systems/s7/templates/actor/parts/initiative_display.hbs",
       "systems/s7/templates/actor/parts/miscmod_list.hbs",
       "systems/s7/templates/actor/parts/defenses.hbs",
+      "systems/s7/templates/actor/parts/armor_list.hbs",
       
       // General Partials
       "systems/s7/templates/item/parts/skillselect.hbs",

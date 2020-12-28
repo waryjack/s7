@@ -45,6 +45,12 @@ export default class S7ActorSheet extends ActorSheet {
        data.augments = data.items.filter(function(item) {return item.type == "augment"});
        data.gear = data.items.filter(function(item) {return item.type == "gear"});
        data.softs = data.items.filter(function(item) {return item.type == "soft"});
+       data.armors = data.items.filter(function(item) {return item.type=="armor"});
+       data.activeArmor = data.armors.filter(function(armor) {return armor.data.equipped});
+
+       console.warn("active armor: ", data.activeArmor);
+
+       data.currentArmor = data.activeArmor[0]?.data?.rating ? data.activeArmor[0].data.rating : 0;
        
        //experiment with layout
 
@@ -182,6 +188,15 @@ export default class S7ActorSheet extends ActorSheet {
         let element = event.currentTarget;
         let itemId = element.closest(".item").dataset.itemId;
         let item = this.actor.getOwnedItem(itemId);
+        let itype = item.type;
+      
+        let itemList = this.actor.items.filter((item)=> {return item.type == itype});
+            console.warn("List of relevant items: ", itemList);
+
+        itemList.forEach((i) => {
+            i.update({"data.equipped": false});
+        });
+
         let val = element.checked;
         console.warn("Element New Val: ", val);
         return item.update({"data.equipped": val});
