@@ -83,5 +83,8 @@ export const S7 = {
     },
     DIALOG: {
         BASICROLL: "systems/s7/templates/dialog/rolldialog.hbs"
+    },
+    MESSAGE: {
+        BASICROLL: "systems/s7/templates/dialog/basicrollmessage.hbs"
     }
 }

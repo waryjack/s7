@@ -1,22 +1,16 @@
-<div class="s7 flex-item">
-    <h3>Monitors</h3>
+<div class="s7 flex-item" style="flex-grow:2">
     <table class="item-table">
         {{#unless data.monitor.stun.disabled}}<tr>
             <td> <strong>STUN (-{{data.monitor.stun.wp}}) </strong></td>
-            {{log "Stunvals" data.monitor.stun.damage data.monitor.stun.value}}
-            <td>{{#times data.monitor.stun.damage}} <i class="fas fa-square"></i> {{/times}}{{#times data.monitor.stun.value}} <i class="far fa-square"></i> {{/times}}
+            <td> <span style="color:rgb(0, 204, 255);">{{#times data.monitor.stun.damage}} <i class="fas fa-square"></i> {{/times}}{{#times data.monitor.stun.value}} <i class="far fa-square"></i> {{/times}}</span>
              <a class="adj-dmg" data-dmg-change="rem" data-dmg-type="stun"><i class="fas fa-caret-square-left"></i></a><a class="adj-dmg" data-dmg-change="add" data-dmg-type="stun"> <i class="fas fa-caret-square-right"></i></a></td>
         </tr>
         {{/unless}}
         <tr>
             <td><strong>PHYS (-{{data.monitor.physical.wp}}) </strong></td>
-            <td> {{#times data.monitor.physical.damage}} <i class="fas fa-square"></i> {{/times}}
-    {{#times data.monitor.physical.value}} <i class="far fa-square"></i> {{/times}}  <a class="adj-dmg" data-dmg-change="rem" data-dmg-type="physical"><i class="fas fa-caret-square-left"></i></a><a class="adj-dmg" data-dmg-change="add" data-dmg-type="physical"> <i class="fas fa-caret-square-right"></i></a><br/></td>
-        </tr>
-        <tr>
-            <td><strong>OVER</strong></td>
-            <td> {{#times data.monitor.overflow.damage}} <i class="fas fa-square"></i>{{/times}}
-    {{#times data.monitor.overflow.value}} <i class="far fa-square"></i>{{/times}}
+            <td><span style="color:orange;">{{#times data.monitor.physical.damage}} <i class="fas fa-square"></i> {{/times}}
+    {{#times data.monitor.physical.value}} <i class="far fa-square"></i> {{/times}}</span>  <a class="adj-dmg" data-dmg-change="rem" data-dmg-type="physical"><i class="fas fa-caret-square-left"></i></a><a class="adj-dmg" data-dmg-change="add" data-dmg-type="physical"> <i class="fas fa-caret-square-right"></i></a> <strong>|</strong> <span style="color:red;">{{#times data.monitor.overflow.damage}} <i class="fas fa-square"></i>{{/times}}
+    {{#times data.monitor.overflow.value}} <i class="far fa-square"></i>{{/times}}</span>
      <a class="adj-dmg" data-dmg-change="rem" data-dmg-type="overflow"><i class="fas fa-caret-square-left"></i></a><a class="adj-dmg" data-dmg-change="add" data-dmg-type="overflow"> <i class="fas fa-caret-square-right"></i></a></td>
         </tr>
     </table>  

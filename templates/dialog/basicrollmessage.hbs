@@ -1,0 +1,27 @@
+<div class="s7 roll-dialog">
+    <header class="roll-header taskroll-info">
+            <h2 class="roll-name">{{upper (localize (concatStrings "S7.Attributes.Short." attr))}}+{{proper (localize (concatStrings "S7.Skills." skill))}}
+                <div class="taskroll-final">
+                    {{roll.total}}
+                </div>
+            </h2>
+    </header>
+    <div class="taskroll-msg">
+        <p> 
+            <strong>Modifiers: </strong>
+                  {{#if (gt mods 0)}}+{{mods}}{{/if}}
+                  {{#if (lt mods 0)}}{{mods}}{{/if}}
+                  {{#if (eq mods 0)}}0{{/if}}
+        </p>
+        <p>
+            <strong>Wound Modifiers: </strong>    -{{wounds}} (WP)
+        </p>
+        <p>
+            <strong>Roll Mode: </strong>{{#if (ne tweak "")}}{{proper tweak}}{{else}}None{{/if}}
+        </p>
+    </div>
+    <div class="taskroll-tt">
+        <hr>
+        <div>{{tooltip}}</div>
+    </div>
+</div>

@@ -1,21 +1,19 @@
 <form class="{{cssClass}}" autocomplete="off">
-    <header class="sheet-header">
-        <img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="64" width="64"/>
-        <h1 class="charname"><input style="color:white;" name="name" type="text" value="{{actor.name}}" placeholder="Name"/></h1>
-    </header>
+    <div class="s7 flexrow" style="align-items:flex-start; max-height:120px ">
+        <div class="s7 flex-item">
+            <header class="sheet-header">
+                <img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="64" width="64"/>
+                <h1 class="charname"><input style="color:white;" name="name" type="text" value="{{actor.name}}" placeholder="Name"/></h1>
+            </header>
+        </div>
+           {{> "systems/s7/templates/actor/parts/initiative_display.hbs"}}
+    </div>
 
  {{> "systems/s7/templates/actor/parts/attribute_list.hbs"}}
     <div class="s7 flexrow" style="align-items:flex-start">
-    <div class="s7 flexcol" style="flex-grow:2">
-    {{> "systems/s7/templates/actor/parts/physical_monitor.hbs"}}
-    </div>
-    <div class="s7 flexcol">
-        {{> "systems/s7/templates/actor/parts/defenses.hbs"}}
-    </div>
-     
-     {{> "systems/s7/templates/actor/parts/initiative_display.hbs"}}
-    </div>
-   
+           {{> "systems/s7/templates/actor/parts/physical_monitor.hbs"}}
+          {{> "systems/s7/templates/actor/parts/defenses.hbs"}}
+    </div> 
 
     {{!-- Sheet Tab Navigation --}}
     <nav class="sheet-tabs tabs" data-group="primary">

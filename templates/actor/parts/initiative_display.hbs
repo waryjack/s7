@@ -1,22 +1,18 @@
 <div class="s7 flex-item">
-    <h3>Initiative</h3>
-    <table class="item-table">
+    <table class="item-table" style="padding:0px">
         <tr>
-            <td>Meatspace</td>
-            <td>{{data.initiative.meatspace.score}} + {{data.initiative.meatspace.dice}}D6</td>
-            <td><input class="initmode" data-init-mode="meatspace" type="checkbox" {{checked (eq data.initiative.current_mode "meatspace")}}/> </td>
+            <th>Meatspace</th>
+            <th>Matrix</th>
+            {{#if data.awakened}}
+            <th>Astral</th>
+            {{/if}}
         </tr>
-        <tr>
-            <td>Matrix</td>
-            <td>{{data.initiative.matrix.score}} + {{data.initiative.matrix.dice}}D6</td>
-            <td><input class="initmode" data-init-mode="matrix" type="checkbox" {{checked (eq data.initiative.current_mode "matrix")}}/> </td>
+        <tr style="text-align:center">
+            <td>{{data.initiative.meatspace.score}} + {{data.initiative.meatspace.dice}}D6 <input class="initmode" style="height:12px" data-init-mode="meatspace" type="checkbox" {{checked (eq data.initiative.current_mode "meatspace")}}/> </td>
+        
+            <td>{{data.initiative.matrix.score}} + {{data.initiative.matrix.dice}}D6 <input class="initmode" style="height:12px" data-init-mode="matrix" type="checkbox" {{checked (eq data.initiative.current_mode "matrix")}}/> </td>
+
+            {{#if data.awakened}}<td>{{data.initiative.astral.score}} + {{data.initiative.astral.dice}}D6 <input class="initmode" style="height:12px" data-init-mode="astral" type="checkbox" {{checked (eq data.initiative.current_mode "astral")}}/> </td>{{/if}}
         </tr>
-        {{#if data.awakened}}
-        <tr>
-            <td>Astral</td>
-            <td>{{data.initiative.astral.score}} + {{data.initiative.astral.dice}}D6</td>
-            <td><input class="initmode" data-init-mode="astral" type="checkbox" {{checked (eq data.initiative.current_mode "astral")}}/> </td>
-        </tr>
-        {{/if}}
     </table>
 </div>

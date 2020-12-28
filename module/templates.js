@@ -23,6 +23,7 @@ export const preloadHandlebarsTemplates = async function() {
       "systems/s7/templates/actor/parts/device_list.hbs",
       "systems/s7/templates/actor/parts/program_list.hbs",
       "systems/s7/templates/actor/parts/physical_monitor.hbs",
+      "systems/s7/templates/actor/parts/physical_monitor_horiz.hbs",
       "systems/s7/templates/actor/parts/stun_monitor.hbs",
       "systems/s7/templates/actor/parts/initiative_picker.hbs",
       "systems/s7/templates/actor/parts/initiative_display.hbs",

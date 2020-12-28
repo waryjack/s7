@@ -1,3 +1,8 @@
+/**
+ * @imports
+ */
+import S7Messenger from "../dialogs/S7Messenger.js";
+
 export default class S7Actor extends Actor {
 
     attrib_list = ["body","agility","reaction","strength","willpower","logic","intuition","charisma","essence","magic"];
@@ -252,24 +257,34 @@ export default class S7Actor extends Actor {
                             let attVal = dialogData.atts[attr].value;
                             let skillVal = dialogData.skills[skill].value;
                             let otherMods = Number(html.find("#othermods").val());
+                            let wounds = this.data.data.monitor.physical.wp + this.data.data.monitor.stun.wp;
                             let adv = html.find("#adv").val();
-                            let rollForm = (attVal + skillVal + otherMods) + "d6";
-                            
+                            let rollForm = (attVal + skillVal + otherMods - wounds) + "d6";
+                            let rollTweak = "";
                             if (adv == "adv") { 
-                                suffix = ">cs3";
+                                suffix = "cs>3";
+                                rollTweak = "advantage";
                             } else if (adv == "dis") {
-                                suffix = ">cs5";
+                                suffix = "cs>5";
+                                rollTweak = "disadvantage"
                             } else {
-                                suffix = ">cs4";
+                                suffix = "cs>4";
                             }
 
                             rollForm += suffix;
-                            
-                            console.warn("Formula: ", rollForm);
 
-                            let basicRoll = new Roll(rollForm);
-                           
-                            basicRoll.roll().toMessage();
+                            let basicRoll = new Roll(rollForm).evaluate();
+
+                            let msgData = {
+                                roll:basicRoll,
+                                attr: attr,
+                                skill: skill,
+                                mods: otherMods,
+                                tweak: rollTweak,
+                                wounds: wounds
+                            }
+                        
+                            basicRoll.getTooltip().then(tt => S7Messenger.createChatMessage(tt,msgData,CONFIG.s7.MESSAGE.BASICROLL));
                         }
                     },
                     close: {
