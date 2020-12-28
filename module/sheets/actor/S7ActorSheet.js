@@ -76,6 +76,7 @@ export default class S7ActorSheet extends ActorSheet {
         html.find('.equip-item').change(this._equipItem.bind(this));
         html.find('.initmode').change(this._changeInitMode.bind(this));
         html.find('.adj-dmg').click(this._adjustDamage.bind(this));
+        html.find('.item-roll').click(this._onRollItem.bind(this));
 
         // DragDrop Handler
         let handler = (ev) => this._onDragStart(ev);
@@ -103,6 +104,13 @@ export default class S7ActorSheet extends ActorSheet {
 
     _onRollGeneral(event){
         event.preventDefault();
+    }
+
+    _onRollItem(event){
+        event.preventDefault();
+        let element=event.currentTarget;
+        let itemId = element.dataset.itemId;
+        return this.actor.itemRoll(itemId);
     }
 
     _onEditTrack(event) {

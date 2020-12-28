@@ -7,13 +7,14 @@
             </h3>
             <table class="item-table">
                 <tr>
+                        <th></th>
                         <th style="text-align:left;">Spell</th>
                         <th>Category</th>
                         <th>Type</th>
                         <th>Range</th>
-                        <th>Base Drain</th>
-                        <th>Attack Rating</th>
-                        <th>Damage</th>
+                        <th>Drain</th>
+                        <th>Atk Rating</th>
+                        <th>Dmg</th>
                         <th>Element</th>
                         <th>Roll</th>
                         <th>Edit</th>
@@ -21,6 +22,7 @@
             {{#each spells as |spell name|}}
             
             <tr class="effect-toggle" style="text-align:center;">
+                <td><a title="Roll" class="item-roll weapon-image" data-item-id="{{spell._id}}"><img src="{{spell.img}}" height="24px" width="24px"/></td>
                 <td style="text-align:left;"><strong><a class="item-name item" data-item-id="{{spell._id}}">{{spell.name}}</a></strong></td>
                 <td>{{proper spell.data.category}}
                     {{#if (eq spell.data.category "combat")}}
@@ -31,8 +33,8 @@
                 <td>{{spell.data.range}}</td>
                 <td>{{spell.data.drain}}</td>
                 <td>{{spell.data.attack_rating.close}}</td>
-                <td>{{proper spell.data.damage.dmgtype}}</td>
-                <td>{{proper spell.data.damage.element}}</td>
+                <td>{{proper (initial spell.data.damage.dmgtype)}}</td>
+                <td>{{proper (initial spell.data.damage.element)}}</td>
                 <td>{{proper spell.data.roll.attribute}}+{{proper spell.data.roll.skill}}</td>
                
                <td><a class="item-edit item" data-item-id="{{spell._id}}"><i class="fas fa-edit"></i></a> <a class="item-delete item" data-item-id="{{spell._id}}"><i class='fas fa-trash'></i></a></td>

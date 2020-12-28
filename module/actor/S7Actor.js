@@ -237,14 +237,57 @@ export default class S7Actor extends Actor {
         
 
         let dialogData = {
+            dialogName: "Basic Roll",
             atts: actorData.data.attributes,
             skills: actorData.data.skills,
             stat,
-            stdAttr
+            stdAttr,
+            isItem:false,
+            itemEffect:""
         }
+
+        this.processRoll(template, dialogData);
+
+      
+
+    }
+
+    itemRoll(id) {
+        const actorData = duplicate(this.data);
+        let item = this.getOwnedItem(id);
+        let template = CONFIG.s7.DIALOG.BASICROLL;
+        var itemRollData;
+
+        console.warn("Clicked Item: ", item);
+
+        if (item.data.data.roll) {
+            itemRollData = item.data.data.roll;
+        } else {
+            ui.notifications.error("This item has no associated roll.");
+            return;
+        }
+        
+        let attr = itemRollData.attribute;
+        let skill = itemRollData.skill;
+
+        let dialogData = {
+            dialogName: item.name,
+            atts: actorData.data.attributes,
+            skills: actorData.data.skills,
+            stat: skill,
+            stdAttr: attr,
+            isItem:true,
+            itemEffect:item.data.data.effect
+        }
+
+        this.processRoll(template, dialogData);
+    }
+
+    processRoll(template, dialogData) {
+
         renderTemplate(template, dialogData).then((dlg) => {
             new Dialog({
-                title:"Basic Roll", // figure this out at some point...not localized right
+                title:dialogData.dialogName, // figure this out at some point...not localized right
                 content: dlg,
                 buttons: {
                     roll: {
@@ -252,10 +295,20 @@ export default class S7Actor extends Actor {
                      label: "Roll!",
                      callback: (html) => {
                             let suffix = "";
+                            let skillVal = 0;
+                            let attVal = 0;
                             let attr = html.find("#selected_attr").val();
                             let skill = html.find("#selected_skill").val();
-                            let attVal = dialogData.atts[attr].value;
-                            let skillVal = dialogData.skills[skill].value;
+                            if(attr == "none"){
+                                attVal = 0;
+                            } else {
+                                attVal = dialogData.atts[attr].value;
+                            }
+                            if(skill == "none") {
+                                skillVal = 0;
+                            } else {
+                                skillVal = dialogData.skills[skill].value;
+                            }
                             let otherMods = Number(html.find("#othermods").val());
                             let wounds = this.data.data.monitor.physical.wp + this.data.data.monitor.stun.wp;
                             let adv = html.find("#adv").val();
@@ -281,7 +334,10 @@ export default class S7Actor extends Actor {
                                 skill: skill,
                                 mods: otherMods,
                                 tweak: rollTweak,
-                                wounds: wounds
+                                wounds: wounds,
+                                dialogName: dialogData.dialogName,
+                                isItem: dialogData.isItem,
+                                itemEffect:dialogData.itemEffect
                             }
                         
                             basicRoll.getTooltip().then(tt => S7Messenger.createChatMessage(tt,msgData,CONFIG.s7.MESSAGE.BASICROLL));
@@ -297,8 +353,5 @@ export default class S7Actor extends Actor {
             }).render(true);
 
         });
-
     }
-    
-
 }

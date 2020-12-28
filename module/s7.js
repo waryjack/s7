@@ -111,6 +111,11 @@ Hooks.once("init", () => {
     Handlebars.registerHelper("or", function(a, b){
         return (a || b);
     });
+
+    Handlebars.registerHelper("initial", function(content) {
+        let result = content[0];
+        return result;
+    });
 });
 
 

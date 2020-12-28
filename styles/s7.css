@@ -34,6 +34,9 @@ table tr:nth-child(even) {
 
 }
 
+.s7 input[type='checkbox'] {
+    height:14px;
+}
 .s7 .flexcol {
     display:flex;
     flex-flow:column nowrap;
@@ -164,3 +167,9 @@ flex-direction:row;
     color:black !important;
     background:none !important;
 }
+
+.weapon-image:hover img {
+    content: url('../assets/dice-target.svg');
+    /* filter:invert(1); */
+  
+  }

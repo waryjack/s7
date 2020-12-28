@@ -7,6 +7,7 @@
             </h3>
             <table class="item-table">
                 <tr>
+                    <th></th>
                         <th style="text-align:left;">Weapon</th>
                         <th>Type</th>
                         <th>Roll</th>
@@ -18,7 +19,8 @@
             {{#each weapons as |weapon name|}}
         
             <tr style="text-align:center;">
-                <td style="text-align:left;"><strong><a class="item-name item" data-item-id="{{weapon._id}}">{{weapon.name}}</a></strong></td>
+                <td><a title="Roll" class="item-roll weapon-image" data-item-id="{{weapon._id}}"><img src="{{weapon.img}}" height="24px" width="24px"/></td>
+                <td style="text-align:left;"></a><strong><a class="item-name item" data-item-id="{{weapon._id}}">{{weapon.name}}</a></strong></td>
                 <td>{{proper weapon.data.type}}</td>
                 <td>{{#unless (eq weapon.data.roll.attribute "none")}}{{proper weapon.data.roll.attribute}}+{{proper weapon.data.roll.skill}}{{/unless}}</td>
                 <td>{{weapon.data.attack_rating.close}}/{{weapon.data.attack_rating.near}}/{{weapon.data.attack_rating.medium}}/{{weapon.data.attack_rating.far}}</td>

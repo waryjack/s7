@@ -151,5 +151,7 @@
         "simple":"Simple Action",
         "move":"Move Action",
         "complex":"Complex Action"
-    }
+    },
+    "S7.Skills.none": "N/A",
+    "S7.Attributes.Short.none": "N/A"
 }
