@@ -8,10 +8,10 @@
         <div class="s7 flexcol">
             <div class="s7 flexrow">
                 <div class="s7 flex-item">
-                    <table>
+                    <table class="item-table">
                         <tr class="wtext">
-                            <th>Armor Rating</th>
-                            <th>Accessory</th>
+                            <th>Armor Current Rating</th>
+                            <th>Armor Max Rating</th>
                             <th>Acid Protection</th>
                             <th>Cold Protection</th>
                             <th>Electricity Protection</th>
@@ -19,10 +19,10 @@
                         </tr>
                         <tr style="text-align:center">
                             <td>
-                                <input class="s7 value-input" type="text" name="data.rating" value="{{data.rating}}" data-dtype="Number"/>
+                                <input class="s7 value-input" type="text" name="data.current_rating" value="{{data.current_rating}}" data-dtype="Number"/>
                             </td>
                             <td>
-                                <input type="checkbox" style="height:14px" name="data.accessory" {{checked data.accessory}}/>
+                                <input class="s7 value-input" type="text" name="data.rating" value="{{data.rating}}" data-dtype="Number"/>
                             </td>
                             <td>
                                 <input class="s7 value-input" type="text" data-dtype="Number" name="data.element.acid" value="{{data.element.acid}}" />

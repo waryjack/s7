@@ -50,8 +50,17 @@ export default class S7ActorSheet extends ActorSheet {
 
        console.warn("active armor: ", data.activeArmor);
 
-       data.currentArmor = data.activeArmor[0]?.data?.rating ? data.activeArmor[0].data.rating : 0;
+       data.maxArmor = data.activeArmor[0]?.data?.rating
+                        ? data.activeArmor[0].data.rating + this.actor.data.data.miscmods.armor
+                        : 0 + this.actor.data.data.miscmods.armor;
+
+       data.currentArmor = data.activeArmor[0]?.data?.current_rating
+                           ? data.activeArmor[0].data.current_rating + this.actor.data.data.miscmods.armor 
+                           : 0 + this.actor.data.data.miscmods.armor;
        
+        data.armorLost = data.maxArmor - data.currentArmor;
+
+        console.warn("Current Armor, Armor Lost: ", data.currentArmor, data.armorLost);
        //experiment with layout
 
        skills1.forEach(skill => setProperty(data.skills1, skill, this.actor.data.data.skills[skill]));
@@ -77,7 +86,8 @@ export default class S7ActorSheet extends ActorSheet {
         html.find('.initmode').change(this._changeInitMode.bind(this));
         html.find('.adj-dmg').click(this._adjustDamage.bind(this));
         html.find('.item-roll').click(this._onRollItem.bind(this));
-
+        html.find('.spec-roll').click(this._onRollSpecial.bind(this));
+        html.find('.adj-armor').click(this._adjustArmor.bind(this));
         // DragDrop Handler
         let handler = (ev) => this._onDragStart(ev);
         html.find('.item-name').each((i, item) => {
@@ -111,6 +121,43 @@ export default class S7ActorSheet extends ActorSheet {
         let element=event.currentTarget;
         let itemId = element.dataset.itemId;
         return this.actor.itemRoll(itemId);
+    }
+
+    _onRollSpecial(event){
+        let att1 = "";
+        let att2 = "";
+        let rollname = "";
+        event.preventDefault();
+        let element = event.currentTarget;
+        let specRoll = element.dataset.specRoll;
+        switch(specRoll){
+            case "composure": att1 = "willpower"; 
+                              att2 = "charisma"; 
+                              rollname = "Composure (CHA+WIL)";
+                              break;
+            case "defense": att1 = "reaction"; 
+                            att2 = "intuition";
+                            rollname = "Defense (REA+INT)";
+                            break;
+            case "judge": att1 = "charisma";
+                          att2 = "intuition";
+                          rollname = "Judge Intentions (CHA+INT)";
+                          break;
+            case "memory": att1 = "logic";
+                           att2 = "willpower";
+                           rollname = "Memory (LOG+WIL)"
+                           break;
+            case "astraldef": att1 = "intuition";
+                              att2 = "logic";
+                              rollname = "Astral Defense (INT+LOG)"
+                              break;
+            case "liftcarry": att1 = "body";
+                              att2 = "strength";
+                              rollname = "Lift/Carry (BOD+STR)";
+                              break;
+        }
+
+        return this.actor.specialRoll(att1, att2, rollname);
     }
 
     _onEditTrack(event) {
@@ -223,6 +270,12 @@ export default class S7ActorSheet extends ActorSheet {
         this.actor.setInitiativeMode(newMode);
        
         
+    }
+
+    _adjustArmor(event) {
+        event.preventDefault();
+
+        return this.actor.adjustArmor();
     }
 
     _adjustDamage(event){

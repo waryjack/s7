@@ -149,13 +149,14 @@ export default class S7Actor extends Actor {
     _prepMonitors(data){
         console.warn("prepping monitors");
         let atts = data.data.attributes;
+        
         let physMon = data.data.monitor.physical;
         let stunMon = data.data.monitor.stun;
         let ofMon = data.data.monitor.overflow;   
 
         // Prepare monitors
         let physMax = Math.floor(atts.body.value/2) + 8 + data.data.miscmods.physmon;
-        let stunMax = Math.floor(atts.willpower.value/2) + 8 + data.data.miscmods.stunmon;
+        let stunMax = Math.floor(atts.willpower.value/2) + 12 + data.data.miscmods.stunmon;
         let oflowMax = atts.body.value + data.data.miscmods.overflowdmg;
 
         // Set max values
@@ -182,12 +183,15 @@ export default class S7Actor extends Actor {
 
     _prepDefenses(data) {
         let atts = data.data.attributes;
-        let physDef = Math.floor((atts.agility.value + atts.reaction.value + atts.intuition.value)/3);
-        let socDef = Math.floor((atts.charisma.value + atts.willpower.value + atts.essence.value)/3);
-        let mentDef = Math.floor((atts.logic.value + atts.intuition.value + atts.willpower.value)/3);
-        let astDef = Math.floor((atts.essence.value + atts.willpower.value + atts.magic.value)/3);
+        let skills = data.data.skills;
+        let rangedDef = Math.floor((atts.agility.value + atts.reaction.value + atts.intuition.value + skills.firearms.value)/4);
+        let meleeDef = Math.floor((atts.agility.value + atts.reaction.value + atts.intuition.value + skills.close_combat.value)/4);
+        let socDef = Math.floor((atts.charisma.value + atts.willpower.value + atts.essence.value + skills.influence.value)/4);
+        let mentDef = Math.floor((atts.logic.value + atts.intuition.value + atts.willpower.value + skills.perception.value)/4);
+        let astDef = Math.floor((atts.essence.value + atts.willpower.value + atts.magic.value + skills.sorcery.value)/4);
 
-        setProperty(this, "data.data.defenses.physical", physDef);
+        setProperty(this, "data.data.defenses.ranged", rangedDef);
+        setProperty(this, "data.data.defenses.melee", meleeDef);
         setProperty(this, "data.data.defenses.social", socDef);
         setProperty(this, "data.data.defenses.mental", mentDef);
         setProperty(this, "data.data.defenses.astral", astDef);
@@ -226,25 +230,74 @@ export default class S7Actor extends Actor {
 
     }
 
-    basicRoll(stat) {
+    adjustArmor() {
+
+        let activeArmor = this.items.filter(item => {return item.type=="armor" && item.data.data.equipped;});
+        
+        if (!Array.isArray(activeArmor) || !activeArmor.length) {
+            ui.notifications.warn("Natural armor does not degrade.");
+            return;
+        }
+
+        let itemData = activeArmor[0].data;
+
+        let armorId = itemData._id;
+
+        console.warn("Actor class activeArmor, id ", activeArmor, armorId);
+       
+        itemData.data.current_rating = Math.max(0, itemData.data.current_rating - 1); 
+
+        this.getOwnedItem(armorId).update(itemData);
+    }
+
+    specialRoll(att1, att2, rollname) {
+        console.warn("Att1, Att2", att1, att2);
         const actorData = duplicate(this.data);
         let template = CONFIG.s7.DIALOG.BASICROLL;
-        let stdAttr = "";
 
-        if (stat in actorData.data.skills) {
-            stdAttr = actorData.data.skills[stat].attribute;
+        let dialogData = {
+            dialogName: rollname,
+            atts: actorData.data.attributes,
+            skills: actorData.data.skills,
+            att1:att1,
+            att2:att2,
+            skill:"none",
+            isItem:true,
+            itemEffect:"",
         }
-        
+
+        this.processRoll(template, dialogData);
+    }
+
+    basicRoll(clicked) {
+        const actorData = duplicate(this.data);
+        let template = CONFIG.s7.DIALOG.BASICROLL;
+        let att1 = "none";
+        let att2 = "none";
+        let skill = "none";
+
+        if (clicked in actorData.data.skills) {
+            att1 = actorData.data.skills[clicked].attribute;
+            skill = clicked;
+        } else if (clicked in actorData.data.attributes) {
+            att1 = clicked;
+        }
+        console.warn("Clicked: ", clicked);
+        console.warn("Att1: ", att1);
+        console.warn("Skill: ", skill);
 
         let dialogData = {
             dialogName: "Basic Roll",
             atts: actorData.data.attributes,
             skills: actorData.data.skills,
-            stat,
-            stdAttr,
+            att1: att1,
+            att2: att2,
+            skill: skill,
             isItem:false,
             itemEffect:""
         }
+
+        console.warn("Dialog Data: ", dialogData);
 
         this.processRoll(template, dialogData);
 
@@ -257,6 +310,7 @@ export default class S7Actor extends Actor {
         let item = this.getOwnedItem(id);
         let template = CONFIG.s7.DIALOG.BASICROLL;
         var itemRollData;
+        let att2 = "none";
 
         console.warn("Clicked Item: ", item);
 
@@ -274,8 +328,9 @@ export default class S7Actor extends Actor {
             dialogName: item.name,
             atts: actorData.data.attributes,
             skills: actorData.data.skills,
-            stat: skill,
-            stdAttr: attr,
+            att1: attr,
+            att2: att2,
+            skill: skill,
             isItem:true,
             itemEffect:item.data.data.effect
         }
@@ -296,14 +351,26 @@ export default class S7Actor extends Actor {
                      callback: (html) => {
                             let suffix = "";
                             let skillVal = 0;
-                            let attVal = 0;
-                            let attr = html.find("#selected_attr").val();
+                            let attVal1 = 0;
+                            let attVal2 = 0;
+                            let attr1 = html.find("#selected_attr1").val();
+                            let attr2 = html.find("#selected_attr2").val();
                             let skill = html.find("#selected_skill").val();
-                            if(attr == "none"){
-                                attVal = 0;
+                            console.warn("Attr1: ", attr1);
+                            console.warn("Attr2: ", attr2);
+                            console.warn("Skill: ", skill);
+                            if(attr1 == "none"){
+                                attVal1 = 0;
                             } else {
-                                attVal = dialogData.atts[attr].value;
+                                attVal1 = Math.floor(dialogData.atts[attr1].value);
                             }
+
+                            if(attr2 == "none") {
+                                attVal2 = 0;
+                            } else {
+                                attVal2 = Math.floor(dialogData.atts[attr2].value);
+                            }
+
                             if(skill == "none") {
                                 skillVal = 0;
                             } else {
@@ -312,7 +379,7 @@ export default class S7Actor extends Actor {
                             let otherMods = Number(html.find("#othermods").val());
                             let wounds = this.data.data.monitor.physical.wp + this.data.data.monitor.stun.wp;
                             let adv = html.find("#adv").val();
-                            let rollForm = (attVal + skillVal + otherMods - wounds) + "d6";
+                            let rollForm = (attVal1 + attVal2 + skillVal + otherMods - wounds) + "d6";
                             let rollTweak = "";
                             if (adv == "adv") { 
                                 suffix = "cs>3";
@@ -330,7 +397,8 @@ export default class S7Actor extends Actor {
 
                             let msgData = {
                                 roll:basicRoll,
-                                attr: attr,
+                                attr1: attr1,
+                                attr2: attr2,
                                 skill: skill,
                                 mods: otherMods,
                                 tweak: rollTweak,

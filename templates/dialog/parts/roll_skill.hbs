@@ -4,7 +4,7 @@
             {{#select selected_skill}}
             <option class="norm-color" value="none"></option>
             {{#each skills as |skill name|}}
-            <option {{#ife ../stat name}}selected{{/ife}} class="norm-color" value="{{name}}">{{proper name}}</option>
+            <option {{#ife ../skill name}}selected{{/ife}} class="norm-color" value="{{name}}">{{proper name}}</option>
             {{/each}}
             {{/select}}
     </select>

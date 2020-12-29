@@ -46,6 +46,7 @@ export const preloadHandlebarsTemplates = async function() {
 
       // Dialogs
       "systems/s7/templates/dialog/parts/roll_attribute.hbs",
+      "systems/s7/templates/dialog/parts/roll_attribute2.hbs",
       "systems/s7/templates/dialog/parts/roll_skill.hbs"
     ]);
   };

@@ -1,7 +1,6 @@
 <div class="s7 roll-dialog">
     {{#unless isItem}}<header class="roll-header taskroll-info">
-        {{log "attr: " attr}}
-            <h2 class="roll-name">{{upper (localize (concatStrings "S7.Attributes.Short." attr))}}+{{proper (localize (concatStrings "S7.Skills." skill))}}
+            <h2 class="roll-name">{{proper attr1}}{{#if (ne attr2 "none")}}+{{proper attr2}}{{/if}}+{{proper skill}}{{!--upper (localize (concatStrings "S7.Attributes.Short." attr))}}+{{proper (localize (concatStrings "S7.Skills." skill))--}}
                 <div class="taskroll-final">
                     {{roll.total}}
                 </div>
@@ -18,7 +17,7 @@
     {{/if}}
     <div class="taskroll-msg" style="font-size:0.85em">
         {{#if isItem}}
-        <p><em>{{upper (localize (concatStrings "S7.Attributes.Short." attr))}}+{{proper (localize (concatStrings "S7.Skills." skill))}}</em></p>
+        <p><em>{{proper attr1}}+{{proper skill}}</em></p>
         {{/if}}
         <p> 
             <strong>Modifiers: </strong>

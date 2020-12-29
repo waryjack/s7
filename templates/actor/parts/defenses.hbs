@@ -1,16 +1,19 @@
 <div class="s7 flex-item">
     <table class="item-table">
         <tr>
-            <td><a class="boost" title="Boost Defense" data-def-boost="physical"><i class="fas fa-tachometer-alt"></i></a> Physical {{data.defenses.physical}} | {{currentArmor}} <i class="fas fa-shield-alt"></i></td>
+            <td><a class="spec-roll" title="Roll Defense" data-spec-roll="defense"><i class="fas fa-dice-six"></i></a> Physical:  <i class="fas fa-fist-raised"></i> {{data.defenses.melee}} | <i class="fas fa-crosshairs"></i> {{data.defenses.ranged}}</td>
             
-            <td><a class="boost" title="Boost Defense" data-def-boost="social"><i class="fas fa-tachometer-alt"></i></a> Social {{data.defenses.social}}</td>
+            <td><a class="spec-roll" title="Roll Judge Intentions" data-spec-roll="judge"><i class="fas fa-dice-six"></i></a> Social:  {{data.defenses.social}}</td>
             
         </tr>
         <tr>
-            <td><a class="boost" title="Boost Defense" data-def-boost="social"><i class="fas fa-tachometer-alt"></i></a> Mental {{data.defenses.mental}}</td>
+            <td><a class="spec-roll" title="Roll Composure" data-spec-roll="composure"><i class="fas fa-dice-six"></i></a> Mental:  {{data.defenses.mental}}</td>
             
-            <td><a class="boost" title="Boost Defense" data-def-boost="astral"><i class="fas fa-tachometer-alt"></i></a> Astral {{data.defenses.astral}}</td>
-            
+            <td><a class="spec-roll" title="Astral Defense" data-spec-roll="astraldef"><i class="fas fa-dice-six"></i></a> Astral:  {{data.defenses.astral}} {{#if (ne data.miscmods.astral_armor 0)}} | {{data.miscmods.astral_armor}} <i class="fas fa-shield-alt"></i>{{/if}}</td> 
+        </tr>
+        <tr>
+            <td><a class="spec-roll" title="Roll Lift/Carry" data-spec-roll="liftcarry"><i class="fas fa-dice-six"></i></a> Lift / Carry Test</td>
+            <td><a class="spec-roll" title="Roll Memory" data-spec-roll="memory"><i class="fas fa-dice-six"></i></a> Memory Test</td>
         </tr>
     </table>
 </div>

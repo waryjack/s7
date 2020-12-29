@@ -13,6 +13,7 @@
                     "physmon":0,
                     "stunmon":0,
                     "armor":0,
+                    "astral_armor":0,
                     "overflowdmg":0,
                     "wound_tolerance":0,
                     "physical_def":0,
@@ -141,7 +142,8 @@
             },
             "defenses":{
                 "defenses": {
-                    "physical":0,
+                    "melee":0,
+                    "ranged":0,
                     "social":0,
                     "mental":0,
                     "astral":0
@@ -361,6 +363,7 @@
         },
         "armor":{
             "templates":["common","element"],
+            "current_rating":0,
             "accessory":false,
             "equipped":false
         },
