@@ -311,6 +311,7 @@ export default class S7Actor extends Actor {
         let template = CONFIG.s7.DIALOG.BASICROLL;
         var itemRollData;
         let att2 = "none";
+        let isFirearm = false;
 
         console.warn("Clicked Item: ", item);
 
@@ -320,7 +321,16 @@ export default class S7Actor extends Actor {
             ui.notifications.error("This item has no associated roll.");
             return;
         }
-        
+
+        isFirearm = item.data.data.type == "firearm" ? true : false;
+
+        if(isFirearm && item.data.data.ammo == 0){
+            ui.notifications.error("You need to reload!");
+            return;
+        }
+
+        console.warn("Is Firearm? ", isFirearm);
+
         let attr = itemRollData.attribute;
         let skill = itemRollData.skill;
 
@@ -332,7 +342,9 @@ export default class S7Actor extends Actor {
             att2: att2,
             skill: skill,
             isItem:true,
-            itemEffect:item.data.data.effect
+            isFirearm:isFirearm,
+            itemEffect:item.data.data.effect,
+            item:item
         }
 
         this.processRoll(template, dialogData);
@@ -350,15 +362,46 @@ export default class S7Actor extends Actor {
                      label: "Roll!",
                      callback: (html) => {
                             let suffix = "";
+                            let firemode = "";
+                            let atkPoolBonus = 0;
+                            let atkDmgBonus = 0;
+                            let range = "none";
+                            let dv = "";
+                            let shots = 0;
                             let skillVal = 0;
                             let attVal1 = 0;
                             let attVal2 = 0;
                             let attr1 = html.find("#selected_attr1").val();
                             let attr2 = html.find("#selected_attr2").val();
                             let skill = html.find("#selected_skill").val();
+                            
+                            // Placeholder for range/firemode thing
+                            if(dialogData.isFirearm) {
+                                firemode = html.find("#fire-mode").val();
+                                range = html.find("#fire-range").val();
+
+
+                                shots = dialogData.item.data.data.shots[firemode];
+                                dialogData.item.data.data.ammo = Math.max(0, dialogData.item.data.data.ammo - shots);
+                                
+                                this.getOwnedItem(dialogData.item._id).update(dialogData.item.data);
+                                
+                                if(firemode == "standard") {
+                                    atkPoolBonus = dialogData.item.data.data.attack_rating[range];
+                                    dv = dialogData.item.data.data.damage.dv + dialogData.item.data.data.damage.dmgtype;
+                                } else if(firemode == "autofire") {
+                                    atkDmgBonus = dialogData.item.data.data.attack_rating[range];
+                                    dv = Number(dialogData.item.data.data.damage.dv + atkDmgBonus) +
+                                        dialogData.item.data.data.damage.dmgtype;
+                                }
+                            }
+                            
+                            
+
                             console.warn("Attr1: ", attr1);
                             console.warn("Attr2: ", attr2);
                             console.warn("Skill: ", skill);
+
                             if(attr1 == "none"){
                                 attVal1 = 0;
                             } else {
@@ -376,10 +419,15 @@ export default class S7Actor extends Actor {
                             } else {
                                 skillVal = dialogData.skills[skill].value;
                             }
+
+                            // handle bonus to dmg or dice roll
+
+
+
                             let otherMods = Number(html.find("#othermods").val());
                             let wounds = this.data.data.monitor.physical.wp + this.data.data.monitor.stun.wp;
                             let adv = html.find("#adv").val();
-                            let rollForm = (attVal1 + attVal2 + skillVal + otherMods - wounds) + "d6";
+                            let rollForm = (attVal1 + attVal2 + skillVal + atkPoolBonus + otherMods - wounds) + "d6";
                             let rollTweak = "";
                             if (adv == "adv") { 
                                 suffix = "cs>3";
@@ -395,6 +443,8 @@ export default class S7Actor extends Actor {
 
                             let basicRoll = new Roll(rollForm).evaluate();
 
+                            
+
                             let msgData = {
                                 roll:basicRoll,
                                 attr1: attr1,
@@ -405,7 +455,12 @@ export default class S7Actor extends Actor {
                                 wounds: wounds,
                                 dialogName: dialogData.dialogName,
                                 isItem: dialogData.isItem,
-                                itemEffect:dialogData.itemEffect
+                                isFirearm: dialogData.isFirearm,
+                                item:dialogData.item,
+                                itemEffect:dialogData.itemEffect,
+                                firemode: firemode,
+                                range: range,
+                                dv: dv
                             }
                         
                             basicRoll.getTooltip().then(tt => S7Messenger.createChatMessage(tt,msgData,CONFIG.s7.MESSAGE.BASICROLL));

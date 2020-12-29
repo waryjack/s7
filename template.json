@@ -342,7 +342,12 @@
             "type":"",
             "category":"",
             "ammo":0,
-            "ammo_container":""
+            "ammo_container":"",
+            "ap":false,
+            "shots":{
+                "standard":1,
+                "autofire":3
+            }
         },
         "soft":{
             "templates":["common"],

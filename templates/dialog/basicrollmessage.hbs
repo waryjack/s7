@@ -18,6 +18,9 @@
     <div class="taskroll-msg" style="font-size:0.85em">
         {{#if isItem}}
         <p><em>{{proper attr1}}+{{proper skill}}</em></p>
+        {{#if isFirearm}}
+        <p><strong>Fire Mode: </strong>{{firemode}} <strong>Range: </strong>{{range}} <strong>Base DV</strong> {{dv}}</p>
+        {{/if}}
         {{/if}}
         <p> 
             <strong>Modifiers: </strong>

@@ -10,6 +10,30 @@
          {{> "systems/s7/templates/dialog/parts/roll_skill.hbs"}}
      </div>
      <div class="s7 flexrow">
+         {{#if isFirearm}}
+         <div class="s7 flex-item">
+         <label class="norm-color" for="fire-mode">Fire Mode</label>
+         <select class="norm-color" name="fire-mode" id="fire-mode">
+             {{#select fire-mode}}
+                <option class="norm-color" value="standard">Standard</option>
+                <option class="norm-color" value="autofire">Autofire</option>
+            {{/select}}
+         </select>
+         </div>
+         <div class="s7 flex-item">
+         <label class="norm-color" for="fire-range">Range</label>
+         <select class="norm-color" name="fire-range" id="fire-range">
+             {{#select fire-range}}
+                <option class="norm-color" value="close">Close (0-3m)</option>
+                <option class="norm-color" value="near">Near (4-15m)</option>
+                <option class="norm-color" value="medium">Medium (16-50m)</option>
+                <option class="norm-color" value="far">Far (50m+)</option>
+            {{/select}}
+         </select>
+         </div>
+         {{/if}}
+     </div>
+     <div class="s7 flexrow">
           <div class="s7 flex-item norm-color">
               <label for="othermods">Other Mods</label>
               <input class="s7 roll-dialog" style="color:black" id="othermods" type="text" value="0" data-dtype="Number"/>

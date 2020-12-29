@@ -16,11 +16,12 @@
         <div class="s7 flexcol">
             <div class="s7 flexrow">
                 <div class="s7 flex-item">
-                    <table>
+                    <table class="item-table">
                         <tr class="wtext">
                             <th>Attack Rating</th>
                             <th>DV</th>
                             <th>Dmg. Type</th>
+                            <th>AP?</th>
                             <th>Element</th>
                             {{#if (eq data.type "firearm")}}
                             <th>Ammo</th>
@@ -41,6 +42,9 @@
                                 <input class="s7 value-input" type="text" name="data.damage.dmgtype" value="{{data.damage.dmgtype}}" data-dtype="String"/>
                             </td>
                             <td>
+                                <input class="s7" type="checkbox" name="data.ap" {{checked data.ap}}/>
+                            </td>
+                            <td>
                                 <select name="data.damage.element">
                                     {{#select data.damage.element}}
                                     <option value="none"></option>
@@ -59,6 +63,20 @@
                             </td>
                             {{/if}}
                         </tr>
+                        {{#if (eq data.type "firearm")}}
+                        <tr>
+                            <th colspan=3>Ammo Consumption: Standard</th>
+                            <th colspan=4>Ammo Consumption: Autofire</th>
+                        </tr>
+                        <tr style="text-align:center">
+                            <td colspan=3>
+                                <input class="s7 value-input" type="text" name="data.shots.standard" value="{{data.shots.standard}}" data-dtype="Number"/>
+                            </td>
+                            <td colspan=4>
+                                <input class="s7 value-input" type="text" name="data.shots.autofire" value="{{data.shots.autofire}}" data-dtype="Number"/>
+                            </td>
+                        </tr>
+                        {{/if}}
                     </table>
                 </div>
             </div>

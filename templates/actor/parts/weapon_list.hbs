@@ -13,6 +13,7 @@
                         <th>Roll</th>
                         <th>Attack Rating</th>
                         <th>Damage</th>
+                        <th>AP?</th>
                         <th>Ammo</th>
                         <th>Edit</th>
                 </tr>
@@ -23,8 +24,13 @@
                 <td style="text-align:left;"></a><strong><a class="item-name item" data-item-id="{{weapon._id}}">{{weapon.name}}</a></strong></td>
                 <td>{{proper weapon.data.type}}</td>
                 <td>{{#unless (eq weapon.data.roll.attribute "none")}}{{proper weapon.data.roll.attribute}}+{{proper weapon.data.roll.skill}}{{/unless}}</td>
-                <td>{{weapon.data.attack_rating.close}}/{{weapon.data.attack_rating.near}}/{{weapon.data.attack_rating.medium}}/{{weapon.data.attack_rating.far}}</td>
+                <td>{{#if (eq weapon.data.attack_rating.close -1)}}-
+                    {{else}}{{weapon.data.attack_rating.close}}{{/if}}/
+                    {{#if (eq weapon.data.attack_rating.near -1)}}-{{else}}{{weapon.data.attack_rating.near}}{{/if}}
+                    /{{#if (eq weapon.data.attack_rating.medium -1)}}-{{else}}{{weapon.data.attack_rating.medium}}{{/if}}
+                    /{{#if (eq weapon.data.attack_rating.far -1)}}-{{else}}{{weapon.data.attack_rating.far}}{{/if}}</td>
                 <td>{{weapon.data.damage.dv}}{{weapon.data.damage.dmgtype}}</td>
+                <td>{{#if weapon.data.ap}}Yes{{else}}No{{/if}}</td>
                 <td>{{#if (eq weapon.data.type "melee")}} - {{else}}{{weapon.data.ammo}} ({{localize (concatStrings "S7.AmmoContainers." weapon.data.ammo_container)}}){{/if}}</td>
                 <td><a class="item-edit item" data-item-id="{{weapon._id}}"><i class="fas fa-edit"></i></a> <a class="item-delete item" data-item-id="{{weapon._id}}"><i class='fas fa-trash'></i></a></td>
             </tr>
