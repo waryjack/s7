@@ -1,6 +1,6 @@
 {
     "Actor":{
-        "types":["character", "vehicle", "spirit", "drone"],
+        "types":["character", "vehicle"],
         "templates":{
             "miscmods": {
                 "miscmods":{
@@ -279,8 +279,103 @@
                     }
                 }
             },
-            "vehicle_stats":{
-                
+            "vehicle_attributes":{
+                "vehicle_attributes":{
+                    "handling":{
+                        "base":1,
+                        "min":1,
+                        "mod":0,
+                        "hidden":false
+                    },
+                    "accel":{
+                        "base":1,
+                        "min":1,
+                        "mod":0,
+                        "hidden":false
+                    },
+                    "speed_int":{
+                        "base":10,
+                        "min":1,
+                        "mod":0,
+                        "hidden":false
+                    },
+                    "body":{
+                        "base":1,
+                        "min":1,
+                        "mod":0,
+                        "hidden":false
+                    },
+                    "armor":{
+                        "base":1,
+                        "min":1,
+                        "mod":0,
+                        "hidden":false
+                    },
+                    "pilot":{
+                        "base":1,
+                        "min":1,
+                        "mod":0,
+                        "hidden":false
+                    },
+                    "sensor":{
+                        "base":1,
+                        "min":1,
+                        "mod":0,
+                        "hidden":false
+                    },
+                    "seats":{
+                        "base":1,
+                        "min":1,
+                        "mod":0,
+                        "hidden":false
+                    }
+                }
+            },
+            "vehicle_skills":{
+                "vehicle_skills":{
+                    "clearsight":{
+                        "base": 0,
+                        "mod":0,
+                        "attribute": "pilot",
+                        "untrained": true,
+                        "hidden": false
+                    },
+                    "electronic_warfare":{
+                        "base": 0,
+                        "mod":0,
+                        "attribute": "sensor",
+                        "untrained": true,
+                        "hidden": false
+                    },
+                    "evasion": {
+                        "base": 0,
+                        "mod":0,
+                        "attribute": "sensor",
+                        "untrained": true,
+                        "hidden": false
+                    },
+                    "maneuvering":{
+                        "base": 0,
+                        "mod":0,
+                        "attribute": "handling",
+                        "untrained": true,
+                        "hidden": false
+                    },
+                    "stealth":{
+                        "base": 0,
+                        "mod":0,
+                        "attribute": "pilot",
+                        "untrained": true,
+                        "hidden": false
+                    },
+                    "targeting":{
+                        "base": 0,
+                        "mod":0,
+                        "attribute": "pilot",
+                        "untrained": true,
+                        "hidden": false
+                    }
+                }
             }
         }, 
         "character":{
@@ -293,6 +388,21 @@
             "streetcred":0,
             "nuyen":0,
             "awakened":false
+        },
+        "vehicle":{
+            "templates":["vehicle_attributes", "vehicle_skills", "defenses", "monitor", "miscmods","initiative"],
+            "availability":0,
+            "nuyen":0,
+            "drone":false,
+            "awakened":false,
+            "monitor":{
+                "stun":{
+                    "disabled":true
+                },
+                "overflow":{
+                    "disabled":true
+                }
+            }
         }
     },    
     "Item":{

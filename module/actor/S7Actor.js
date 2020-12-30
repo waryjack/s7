@@ -29,6 +29,10 @@ export default class S7Actor extends Actor {
 
     }
 
+    _prepareVehicleData(actorData) {
+        super.prepareDerivedData();
+    }
+
     _prepareCharacterData(actorData) {
 
         console.warn("prepareCharacterData running");

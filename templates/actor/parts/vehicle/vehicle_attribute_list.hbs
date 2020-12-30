@@ -1,0 +1,10 @@
+<div class="s7 flexrow">
+            {{#each data.vehicle_attributes as |attObj attName|}}
+            {{> "systems/s7/templates/actor/parts/attribute.hbs"
+                attribute=attObj
+                attributeName=attName
+                awakened=../data.awakened
+            }}
+            {{/each}}
+    </div>
+    

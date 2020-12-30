@@ -1,0 +1,33 @@
+<form class="{{cssClass}}" autocomplete="off">
+    <div class="s7 flexrow" style="align-items:flex-start; max-height:120px ">
+        <div class="s7 flex-item">
+            <header class="sheet-header">
+                <img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="64" width="64"/>
+                <h1 class="charname"><input style="color:white;" name="name" type="text" value="{{actor.name}}" placeholder="Name"/></h1>
+            </header>
+        </div>
+           {{> "systems/s7/templates/actor/parts/initiative_display.hbs"}}
+    </div>
+
+           {{> "systems/s7/templates/actor/parts/vehicle/vehicle_attribute_list.hbs"}}
+    <div class="s7 flexrow" style="align-items:flex-start">
+           {{> "systems/s7/templates/actor/parts/physical_monitor.hbs"}}
+          {{> "systems/s7/templates/actor/parts/defenses.hbs"}}
+    </div> 
+
+    <section class="sheet-body">
+            <div class="s7 flexcol">
+                <div class="s7 flexrow">
+                {{> "systems/s7/templates/actor/parts/vehicle/vehicle_skill_list.hbs"}}
+                </div>
+                <div class="s7 flexrow">
+                {{> "systems/s7/templates/actor/parts/weapon_list.hbs"}}       
+                </div>
+                <div class="s7 flexrow">
+                    {{> "systems/s7/templates/actor/parts/armor_list.hbs"}}
+                </div>
+            </div>
+
+    </section>
+</form>
+

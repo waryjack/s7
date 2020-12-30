@@ -1,0 +1,19 @@
+<div class="s7 flex-item inset border-right-light" style="overflow-y:auto; overflow-x:hidden">
+    <table class="item-table">
+        <tr style="color:white;">
+            <th style="text-align:left;">Autosoft</th>
+            <th>Base</th>
+            <th>Mod</th>
+            <th>Rating</th>
+        </tr>
+      
+            {{#each data.vehicle_skills as |sk id|}}
+            {{> "systems/s7/templates/actor/parts/skill.hbs"
+                skill=sk
+                skillName=id
+                awakened=../data.awakened
+                actortype="vehicle"
+            }}
+            {{/each}}
+    </table>
+</div>

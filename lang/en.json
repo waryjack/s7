@@ -54,7 +54,14 @@
         "charisma": "Cha",
         "essence": "Ess",
         "magic": "Mag",
-        "resonance": "Resonance"
+        "resonance": "Res",
+        "handling":"Hnd",
+        "accel": "Acc",
+        "speed_int":"Spd",
+        "armor":"Arm",
+        "pilot":"Plt",
+        "sensor":"Ssr",
+        "seats":"Seat"
     },
     "S7.Defenses": {
         "ranged": "Ranged Defense",
@@ -87,7 +94,12 @@
         "perception": "Perception",
         "piloting": "Piloting",
         "sorcery": "Sorcery",
-        "stealth": "Stealth"
+        "stealth": "Stealth",
+        "clearsight":"Clearsight",
+        "electronic_warfare":"Electronic Warfare",
+        "evasion":"Evasion",
+        "maneuvering":"Maneuvering",
+        "targeting":"Targeting"
     },
     "S7.WeaponTypes":{
         "melee": "Melee",

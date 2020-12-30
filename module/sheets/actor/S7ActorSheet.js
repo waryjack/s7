@@ -1,7 +1,8 @@
 export default class S7ActorSheet extends ActorSheet {
 
     get template(){
-        return "systems/s7/templates/actor/charactersheet.hbs";
+        const path = 'systems/s7/templates/actor/';
+        return `${path}${this.actor.data.type}sheet.hbs`;
     }
 
     static get defaultOptions() {
@@ -22,6 +23,8 @@ export default class S7ActorSheet extends ActorSheet {
     getData() {
         const data = super.getData();
         console.warn("actorsheet data: ", data);
+
+        if(this.actor.data.type == "character") {
         data.skills1 = {};
         data.skills2 = {};
         let skills1 = [];
@@ -65,6 +68,10 @@ export default class S7ActorSheet extends ActorSheet {
 
        skills1.forEach(skill => setProperty(data.skills1, skill, this.actor.data.data.skills[skill]));
        skills2.forEach(skill => setProperty(data.skills2, skill, this.actor.data.data.skills[skill]));
+       }
+       else {
+            console.warn("Vehicle Prep Placeholder");
+       }
 
        return data;
 
