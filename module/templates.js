@@ -34,6 +34,10 @@ export const preloadHandlebarsTemplates = async function() {
       // Vehicle partials
       "systems/s7/templates/actor/parts/vehicle/vehicle_attribute_list.hbs",
       "systems/s7/templates/actor/parts/vehicle/vehicle_skill_list.hbs",
+      "systems/s7/templates/actor/parts/vehicle/vehicle_skill.hbs",
+      "systems/s7/templates/actor/parts/vehicle/vehicle_attribute.hbs",
+      "systems/s7/templates/actor/parts/veh_miscmods.hbs",
+
       
       // General Partials
       "systems/s7/templates/item/parts/skillselect.hbs",
@@ -47,6 +51,9 @@ export const preloadHandlebarsTemplates = async function() {
       "systems/s7/templates/item/parts/spellmodeselect.hbs",
       "systems/s7/templates/item/parts/magselect.hbs",
       "systems/s7/templates/item/parts/actionselect.hbs",
+      "systems/s7/templates/item/parts/veh_attributeselect.hbs",
+      "systems/s7/templates/item/parts/veh_skillselect.hbs",
+      
 
       // Dialogs
       "systems/s7/templates/dialog/parts/roll_attribute.hbs",

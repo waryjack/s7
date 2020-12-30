@@ -8,9 +8,17 @@
         <div class="s7 flexcol">
             <div class="s7 flexrow">
                 {{> "systems/s7/templates/item/parts/weapontypes.hbs"}}
-                 {{> "systems/s7/templates/item/parts/attributeselect.hbs"}}
-             {{> "systems/s7/templates/item/parts/skillselect.hbs"}}
-            
+                {{#if (and isOwned (eq ownerType "vehicle"))}}
+                    {{> "systems/s7/templates/item/parts/veh_attributeselect.hbs"}}
+                {{else}}
+                    {{> "systems/s7/templates/item/parts/attributeselect.hbs"}}
+                {{/if}}
+
+                {{#if (and isOwned (eq ownerType "vehicle"))}}
+                    {{> "systems/s7/templates/item/parts/veh_skillselect.hbs"}}
+                {{else}}
+                    {{> "systems/s7/templates/item/parts/skillselect.hbs"}}
+                {{/if}}
             </div>
         </div>
         <div class="s7 flexcol">

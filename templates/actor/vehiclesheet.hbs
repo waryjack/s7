@@ -9,22 +9,26 @@
            {{> "systems/s7/templates/actor/parts/initiative_display.hbs"}}
     </div>
 
-           {{> "systems/s7/templates/actor/parts/vehicle/vehicle_attribute_list.hbs"}}
+           {{> "systems/s7/templates/actor/parts/attribute_list.hbs"}}
     <div class="s7 flexrow" style="align-items:flex-start">
-           {{> "systems/s7/templates/actor/parts/physical_monitor.hbs"}}
-          {{> "systems/s7/templates/actor/parts/defenses.hbs"}}
+           {{> "systems/s7/templates/actor/parts/physical_monitor.hbs"
+                type="vehicle"
+           }}
+          {{> "systems/s7/templates/actor/parts/defenses.hbs"
+                type="vehicle"
+            }}
     </div> 
 
     <section class="sheet-body">
             <div class="s7 flexcol">
                 <div class="s7 flexrow">
-                {{> "systems/s7/templates/actor/parts/vehicle/vehicle_skill_list.hbs"}}
+                {{> "systems/s7/templates/actor/parts/skill_list.hbs"}}
                 </div>
                 <div class="s7 flexrow">
                 {{> "systems/s7/templates/actor/parts/weapon_list.hbs"}}       
                 </div>
                 <div class="s7 flexrow">
-                    {{> "systems/s7/templates/actor/parts/armor_list.hbs"}}
+                    {{> "systems/s7/templates/actor/parts/veh_miscmods.hbs"}}
                 </div>
             </div>
 

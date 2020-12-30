@@ -9,16 +9,19 @@
         <tr>
             <td><strong>PHYS (-{{data.monitor.physical.wp}}) </strong></td>
             <td><span style="color:orange;">{{#times data.monitor.physical.damage}} <i class="fas fa-square"></i> {{/times}}
-    {{#times data.monitor.physical.value}} <i class="far fa-square"></i> {{/times}}</span>  <a class="adj-dmg" data-dmg-change="rem" data-dmg-type="physical"><i class="fas fa-caret-square-left"></i></a><a class="adj-dmg" data-dmg-change="add" data-dmg-type="physical"> <i class="fas fa-caret-square-right"></i></a> <strong>|</strong> 
+    {{#times data.monitor.physical.value}} <i class="far fa-square"></i> {{/times}}</span>  <a class="adj-dmg" data-dmg-change="rem" data-dmg-type="physical"><i class="fas fa-caret-square-left"></i></a><a class="adj-dmg" data-dmg-change="add" data-dmg-type="physical"> <i class="fas fa-caret-square-right"></i></a> <strong>
+        {{#unless (eq type "vehicle")}}|</strong> 
     <br<span style="color:red;">{{#times data.monitor.overflow.damage}} <i class="fas fa-square"></i>{{/times}}
     {{#times data.monitor.overflow.value}} <i class="far fa-square"></i>{{/times}}</span>
-     <a class="adj-dmg" data-dmg-change="rem" data-dmg-type="overflow"><i class="fas fa-caret-square-left"></i></a><a class="adj-dmg" data-dmg-change="add" data-dmg-type="overflow"> <i class="fas fa-caret-square-right"></i></a></td>
+     <a class="adj-dmg" data-dmg-change="rem" data-dmg-type="overflow"><i class="fas fa-caret-square-left"></i></a><a class="adj-dmg" data-dmg-change="add" data-dmg-type="overflow"> <i class="fas fa-caret-square-right"></i></a>{{/unless}}</td>
         </tr>
-        <tr>
+        {{log "physmon data" data}}
+        {{#unless (eq type "vehicle")}}<tr>
             <td><strong>ARMOR</strong></td>
             <td><span style="color:green;">{{#times currentArmor}} <i class="fas fa-square"></i> {{/times}}{{#times armorLost}} <i class="far fa-square"></i> {{/times}}</span> <a class="adj-armor"><i class="fas fa-caret-square-left"></i></a></td>
             <td></td>
         </tr>
+        {{/unless}}
     </table>  
     
 </div>

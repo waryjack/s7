@@ -31,6 +31,12 @@ export default class S7Actor extends Actor {
 
     _prepareVehicleData(actorData) {
         super.prepareDerivedData();
+        const data = actorData;
+
+        this._prepAttsAndSkills(data);
+        this._prepMonitors(data);
+        this._prepVehicleInitiative(data);
+        this._prepVehicleDefenses(data);
     }
 
     _prepareCharacterData(actorData) {
@@ -76,12 +82,14 @@ export default class S7Actor extends Actor {
             setProperty(this, "data.data.attributes", atts);
             setProperty(this, "data.data.skills", skills);
     
+            if(data.type == "character") {
             // Toggle Magic attribute and skill visibility
             setProperty(this, "data.data.skills.astral.hidden", !data.data.awakened);
             setProperty(this, "data.data.skills.conjuring.hidden", !data.data.awakened);
             setProperty(this, "data.data.skills.enchanting.hidden", !data.data.awakened);
             setProperty(this, "data.data.skills.sorcery.hidden", !data.data.awakened);
             setProperty(this, "data.data.attributes.magic.hidden", !data.data.awakened);
+            }
     }
 
     /**
@@ -150,18 +158,79 @@ export default class S7Actor extends Actor {
          console.warn("initiative prepped");
     }
 
+    _prepVehicleInitiative(data){
+        console.warn("prepVehicleInitiative stub");
+
+         let meatScore = (data.data.attributes.pilot.value * 2) + data.data.miscmods.ms_initscore;
+         let matrixScore = meatScore;
+         
+         let matrixDice = 4 + data.data.miscmods.mx_initdice;
+         let meatDice = 4 + data.data.miscmods.ms_initdice;
+
+         let initmode = this.data.data.initiative.current_mode;
+         let initcurrscore = this.data.data.initiative.current;
+         let initcurrdice = this.data.data.initiative.dice;
+         let initdicetext = this.data.data.initiative.dicetext;
+ 
+         if(initmode == "" || initmode == "meatspace") {
+             initmode = "meatspace";
+             initcurrscore = meatScore;
+             initcurrdice = meatDice;
+             initdicetext = meatDice + "D6";
+         } else {
+             initmode = "matrix";
+             initcurrscore = matrixScore;
+             initcurrdice = matrixDice;
+             initdicetext = matrixDice + "D6";
+         }
+
+         console.warn("Init Dice Text: ", initdicetext);
+
+         let modInit = {
+            current_mode: initmode,
+            current: initcurrscore,
+            dice: initcurrdice,
+            dicetext:initdicetext,
+            meatspace:{
+               dice:meatDice,
+               score:meatScore,
+               misc:0
+            },
+            matrix:{
+                dice:matrixDice,
+                score:matrixScore,
+                misc:0
+            },
+            astral:{
+                dice:0,
+                score:0,
+                misc:0
+            }
+        }
+
+        setProperty(this, "data.data.initiative", modInit);
+    }
+    
     _prepMonitors(data){
         console.warn("prepping monitors");
-        let atts = data.data.attributes;
-        
+        let character = this.data.type == "character";
+        let atts = data.data.attributes
+        let pWp = 0;
+        let sWp = 0;
         let physMon = data.data.monitor.physical;
         let stunMon = data.data.monitor.stun;
         let ofMon = data.data.monitor.overflow;   
 
         // Prepare monitors
-        let physMax = Math.floor(atts.body.value/2) + 8 + data.data.miscmods.physmon;
-        let stunMax = Math.floor(atts.willpower.value/2) + 12 + data.data.miscmods.stunmon;
-        let oflowMax = atts.body.value + data.data.miscmods.overflowdmg;
+        let physMax = character ? 
+                        Math.floor(atts.body.value/2) + 8 + data.data.miscmods.physmon :
+                        Math.ceil(atts.body.value/2) + 12;
+        let stunMax = character ?
+                      Math.floor(atts.willpower.value/2) + 12 + data.data.miscmods.stunmon :
+                      0;
+        let oflowMax = character ?
+                       atts.body.value + data.data.miscmods.overflowdmg :
+                       0
 
         // Set max values
         physMon.max = physMax;
@@ -173,12 +242,15 @@ export default class S7Actor extends Actor {
         ofMon.value = Math.max(0, oflowMax - ofMon.damage);
 
         // Calculate wound mods
-        let pWp = Math.max(0, Math.floor(physMon.damage / 3) - data.data.miscmods.wound_tolerance);
-        let sWp = Math.max(0, Math.floor(stunMon.damage / 3) - data.data.miscmods.wound_tolerance);
+        if (character) {
+            pWp = Math.max(0, Math.floor(physMon.damage / 3) - data.data.miscmods.wound_tolerance);
+            sWp = Math.max(0, Math.floor(stunMon.damage / 3) - data.data.miscmods.wound_tolerance);
+        } else {
+            pWp = Math.max(0, Math.floor(physMon.damage / 3));
+        }
 
         physMon.wp = pWp;
         stunMon.wp = sWp;
-
         // Set the final objects
         setProperty(this, "data.data.monitor.physical", physMon);
         setProperty(this, "data.data.monitor.stun", stunMon);
@@ -199,6 +271,18 @@ export default class S7Actor extends Actor {
         setProperty(this, "data.data.defenses.social", socDef);
         setProperty(this, "data.data.defenses.mental", mentDef);
         setProperty(this, "data.data.defenses.astral", astDef);
+    }
+
+    _prepVehicleDefenses(data) {
+        console.warn("Vehicle Defenses Placeholder");
+        let atts = data.data.attributes;
+        let skills = data.data.skills;
+
+        let rangedDef = Math.floor((atts.handling.value + atts.pilot.value + atts.sensor.value + skills.evasion.value)/4);
+        let meleeDef = rangedDef;
+
+        setProperty(this, "data.data.defenses.ranged", rangedDef);
+        setProperty(this, "data.data.defenses.melee", meleeDef);
     }
     
     setInitiativeMode(initMode) {

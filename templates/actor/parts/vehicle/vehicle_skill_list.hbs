@@ -8,7 +8,7 @@
         </tr>
       
             {{#each data.vehicle_skills as |sk id|}}
-            {{> "systems/s7/templates/actor/parts/skill.hbs"
+            {{> "systems/s7/templates/actor/parts/vehicle/vehicle_skill.hbs"
                 skill=sk
                 skillName=id
                 awakened=../data.awakened

@@ -1,0 +1,14 @@
+{{#unless attribute.hidden}}
+<div class="s7 flex-attribute center inset">
+<p>
+    <strong>
+    <a class="roll-att" data-att-id="{{attributeName}}">
+    {{upper (localize (concatStrings "S7.Attributes.Short." attributeName))}}
+    <span>({{attribute.value}})</span>
+    </a>
+    </strong>
+</p>
+<input type="text" class="s7 value-input" {{#ife attributeName "essence"}}style="width:4ch"{{/ife}} data-dtype="Number" name="data.vehicle_attributes.{{attributeName}}.base" value="{{attribute.base}}"/>
+{{#unless (eq attributeName "essence")}}+ <input type="text" class="s7 value-input" data-dtype="Number" name="data.vehicle_attributes.{{attributeName}}.mod" value="{{attribute.mod}}"/>{{/unless}}
+</div>
+{{/unless}}

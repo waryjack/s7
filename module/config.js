@@ -31,6 +31,20 @@ export const S7 = {
         sorcery: "S7.Skills.sorcery",
         stealth: "S7.Skills.stealth"
     },
+    vehicle_skills: {
+        clearsight: "S7.Skills.clearsight",
+        electronic_warfare: "S7.Skills.electronic_warfare",
+        evasion: "S7.Skills.evasion",
+        maneuvering: "S7.Skills.maneuvering",
+        targeting: "S7.Skills.targeting",
+        stealth: "S7.Skills.stealth"
+    },
+    vehicle_attributes: {
+        handling: "S7.Attributes.Vehicle.handling",
+        accel: "S7.Attributes.Vehicle.accel",
+        pilot: "S7.Attributes.Vehicle.pilot",
+        sensor: "S7.Attributes.Vehicle.sensor"
+    },
     weapontypes: {
         melee: "S7.WeaponTypes.melee",
         projectile: "S7.WeaponTypes.projectile",

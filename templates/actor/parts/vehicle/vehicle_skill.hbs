@@ -1,0 +1,11 @@
+{{#unless skill.hidden}}
+{{log "Type: " actortype}}
+<tr class="wtext">
+  <td><strong><a class="roll-skill" data-skill-id="{{skillName}}">
+          {{localize (concatStrings "S7.Skills." skillName)}}</a></strong>
+          ({{localize (concatStrings "S7.Attributes.Short." skill.attribute)}})</td>
+  <td style="text-align:center;"><input type="text" data-dtype="Number" class="s7 value-input" name="data.vehicle_skills.{{skillName}}.base" value="{{skill.base}}"/></td>
+  <td style="text-align:center;"><input type="text" data-dtype="Number" class="s7 value-input" name="data.vehicle_skills.{{skillName}}.mod" value="{{skill.mod}}"/></td>
+  <td style="text-align:center;"><strong>{{skill.value}}</strong></td>
+</tr>
+{{/unless}}

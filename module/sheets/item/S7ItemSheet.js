@@ -20,6 +20,9 @@ export default class S7ItemSheet extends ItemSheet {
 
         data.config = CONFIG.s7;
         
+        data.isOwned = this.item.isOwned;
+        data.ownerType = this.item.actor.data.type;
+        console.warn("item actor type: ", this.item.actor.data.type);
         return data;
 
     }

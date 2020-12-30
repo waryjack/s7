@@ -55,13 +55,22 @@
         "essence": "Ess",
         "magic": "Mag",
         "resonance": "Res",
-        "handling":"Hnd",
-        "accel": "Acc",
+        "handling":"Hndl",
+        "accel": "Accl",
         "speed_int":"Spd",
         "armor":"Arm",
         "pilot":"Plt",
-        "sensor":"Ssr",
+        "sensor":"Snsr",
         "seats":"Seat"
+    },
+    "S7.Attributes.Vehicle":{
+        "handling": "Handling",
+        "accel": "Acceleration",
+        "speed_int": "Speed Interval",
+        "armor":"Armor",
+        "pilot": "Pilot",
+        "sensor": "Sensor",
+        "seats": "Seats"
     },
     "S7.Defenses": {
         "ranged": "Ranged Defense",

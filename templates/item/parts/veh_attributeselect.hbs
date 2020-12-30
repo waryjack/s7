@@ -1,0 +1,11 @@
+<div class="s7 flex-item wtext">
+    <label for="att-select">Roll Attribute</label>
+    <select name="data.roll.attribute" id="att-select">
+        {{#select data.roll.attribute}}
+            <option value="none"></option>
+            {{#each config.vehicle_attributes as |locstring attr|}}
+            <option value="{{attr}}">{{localize locstring}}</option>
+            {{/each}}
+        {{/select}}
+    </select>
+</div>

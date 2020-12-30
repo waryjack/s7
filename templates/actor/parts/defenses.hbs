@@ -2,7 +2,7 @@
     <table class="item-table">
         <tr>
             <td><a class="spec-roll" title="Roll Defense" data-spec-roll="defense"><i class="fas fa-dice-six"></i></a> Physical:  <i class="fas fa-fist-raised"></i> {{data.defenses.melee}} | <i class="fas fa-crosshairs"></i> {{data.defenses.ranged}}</td>
-            
+        {{#unless (eq type "vehicle")}}    
             <td><a class="spec-roll" title="Roll Judge Intentions" data-spec-roll="judge"><i class="fas fa-dice-six"></i></a> Social:  {{data.defenses.social}}</td>
             
         </tr>
@@ -14,6 +14,7 @@
         <tr>
             <td><a class="spec-roll" title="Roll Lift/Carry" data-spec-roll="liftcarry"><i class="fas fa-dice-six"></i></a> Lift / Carry Test</td>
             <td><a class="spec-roll" title="Roll Memory" data-spec-roll="memory"><i class="fas fa-dice-six"></i></a> Memory Test</td>
+        {{/unless}}
         </tr>
     </table>
 </div>

@@ -23,6 +23,7 @@ export default class S7ActorSheet extends ActorSheet {
     getData() {
         const data = super.getData();
         console.warn("actorsheet data: ", data);
+        data.config = CONFIG.s7;
 
         if(this.actor.data.type == "character") {
         data.skills1 = {};
@@ -36,7 +37,6 @@ export default class S7ActorSheet extends ActorSheet {
          skills1 = ["acting","athletics","biotech","close_combat","cracking","electronics","engineering"];
          skills2 = ["exotic_weapons","firearms","influence","outdoors","perception","piloting","stealth"];    
         }
-        data.config = CONFIG.s7;
        // data.attList = ["body","reaction","agility","strength","willpower","logic","intuition","charisma","essence","magic"];
         
        data.weapons = data.items.filter(function(item) {return item.type == "weapon"});
@@ -68,9 +68,10 @@ export default class S7ActorSheet extends ActorSheet {
 
        skills1.forEach(skill => setProperty(data.skills1, skill, this.actor.data.data.skills[skill]));
        skills2.forEach(skill => setProperty(data.skills2, skill, this.actor.data.data.skills[skill]));
-       }
-       else {
+       } else {
             console.warn("Vehicle Prep Placeholder");
+            data.weapons = data.items.filter(function(item) {return item.type == "weapon"});
+           
        }
 
        return data;
@@ -170,6 +171,7 @@ export default class S7ActorSheet extends ActorSheet {
     _onEditTrack(event) {
         event.preventDefault();
     }
+
     _onAddItem(event) {
         event.preventDefault();
         
