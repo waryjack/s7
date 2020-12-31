@@ -4,6 +4,7 @@ import { preloadHandlebarsTemplates } from "./templates.js";
 import S7ActorSheet from "./sheets/actor/S7ActorSheet.js";
 import S7Actor from "./actor/S7Actor.js";
 import S7ItemSheet from "./sheets/item/S7ItemSheet.js";
+import { registerSettings } from "./settings.js";
 
 // Init Hook
 Hooks.once("init", () => {
@@ -17,6 +18,7 @@ Hooks.once("init", () => {
         S7Actor,
         S7ActorSheet,
         S7ItemSheet,
+        registerSettings
     };
 
     
@@ -34,7 +36,7 @@ Hooks.once("init", () => {
     // CONFIG.Item.entityClass = S7Item;
 
     // Register system settings
-   // registerSettings();
+   registerSettings();
     
     // Register partials templates
     preloadHandlebarsTemplates();

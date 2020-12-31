@@ -260,11 +260,32 @@ export default class S7Actor extends Actor {
     _prepDefenses(data) {
         let atts = data.data.attributes;
         let skills = data.data.skills;
-        let rangedDef = Math.floor((atts.agility.value + atts.reaction.value + atts.intuition.value + skills.firearms.value)/4);
-        let meleeDef = Math.floor((atts.agility.value + atts.reaction.value + atts.intuition.value + skills.close_combat.value)/4);
-        let socDef = Math.floor((atts.charisma.value + atts.willpower.value + atts.essence.value + skills.influence.value)/4);
-        let mentDef = Math.floor((atts.logic.value + atts.intuition.value + atts.willpower.value + skills.perception.value)/4);
-        let astDef = Math.floor((atts.essence.value + atts.willpower.value + atts.magic.value + skills.sorcery.value)/4);
+        let rangedDef = 0;
+        let meleeDef = 0;
+        let socDef = 0;
+        let mentDef = 0;
+        let astDef = 0;
+
+        let fourAtts = game.settings.get("s7", "defCalc") == "four";
+        let defDivisor = game.settings.get("s7", "defDiv");
+
+        
+
+        if (fourAtts) {
+            // Defenses use 4 attributes
+            rangedDef = Math.floor((atts.agility.value + atts.reaction.value + atts.intuition.value + skills.firearms.value)/defDivisor);
+            meleeDef = Math.floor((atts.agility.value + atts.reaction.value + atts.intuition.value + skills.close_combat.value)/defDivisor);
+            socDef = Math.floor((atts.charisma.value + atts.willpower.value + atts.essence.value + skills.influence.value)/defDivisor);
+            mentDef = Math.floor((atts.logic.value + atts.intuition.value + atts.willpower.value + skills.perception.value)/defDivisor);
+            astDef = Math.floor((atts.essence.value + atts.willpower.value + atts.magic.value + skills.sorcery.value)/defDivisor);
+        } else {
+        // Defenses use 3 attributes
+            rangedDef = Math.floor((atts.reaction.value + Math.max(atts.logic.value, atts.intuition.value) + skills.firearms.value)/defDivisor);
+            meleeDef = Math.floor((atts.agility.value + Math.max(atts.intuition.value, atts.reaction.value) + skills.close_combat.value)/defDivisor);
+            socDef = Math.floor((Math.max(atts.charisma.value,atts.willpower.value) + atts.essence.value + skills.influence.value)/defDivisor);
+            mentDef = Math.floor((Math.max(atts.logic.value, atts.intuition.value) + atts.willpower.value + skills.perception.value)/defDivisor);
+            astDef = Math.floor((Math.max(atts.willpower.value, atts.magic.value) + atts.essence.value +  + skills.sorcery.value)/defDivisor);
+        }
 
         setProperty(this, "data.data.defenses.ranged", rangedDef);
         setProperty(this, "data.data.defenses.melee", meleeDef);
