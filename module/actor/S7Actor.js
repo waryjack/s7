@@ -484,6 +484,22 @@ export default class S7Actor extends Actor {
                                 }
                             }
                             
+                            // Prep damage info to display if it's a combat spell
+                            if (skill == "sorcery") {
+                                let spelltype = dialogData.item.data.data.category;
+                                let mode = dialogData.item.data.data.mode;
+                                if (spelltype == "combat" && mode == "indirect") {
+                                    dv = Math.ceil(dialogData.atts.magic.value) + dialogData.item.data.data.damage.dmgtype;
+                                    firemode = "N/A";
+                                    range = dialogData.item.data.data.range;
+                                    dialogData.isFirearm = true;
+                                } else if (spelltype == "combat" && mode == "direct") {
+                                    dv = "Net Hits";
+                                    firemode = "N/A";
+                                    range = dialogData.item.data.data.range;
+                                    dialogData.isFirearm = true;
+                                }
+                            }
                             
 
                             console.warn("Attr1: ", attr1);

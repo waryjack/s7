@@ -65,9 +65,11 @@ Hooks.once("init", () => {
 
     //proper cases; needs work
     Handlebars.registerHelper("proper", function(content) {
+
+        if (!content) return;
             
         let result = "";
-        if (content == undefined) return;
+
         result = content[0].toUpperCase() + content.substring(1);
 
         return result;
