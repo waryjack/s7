@@ -284,7 +284,7 @@ export default class S7Actor extends Actor {
             meleeDef = Math.floor((atts.agility.value + Math.max(atts.intuition.value, atts.reaction.value) + skills.close_combat.value)/defDivisor);
             socDef = Math.floor((Math.max(atts.charisma.value,atts.willpower.value) + atts.essence.value + skills.influence.value)/defDivisor);
             mentDef = Math.floor((Math.max(atts.logic.value, atts.intuition.value) + atts.willpower.value + skills.perception.value)/defDivisor);
-            astDef = Math.floor((Math.max(atts.willpower.value, atts.magic.value) + atts.essence.value +  + skills.sorcery.value)/defDivisor);
+            astDef = Math.floor((Math.max(atts.essence.value, atts.magic.value) + atts.willpower.value +  + skills.sorcery.value)/defDivisor);
         }
 
         setProperty(this, "data.data.defenses.ranged", rangedDef);
@@ -489,6 +489,7 @@ export default class S7Actor extends Actor {
                                 firemode = html.find("#fire-mode").val();
                                 range = html.find("#fire-range").val();
 
+                                if (dialogData.item.data.data.attack_rating[range] == -1) { ui.notifications.error("This weapon cannot be used at that range"); return; }
 
                                 shots = dialogData.item.data.data.shots[firemode];
                                 dialogData.item.data.data.ammo = Math.max(0, dialogData.item.data.data.ammo - shots);

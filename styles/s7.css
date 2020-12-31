@@ -85,7 +85,7 @@ table tr:nth-child(even) {
 }
 
 .s7 .value-input {
-    width:2ch;
+    width:3ch;
     color:white;
     text-align:center;
     background:none;

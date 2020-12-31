@@ -71,6 +71,7 @@ export default class S7ActorSheet extends ActorSheet {
        } else {
             console.warn("Vehicle Prep Placeholder");
             data.weapons = data.items.filter(function(item) {return item.type == "weapon"});
+            data.gear = data.items.filter(function(item) {return item.type == "gear"});
            
        }
 
@@ -105,6 +106,7 @@ export default class S7ActorSheet extends ActorSheet {
             }
         });
     }
+
 
     _onRollAttribute(event){
         event.preventDefault();
