@@ -5,6 +5,10 @@
     border:none;
 }
 
+.s7 a:hover {
+    text-shadow: 0 0 6px black, 0 0 10px yellow;
+}
+
 .s7 select {
     color:white;
     width:100%;
@@ -187,4 +191,8 @@ flex-direction:row;
     height:14px;
     width:14px;
     vertical-align: middle;
+}
+
+.s7 .tabs .item.active {
+    text-shadow: 0 0 6px black, 0 0 10px yellow;
 }
