@@ -53,6 +53,7 @@ export const preloadHandlebarsTemplates = async function() {
       "systems/s7/templates/item/parts/actionselect.hbs",
       "systems/s7/templates/item/parts/veh_attributeselect.hbs",
       "systems/s7/templates/item/parts/veh_skillselect.hbs",
+      "systems/s7/templates/actor/parts/edgerules.hbs",
       
 
       // Dialogs
